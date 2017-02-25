@@ -36,7 +36,26 @@
  margin-left: 20%;
  padding: 2.5%;
  border-radius: 6%;
- margin-top: 5%;
- margin-bottom: 5%
+ margin-top: 7%;
+ margin-bottom: 7%
  /*text-decoration: none;*/  
 }
+
+.opButton:hover{
+    background-color: white;
+}
+
+.opButton:hover{
+    text-decoration: none;
+    background-color: rgb(51, 153, 255);
+    color: white;
+}
+
+.blink{
+	color:white;
+}
+
+.blink:hover{
+	color:blue;
+}
+
