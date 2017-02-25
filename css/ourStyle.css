@@ -16,3 +16,68 @@
 {
 	margin: auto;
 }
+
+#lefSidebar
+    {
+        background-color: red;
+        height: 450px;
+        margin-top: 5%;
+    }
+
+    #rightSidebar
+    {
+        background-color: blue;
+        height: 450px;
+        margin-top: 5%;
+    }
+
+     #middle
+    {
+        background-color: green;
+        height: 450px;
+        margin-top: 5%;
+    }
+
+#card1
+{
+	background-color: pink;
+	margin-top: 2%;
+	float: left;
+	width: 49%;
+}
+
+
+#card2
+{
+	background-color: pink;
+	margin-top: 2%;
+	float: right;
+	width: 49%;
+}
+
+#investorimg
+{
+	width: 100%;
+	height: auto;
+	padding-top: 1%;
+}
+
+#pictb
+{
+	background-color: red;
+	float: right;
+	width: 15%;
+	margin-right: 10%;
+}
+
+#investorInfo
+{
+	background-color: yellow;
+	float: left;
+}
+#cardrow
+{
+	background-color: red;
+}
+
+#
