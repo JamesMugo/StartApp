@@ -28,6 +28,7 @@
 #tblogin
 {
 	margin: auto;
+	color: white;
 }
 
 #lefSidebar
@@ -48,6 +49,7 @@
 {
 	height: 450px;
 	margin-top: 10%;
+
 }
 
 #card1
@@ -218,6 +220,7 @@
 {
 	margin-left: 10%;
 	margin-top: 5%;
+	font-weight:bold;
 }
 .signupBtn
 {
@@ -235,3 +238,4 @@
 {
 	padding-top: 3%;
 }
+
