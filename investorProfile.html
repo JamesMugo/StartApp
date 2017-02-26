@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>MYI - Meet Your Investor</title>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>investors</title>
 
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/overwrite.css">
 	<link href="css/animate.min.css" rel="stylesheet"> 
 	<link href="css/style.css" rel="stylesheet" />	
 	<link href="css/ourStyle.css" rel="stylesheet" />	
-   
-  </head>
-  <body>	
-		<header id="header">
+	
+</head>
+<body>
+	<header id="header">
 		<nav class="navbar navbar-fixed-top" role="banner">
 			<div class="container">
 				<div class="navbar-header">
@@ -30,6 +30,7 @@
 					</button>
 					<a class="navbar-brand" href="index.html">MYI</a>
 				</div>	
+
 				<div id="userlogindropdown">
 					<!-- user login dropdown start-->
 					<li class="dropdown">
@@ -43,12 +44,13 @@
 						<ul class="dropdown-menu extended logout">
 							<div class="log-arrow-up"></div>
 							<li class="eborder-top">
-								<a href="investorEditProfile.html"><i class="icon_profile"></i> My Profile</a>
+								<a href="#"><i class="icon_profile"></i> My Profile</a>
 							</li>
 
 
+
 							<li>
-								<a href="index.html"><i class="icon_key_alt"></i> Log Out</a>
+							<a href="index.html"><i class="icon_key_alt"></i> Log Out</a>
 							</li>
 
 						</ul>
@@ -57,95 +59,75 @@
 					
 				</div>
 
-
 			</div>
 		</nav><!--/nav-->
 	</header><!--/header-->	
 
-<!--MESSAGES-->
+	<!--CONTAINER-->
 	<div class="container-fluid">
 
-		<!--row-->
+		<!--PANNEL BEGINS-->
 		<div class="row">
-			<h2 style="color: black;">Messages</h2>
-			<!-- left side bar column-->
-			<div class="col-md-2" id="lefSidebar">
-				<ul id="lefSidebar-list1" class="nav ">
-					<li><a href="#">Message1</a></li><br>
-					<li><a href="#">Message2</a></li><br>
-					<li><a href="#">Message3</a></li><br>
-					<li><a href="#">Message4</a></li><br>
-					<li><a href="#">Message5</a></li><br>
-					<li><a href="#">Message6</a></li><br>
-				</ul>
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+				<div class="panel panel-info" id="panel">
+					<div class="panel-heading">
+						<h3 class="panel-title">Alieu Jallow</h3>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="img/team/james.jpg" class="img-circle img-responsive"> </div>
+
+							<div class=" col-md-9 col-lg-9 "> 
+								<table class="table table-user-information">
+									<tbody>
+										<tr>
+											<td>Name:</td>
+											<td>Alieu Jallow</td>
+										</tr>
+										<tr>
+											<td>Nationality:</td>
+											<td>Gambian</td>
+										</tr>
+										<tr>
+											<td>Gender</td>
+											<td>Male</td>
+										</tr>
+
+										<tr>
+											<tr>
+												<td>Interested in </td>
+												<td>Agriculture and Education</td>
+											</tr>
+											<tr>
+												<td>Home Address</td>
+												<td>londoncorner,serekunda</td>
+											</tr>
+											<tr>
+												<td>Email</td>
+												<td><a href="mailto:info@support.com">alieujallow93@gmail.com</a></td>
+											</tr>
+											<td>Phone Number</td>
+											<td>123-4567-890(Landline)<br><br>555-4567-890(Mobile)
+											</td>   
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="panel-footer">
+
+					</div>
+
+				</div>
 			</div>
-
-			<!--middle bar-->
-			<div class="col-md-8" id="middle">
-				<h2 style="text-align: center;">Messages</h2>
-				<hr>
-					<div >
-						<table id="messager">
-							<tr>
-								<td>Sender: </td>
-								<td><input type="text" name="sender" size="123"></td>
-							</tr>
-							<tr>
-								<td>Subject: </td>
-								<td><input type="text" name="sub" size="123"></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td><textarea rows="4" cols="125" readonly>Dear James,Kindly upload your start-up's document for consideration.</textarea></td>
-							</tr>
-						</table>
-					</div>
-			</div>
-
-			<!-- right side bar column-->
-			<div class="col-md-2" id="rightSidebar">
-				<!-- searh-->
-				<h4>Filter by: </h4>
-				<form class="form-horizontal" role="form">
-
-					<div class="form-group">
-						<label class="col-lg-3 control-label">Sender:</label>
-						<div class="col-lg-10">
-							<input class="form-control" value="Alieu" type="text">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-lg-3 control-label">Subject: </label>
-						<div class="col-lg-10">
-							<input class="form-control" value="First Meeting" type="text">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-lg-3 control-label">Date:</label>
-						<div class="col-lg-10">
-							<input class="form-control" value="01.01.2017" type="text">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-md-3 control-label"></label>
-						<div class="col-md-10">
-							<input class="btn btn-primary" value="Search" type="button">
-						</div>
-					</div>
-
-				</form>
-			</div>
-
 		</div>
+		<!--PANNEL ENDS-->
 
 	</div>	
 
-	
-	
+	<!--Footer-->
 	<footer>
-	
 		<div class="container">
 			<div class="sub-footer">
 				<div class="text-center">
@@ -180,24 +162,18 @@
 		<div class="text-center">
 			<div class="copyright">
 				&copy; Meet Your Investor. All Rights Reserved.
-                <div class="credits">
-                    
-              
-                </div>
 			</div>
 		</div>									
 	</footer>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-2.1.1.min.js"></script>		
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>	
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="js/jquery-2.1.1.min.js"></script>		
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>	
 	<script src="js/parallax.min.js"></script>
 	<script src="js/wow.min.js"></script>
 	<script src="js/jquery.easing.min.js"></script>
 	<script type="text/javascript" src="js/fliplightbox.min.js"></script>
 	<script src="js/functions.js"></script>
-    <script src="contactform/contactform.js"></script>
-    
+	<script src="contactform/contactform.js"></script>
 </body>
->>>>>>> 67ec24917ae1869fcccccf49d756988f56261ce4
 </html>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bikin - HTML Bootstrap Template</title>
+    <title>MYI - Meet Your Investor</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -42,14 +42,16 @@
                     </ul>
                 </div>
                  <!--Login -->
-                	<form id="login">
+                	<form style="color: white;" id="login" action="investors.html">
                 	<TABLE id="tblogin">
                 	<tr>
                 		<td>Username: </td>
-                		<td><input type="text" name="Username"></td>
+                		<td><input required="required" maxlength="30" type="text" name="Username"></td>
                 		<td>Password:</td>
-                		<td><input type="Password" name="Password"></td>
+                		<td><input required="required" maxlength="30" type="Password" name="Password"></td>
+
                 		<td><input type="submit" name="submit" value="Login"></td>
+
                 	</tr>
                 	</TABLE>
                 	</form>
@@ -70,24 +72,29 @@
 				</ol>
 
 				<div class="carousel-inner">
+
 					<div class="item active">						
 						<img src="img/7.jpg" class="img-responsive" alt=""> 
 						<div class="carousel-caption">
 							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">								
-								<h2><span>Clean & Fully Modern Design</span></h2>
+								<h2><span>Meet Your Investor Co. Ltd</span></h2>
 							</div>
 							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">								
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+								<p>Where start-ups meet Investors!!!</p>
 							</div>
-							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.9s">								
-								<form class="form-inline">
-									<div class="form-group">
-										<button type="livedemo" name="Live Demo" class="btn btn-primary btn-lg" required="required">Live Demo</button>
-									</div>
-									<div class="form-group">
-										<button type="getnow" name="Get Now" class="btn btn-primary btn-lg" required="required">Get Now</button>
-									</div>
-								</form>
+							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.9s">
+
+								<div id="form2s">
+									<form class="form-inline" action="#signup">
+										<div id="form2">
+												<div class="form-group" id="sign2">
+													<button type="signup" name="Sign Up" class="btn btn-primary btn-lg" required="required"  style=" background-color: green;" >Sign Up</button>
+												</div>
+										</div>
+
+									</form>
+								</div>	
+
 							</div>
 						</div>
 				    </div>
@@ -96,49 +103,56 @@
 						<img src="img/6.jpg" class="img-responsive" alt=""> 
 						<div class="carousel-caption">
 							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.0s">								
-								<h2>Fully Responsive</h2>
+								<h2>Are you an Investor?</h2>
 							</div>
 							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.3s">								
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+								<p>Invest today and see some dreams grow into business</p>
 							</div>
 							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.6s">								
-								<form class="form-inline">
-									<div class="form-group">
-										<button type="livedemo" name="purchase" class="btn btn-primary btn-lg" required="required">Live Demo</button>
-									</div>
-									<div class="form-group">
-										<button type="getnow" name="subscribe" class="btn btn-primary btn-lg" required="required">Get Now</button>
-									</div>
-								</form>
+								
+								<div id="form2s">
+									<form class="form-inline" action="#signup">
+										<div id="form2">
+												<div class="form-group" id="sign2">
+													<button type="signup" name="Sign Up" class="btn btn-primary btn-lg" required="required"  style=" background-color: green;" >Sign Up</button>
+												</div>
+										</div>
+
+									</form>
+								</div>	
+							</div>
 							</div>
 						</div>
-				    </div> 
+
 				    <div class="item">
 						<img src="img/1.jpg" class="img-responsive" alt=""> 
 						<div class="carousel-caption">
 							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">								
-								<h2>Modern Design</h2>
+								<h2>Are you a start-up?</h2>
 							</div>
 							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">								
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+								<p>You could get an investor to boost your idea !!!</p>
 							</div>
 							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.9s">								
-								<form class="form-inline">
-									<div class="form-group">
-										<button type="livedemo" name="purchase" class="btn btn-primary btn-lg" required="required">Live Demo</button>
-									</div>
-									<div class="form-group">
-										<button type="getnow" name="subscribe" class="btn btn-primary btn-lg" required="required">Get Now</button>
-									</div>
-								</form>
+								
+								<div id="form2s">
+									<form class="form-inline" action="#signup">
+										<div id="form2">
+												<div class="form-group" id="sign2">
+													<button type="signup" name="Sign Up" class="btn btn-primary btn-lg" required="required"  style=" background-color: green;" >Sign Up</button>
+												</div>
+										</div>
+
+									</form>
+								</div>		
 							</div>
 						</div>
 				    </div> 
+
 				</div>
 				
 				<a class="left carousel-control hidden-xs" href="#carousel-slider" data-slide="prev">
-					<i class="fa fa-angle-left"></i> 
-				</a>
+					<i class="fa fa-angle-left"></i> </a>
 				
 				<a class=" right carousel-control hidden-xs"href="#carousel-slider" data-slide="next">
 					<i class="fa fa-angle-right"></i> 
@@ -146,17 +160,16 @@
 			</div> <!--/#carousel-slider-->
 		</div><!--/#about-slider-->
 	</div><!--/#slider-->
-	
-	
+
+
 	<div class="parallax-window">
 		<div class="col-md-6 col-md-offset-3">
 			<div class="text-center">
 				<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.2s">
-					<h2>Parallax Landing Page</h2>
+					<h2>Greatness starts now</h2>
 				</div>
 				<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.6s">
-					<p>In a elit in lorem congue varius Sed nec arcu<br>
-					ullamcorp-er tellus ut dignissim nisi risus non tortor.
+					<p>Don't let anything stop you from becoming part of our vision<br>
 					</p>
 				</div>
 			</div>
@@ -178,33 +191,29 @@
 			</div>
 		</div>
 	</div><!--/#parallax-window-->
-	
+
 
 	<!--ABOUT BEGINS-->
 	<div id="about">
 		<div class="about">
 			<div class="container">
 				<div class="row">
-					<P>ABOUT MEET YOUR MEET  YOUR INVESTOR
-					SAFHLISH</P>
-					<P>ABOUT MEET YOUR MEET  YOUR INVESTOR
-					SAFHLISH</P>
-					<P>ABOUT MEET YOUR MEET  YOUR INVESTOR
-					SAFHLISH</P>
-					<P>ABOUT MEET YOUR MEET  YOUR INVESTOR
-					SAFHLISH</P>
-					<P>ABOUT MEET YOUR MEET  YOUR INVESTOR
-					SAFHLISH</P>
-					<P>ABOUT MEET YOUR MEET  YOUR INVESTOR
-					SAFHLISH</P>
-					<P>ABOUT MEET YOUR MEET  YOUR INVESTOR
-					SAFHLISH</P>
-					<P>ABOUT MEET YOUR MEET  YOUR INVESTOR
-					SAFHLISH</P>
-					<P>ABOUT MEET YOUR MEET  YOUR INVESTOR
-					SAFHLISH</P>
-					V
-
+				<h1>About MYI</h1>
+				<hr>
+				<p>
+					Today, the world has seen many startups spring than any other time in history. However, because of inadequate funds and relevant advice, many of these startups do not survive the first 3 years of operation. Meanwhile there are many investors out there who are willing and capable of investing in projects they are passionate about or they believe with their money.
+				</p>
+				<hr>
+				<h1>Purpose</h1>
+				<p>
+					The purpose of Meet Your Investors (MYI) is to assist startups who are seeking to grow and expand their businesses to meet with potential investors and negotiate on investment deals.
+				</p>
+				<hr>
+				<h1>Mission</h1>
+				<p>
+					To be the company leading the market where both the start-ups and investors are involved. 
+				</p>
+				<hr>
 				</div>
 			</div>
 		</div>
@@ -212,34 +221,183 @@
 	<!--ABOUT ENDS-->
 
 	<!--SIGNUP BEGINS-->
-	<div id="signup">
+	<div id="signup" style="background: #fafafa; padding-top: 7%">
 		<div class="signup">
 			<div class="container">
-				<div class="row">
-					<P>ABOUTIGN UP
-					SAFHLISH</P>
-					<P>IGN UP
-					SAFHLISH</P>
-					<P>AIGN UP
-					SAFHLISH</P>
-					<P>SIGN UP
-					SAFHLISH</P>
-					<P>AIGN UP
-					SAFHLISH</P>
-					<P>IGN UP
-					SAFHLISH</P>
-					<P>IGN UP
-					SAFHLISH</P>
-					<P>ABOIGN UP
-					SAFHLISH</P>
-					<P>IGN UP
-					SAFHLISH</P>
-					V
+				<div class="container-fluid big-container">
+					<div class="col-lg-12 col-md-8 col-sm-6">
+						<div class="col-lg-3" >
+							
 
+						</div>
+						<div class="col-lg-6">  
+						<!-- first button -->
+							<div>
+								 <button class="opButton" data-toggle="modal" data-target="#startupButton">
+										<p >I am a startup</p>	
+								  </button><br>
+								  <!-- Modal -->
+								  <div class="modal fade" id="startupButton" role="dialog">
+								    <div class="modal-dialog">
+								    
+								      <!-- Modal content-->
+									      <div class="modal-content">
+									        <div class="modal-header" style="padding:35px 50px;">
+									          <button type="button" class="close" data-dismiss="modal">&times;</button>
+									          <h4><span class="glyphicon glyphicon-lock"></span> Register as Startup</h4>
+									        </div>
+									        <div class="modal-body" style="padding:40px 50px;">
+									          <form role="form">
+									            <div class="form-group">
+									              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Startup Name</label>
+									              <input type="text" class="form-control" id="usrname" placeholder="Enter Username">
+									            </div>
+									            <div class="form-group">
+									              <label for="usrname"><span class="glyphicon glyphicon-comment"></span> Company Email</label>
+									              <input type="text" class="form-control" id="email" placeholder="Enter company email">
+									            </div>
+									            <div class="form-group">
+									              <label for="email"><span class="glyphicon glyphicon-globe"></span>Country</label>
+									              <input type="text" class="form-control" id="ctry" placeholder="Enter country">
+									            </div>
+									            <div class="form-group">
+									              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+									              <input type="password" class="form-control" id="psw1a" placeholder="Enter password">
+									            </div>
+									            <div class="form-group">
+									              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Confirm Password</label>
+									              <input type="password" class="form-control" id="psw1b" placeholder="Enter password again">
+									            </div>
+									            <div class="checkbox">
+									              <label><input type="checkbox" value="" checked>Remember me</label>
+									            </div>
+									            <p style="color: red" id="warn"></p>
+									              <button type="submit" class="btn btn-success btn-block" onclick="validPass()" ><span class="glyphicon glyphicon-off"></span> signup</button>
+									          </form>
+									        </div>
+									        <div class="modal-footer">
+									          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+									          <p>Forgot <a href="#">Password?</a></p>
+									        </div>
+									      </div>
+								      
+								    </div>
+								  </div>
+							</div>
+
+							<!-- second button -->
+							<div>
+								 <button class="opButton" data-toggle="modal" data-target="#InvestorB">
+										<p >I am an Invididual Investor</p>	
+								  </button><br>
+								  <!-- Modal -->
+								  <div class="modal fade" id="InvestorB" role="dialog">
+								    <div class="modal-dialog">
+								    
+								      <!-- Modal content-->
+									      <div class="modal-content">
+									        <div class="modal-header" style="padding:35px 50px;">
+									          <button type="button" class="close" data-dismiss="modal">&times;</button>
+									          <h4><span class="glyphicon glyphicon-lock"></span> Register as Investor</h4>
+									        </div>
+									        <div class="modal-body" style="padding:40px 50px;">
+									          <form role="form">
+									            <div class="form-group">
+									              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Name</label>
+									              <input type="text" class="form-control" id="usrname" placeholder="Enter Username">
+									            </div>
+									            <div class="form-group">
+									              <label for="usrname"><span class="glyphicon glyphicon-comment"></span>Email</label>
+									              <input type="text" class="form-control" id="email" placeholder="Enter company email">
+									            </div>
+									            <div class="form-group">
+									              <label for="email"><span class="glyphicon glyphicon-globe"></span>Country</label>
+									              <input type="text" class="form-control" id="ctry" placeholder="Enter country">
+									            </div>
+									            <div class="form-group">
+									              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+									              <input type="password" class="form-control" id="psw" placeholder="Enter password">
+									            </div>
+									            <div class="form-group">
+									              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Confirm Password</label>
+									              <input type="password" class="form-control" id="psw" placeholder="Enter password again">
+									            </div>
+									            <div class="checkbox">
+									              <label><input type="checkbox" value="" checked>Remember me</label>
+									            </div>
+									              <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> signup</button>
+									          </form>
+									        </div>
+									        <div class="modal-footer">
+									          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+									          <p>Forgot <a href="#">Password?</a></p>
+									        </div>
+									      </div>
+								      
+								    </div>
+								  </div>
+							</div>
+								<!-- Third button -->
+							<div>
+								 <button class="opButton" data-toggle="modal" data-target="#InvCom">
+										<p >An Investment Company</p>	
+								  </button><br>
+								  <!-- Modal -->
+								  <div class="modal fade" id="InvCom" role="dialog">
+								    <div class="modal-dialog">
+								    
+								      <!-- Modal content-->
+									      <div class="modal-content">
+									        <div class="modal-header" style="padding:35px 50px;">
+									          <button type="button" class="close" data-dismiss="modal">&times;</button>
+									          <h4><span class="glyphicon glyphicon-lock"></span> Register as an Investor Firm</h4>
+									        </div>
+									        <div class="modal-body" style="padding:40px 50px;">
+									          <form role="form">
+									            <div class="form-group">
+									              <label for="usrname"><span class="glyphicon glyphicon-user"></span>Company Name</label>
+									              <input type="text" class="form-control" id="usrname" placeholder="Enter Username">
+									            </div>
+									            <div class="form-group">
+									              <label for="usrname"><span class="glyphicon glyphicon-comment"></span>Email</label>
+									              <input type="text" class="form-control" id="email" placeholder="Enter company email">
+									            </div>
+									            <div class="form-group">
+									              <label for="email"><span class="glyphicon glyphicon-globe"></span>Country</label>
+									              <input type="text" class="form-control" id="ctry" placeholder="Enter country">
+									            </div>
+									            <div class="form-group">
+									              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+									              <input type="password" class="form-control" id="psw" placeholder="Enter password">
+									            </div>
+									            <div class="form-group">
+									              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Confirm Password</label>
+									              <input type="password" class="form-control" id="psw" placeholder="Enter password again">
+									            </div>
+									            <div class="checkbox">
+									              <label><input type="checkbox" value="" checked>Remember me</label>
+									            </div>
+									              <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> signup</button>
+									          </form>
+									        </div>
+									        <div class="modal-footer">
+									          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+									          <p>Forgot <a href="#">Password?</a></p>
+									        </div>
+									      </div>
+								      
+								    </div>
+								  </div>
+							</div>
+						<div class="col-lg-3">	
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+  </div>
+</div>
+<!-- 	</div> -->
 	<!--SIGNUP ENDS-->
 
 
@@ -247,52 +405,54 @@
 	<div id="our-team">
 		<div class="team">
 			<div class="container">
-
 				<div class="row">
 					<div class="col-md-3 wow fadeInRight" data-wow-offset="0" data-wow-delay="0.3s">
 						<div class="text-center">
 							<img src="img/team/alieu.jpg" class="img-responsive" alt="">
-							<h2>John Doe</h2>
-							<h4>Founder & CEO</h4>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit Fusce fermen tum neque a rutrum varius</p>
+							<h2>Alieu Jallow</h2>
+							<h4>Solution Architect</h4>
+							<p>Bachelors Degree: Computer Science, Ashesi University College</p>
 						</div>
 					</div>
 					<div class="col-md-3 wow fadeInRight" data-wow-offset="0" data-wow-delay="0.3s">
 						<div class="text-center">
 							<img src="img/team/james.jpg" class="img-responsive" alt="">
-							<h2>John Doe</h2>
-							<h4>Creative Director</h4>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit Fusce fermen tum neque a rutrum varius</p>
+							<h2>James Mugo</h2>
+							<h4>Developer</h4>
+							<p>Bachelors Degree: Computer Science, Ashesi University College</p>
 						</div>
 					</div>
+
 					<div class="col-md-3 wow fadeInLeft" data-wow-offset="0" data-wow-delay="0.3s">
 						<div class="text-center">
 							<img src="img/team/kwabena.jpg" class="img-responsive" alt="">
-							<h2>John Smith</h2>
-							<h4>Creative Director</h4>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit Fusce fermen tum neque a rutrum varius</p>
+							<h2>Kwabena Adu Darkwa</h2>
+							<h4>Project Manager</h4>
+							<p>Bachelors Degree: Management Information System, Ashesi University College</p>
 						</div>
 					</div>
+	
 					<div class="col-md-3 wow fadeInLeft" data-wow-offset="0" data-wow-delay="0.3s">
 						<div class="text-center">
 							<img src="img/team/kaaniru.jpg" class="img-responsive" alt="">
-							<h2>John Smith</h2>
-							<h4>Creative Director</h4>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit Fusce fermen tum neque a rutrum varius</p>
+							<h2>Josephine Kaaniru</h2>
+							<h4>Deployment Officer</h4>
+							<p>Bachelors Degree: Computer Science, Ashesi University College</p>
 						</div>
 					</div>
+
 					<div class="col-md-3 wow fadeInLeft" data-wow-offset="0" data-wow-delay="0.3s">
 						<div class="text-center">
 							<img src="img/team/phyllis.jpg" class="img-responsive" alt="">
-							<h2>John Smith</h2>
-							<h4>Creative Director</h4>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit Fusce fermen tum neque a rutrum varius</p>
+							<h2>Phyllis Sitati</h2>
+							<h4>Lead Developer</h4>
+							<p>Bachelors Degree: Computer Science, Ashesi University College</p>
 						</div>
 					</div>
-				</div>
-			</div>
 		</div>
 	</div>
+</div>
+</div>
 	<!--MEET OUR TEAM ENDS-->
 	
 	<footer>
@@ -302,26 +462,26 @@
 			<div class="container">
 				<div class="text-center">
 					<h3>Contact Us</h3>
-					<p>Fusce fermen tum neque a rutrum varius odio pede</p>
+					<p>Do you have any feedback or comment for us?<br>
+						Kindly contact us with the details below. 
+					</p>
 				</div>
 			</div>
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.2s">
 						<h2>Contact us any time</h2>
-						<p>In a elit in lorem congue varius. Sed nec arcu.
-						Etiam sit amet augue.
-						Fusce fermen tum neque a rutrum varius odio pede 
-						ullamcorp-er tellus ut dignissim nisi risus non tortor.
-						Aliquam mollis neque.</p>				
+						<p>Our offices are open from <b><font color="blue">8:00 am to 5:00 pm</font></b> every week <b><font color="blue">Monday to Friday</font></b>.<br>
+						You can walk to our offices and talk to us or use the contact details provided on the right to talk to us. 
+						</p>				
 					</div>				
 					
 					<div class="col-md-4 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.4s">
 						<h2>Contact Info</h2>
 						<ul>
-							<li><i class="fa fa-home fa-2x"></i> Office # 38, Suite 54 Elizebth Street, Victoria State Newyork, USA 33026</li><hr>
-							<li><i class="fa fa-phone fa-2x"></i> +38 000 129900</li><hr>
-							<li><i class="fa fa-envelope fa-2x"></i> info@domain.net</li>
+							<li><i class="fa fa-home fa-2x"></i> Ashesi University, 1 University Avenue, E/R, Berekuso</li><hr>
+							<li><i class="fa fa-phone fa-2x"></i> +233 54 887 8709</li><hr>
+							<li><i class="fa fa-envelope fa-2x"></i>meetyourinvestor@gmail.com</li>
 						</ul>
 					</div>
 					
@@ -388,15 +548,9 @@
 		</div>						
 		<div class="text-center">
 			<div class="copyright">
-				&copy; Bikin Theme. All Rights Reserved.
+				&copy; Meet Your Investor. All Rights Reserved.
                 <div class="credits">
-                    <!-- 
-                        All the links in the footer should remain intact. 
-                        You can delete the links only if you purchased the pro version.
-                        Licensing information: https://bootstrapmade.com/license/
-                        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Bikin
-                    -->
-                    <a href="https://bootstrapmade.com/">Free Bootstrap Themes</a> by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                    
                 </div>
 			</div>
 		</div>									
