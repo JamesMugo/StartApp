@@ -1,6 +1,7 @@
 function validateContactForm(){
 
 	var startUpName = document.forms["signUpStartUpForm"]["name"];
+	var startUpUsername = document.forms["signUpStartUpForm"]["username"];
 	var startUpEmail = document.forms["signUpStartUpForm"]["email"];
 	var startUpCountry = document.forms["signUpStartUpForm"]["country"];
 	var startUpPassword = document.forms["signUpStartUpForm"]["password"];
@@ -20,6 +21,20 @@ function validateContactForm(){
  {
  	document.getElementById('startUpNameSpan').innerHTML = "<img src='./img/checked.png'>";
  	startUpName.style.border = "";
+ 	status=true; 
+  }
+
+   //validating username
+  if (startUpUsername.value == "") 
+  {
+ 	startUpUsername.style.border = "1px solid red";
+ 	document.getElementById('startUpUsernameSpan').innerHTML = "<img src='./img/xx.png'>";
+ 	status=false; 
+  }
+  else
+ {
+ 	document.getElementById('startUpUsernameSpan').innerHTML = "<img src='./img/checked.png'>";
+ 	startUpUsername.style.border = "";
  	status=true; 
   }
 
