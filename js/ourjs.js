@@ -25,18 +25,18 @@ function validateContactForm(){
   }
 
    //validating username
-  if (startUpUsername.value == "") 
-  {
- 	startUpUsername.style.border = "1px solid red";
- 	document.getElementById('startUpUsernameSpan').innerHTML = "<img src='./img/xx.png'>";
- 	status=false; 
-  }
-  else
- {
- 	document.getElementById('startUpUsernameSpan').innerHTML = "<img src='./img/checked.png'>";
- 	startUpUsername.style.border = "";
- 	status=true; 
-  }
+   if (startUpUsername.value == "") 
+   {
+  	startUpUsername.style.border = "1px solid red";
+  	document.getElementById('startUpUsernameSpan').innerHTML = "<img src='./img/xx.png'>";
+  	status=false; 
+   }
+   else
+  {
+  	document.getElementById('startUpUsernameSpan').innerHTML = "<img src='./img/checked.png'>";
+  	startUpUsername.style.border = "";
+  	status=true; 
+   }
 
 //validating email
 if (startUpEmail.value == "") 
@@ -73,11 +73,11 @@ else
 		}
 		else
 		{
-		    startUpPhone.style.border = "1px solid red";
+			startUpPhone.style.border = "1px solid red";
 			document.getElementById('startUpPhoneSpan').innerHTML = "<img src='./img/xx.png'>";
 			document.getElementById('passwordMissmarch').innerHTML = "The mobile number you provided is Invalid";
 			status=false; 
-	   }
+		   }
 	}
 	else
 	{
@@ -140,12 +140,12 @@ else
  		else
  		{
  			 document.getElementById('startUpConfirmPasswordSpan').innerHTML = "<img src='./img/xx.png'>";
- 			 document.getElementById('startUpPasswordSpan').innerHTML = "<img src='./img/xx.png'>";
- 			 startUpPassword.style.border = "1px solid red";
- 			 startUpConfirmPassword.style.border = "1px solid red";
- 			 document.getElementById('passwordMissmarch').innerHTML = "The password you provided did not match";
+ 			document.getElementById('startUpPasswordSpan').innerHTML = "<img src='./img/xx.png'>";
+ 			startUpPassword.style.border = "1px solid red";
+ 			startUpConfirmPassword.style.border = "1px solid red";
+ 			document.getElementById('passwordMissmarch').innerHTML = "The password you provided did not match";
 
- 			 status =false;
+ 			status =false;
  		}
  	}
  	else
