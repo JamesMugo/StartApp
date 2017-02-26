@@ -37,13 +37,13 @@
 							<span class="profile-ava">
 								<img alt="" src="img/team/james.jpg"  class="img-circle img-responsive" id="userloginpic">
 							</span>
-							<span class="username">TiwaleProject</span>
+							<span class="username">Alieu Jallow</span>
 							<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu extended logout">
 							<div class="log-arrow-up"></div>
 							<li class="eborder-top">
-								<a href="startupEditProfile.html"><i class="icon_profile"></i> My Profile</a>
+								<a href="investorEditProfile.html"><i class="icon_profile"></i> My Profile</a>
 							</li>
 
 
@@ -56,7 +56,6 @@
 					<!-- user login dropdown end -->
 					
 				</div>
-
 
 			</div>
 		</nav><!--/nav-->
@@ -230,7 +229,7 @@
 								</tr>
 							</table>
 						</div>
-						
+
 						<div id="pictb">
 							<td><img src="img/team/james.jpg" id="investorimg"></td>
 						</div>
@@ -244,32 +243,33 @@
 			<div class="col-md-2" id="rightSidebar">
 				<!-- searh-->
 				<h4>Filter by: </h4>
-				<form class="form-horizontal" role="form">
+				<form class="form-horizontal" role="form" name="searchForm" onsubmit="return validateSearchForm()" action="">
 
 					<div class="form-group">
 						<label class="col-lg-3 control-label">Name:</label>
 						<div class="col-lg-10">
-							<input class="form-control" value="InvestorName" type="text">
+							<input class="form-control" placeholder="StartupName" type="text" name="name">
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-lg-3 control-label">Nationality: </label>
 						<div class="col-lg-10">
-							<input class="form-control" value="choose country" type="text">
+							<input class="form-control" placeholder="Choose Country" type="text" name="nationality">
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-lg-3 control-label">Interest:</label>
 						<div class="col-lg-10">
-							<input class="form-control" value="Choose Interest" type="text">
+							<input class="form-control" placeholder="Choose interest" type="text" name="interest">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-md-3 control-label"></label>
+						<span style="color: red;" id="searhSpan"></span>
 						<div class="col-md-10">
-							<input class="btn btn-primary" value="Search" type="button">
+							<input class="btn btn-primary" value="Search" type="submit">
 						</div>
 					</div>
 
@@ -332,5 +332,6 @@
 	<script type="text/javascript" src="js/fliplightbox.min.js"></script>
 	<script src="js/functions.js"></script>
 	<script src="contactform/contactform.js"></script>
+	<script src="js/ourjs.js"></script>
 </body>
 </html>

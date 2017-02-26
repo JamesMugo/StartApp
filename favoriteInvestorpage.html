@@ -242,32 +242,33 @@
     <div class="col-md-2" id="rightSidebar">
       <!-- searh-->
       <h4>Filter by: </h4>
-      <form class="form-horizontal" role="form">
+      <form class="form-horizontal" role="form" name="searchForm" onsubmit="return validateSearchForm()" action="">
 
         <div class="form-group">
           <label class="col-lg-3 control-label">Name:</label>
           <div class="col-lg-10">
-            <input class="form-control" value="investorname" type="text">
+            <input class="form-control" placeholder="StartupName" type="text" name="name">
           </div>
         </div>
 
         <div class="form-group">
           <label class="col-lg-3 control-label">Nationality: </label>
           <div class="col-lg-10">
-            <input class="form-control" value="Choose country" type="text">
+            <input class="form-control" placeholder="Choose Country" type="text" name="nationality">
           </div>
         </div>
 
         <div class="form-group">
           <label class="col-lg-3 control-label">Interest:</label>
           <div class="col-lg-10">
-            <input class="form-control" value="Choose Interest" type="text">
+            <input class="form-control" placeholder="Choose interest" type="text" name="interest">
           </div>
         </div>
         <div class="form-group">
           <label class="col-md-3 control-label"></label>
+          <span style="color: red;" id="searhSpan"></span>
           <div class="col-md-10">
-            <input class="btn btn-primary" value="Search" type="button">
+            <input class="btn btn-primary" value="Search" type="submit">
           </div>
         </div>
 
@@ -301,12 +302,12 @@
       <div class="col-md-6 col-md-offset-3">            
         <ul class="social-network">
           <li><a href="https://www.facebook.com/" class="fb tool-tip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="https://twitter.com/" class="twitter tool-tip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://plus.google.com/" class="gplus tool-tip" title="Google Plus"><i class="fa fa-google-plus"></i></a></li>
-            <li><a href="https://www.linkedin.com/" class="linkedin tool-tip" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="https://www.youtube.com/" class="ytube tool-tip" title="You Tube"><i class="fa fa-youtube-play"></i></a></li>
-            <li><a href="https://dribbble.com/" class="dribbble tool-tip" title="Dribbble"><i class="fa fa-dribbble"></i></a></li>
-            <li><a href="https://www.pinterest.com/" class="pinterest tool-tip" title="Pinterest"><i class="fa fa-pinterest-square"></i></a></li>
+          <li><a href="https://twitter.com/" class="twitter tool-tip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="https://plus.google.com/" class="gplus tool-tip" title="Google Plus"><i class="fa fa-google-plus"></i></a></li>
+          <li><a href="https://www.linkedin.com/" class="linkedin tool-tip" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+          <li><a href="https://www.youtube.com/" class="ytube tool-tip" title="You Tube"><i class="fa fa-youtube-play"></i></a></li>
+          <li><a href="https://dribbble.com/" class="dribbble tool-tip" title="Dribbble"><i class="fa fa-dribbble"></i></a></li>
+          <li><a href="https://www.pinterest.com/" class="pinterest tool-tip" title="Pinterest"><i class="fa fa-pinterest-square"></i></a></li>
         </ul>           
       </div>
     </div>
@@ -330,5 +331,6 @@
 <script type="text/javascript" src="js/fliplightbox.min.js"></script>
 <script src="js/functions.js"></script>
 <script src="contactform/contactform.js"></script>
+<script src="js/ourjs.js"></script>
 </body>
 </html>

@@ -1,3 +1,67 @@
+//VALIDATING THE SEARCH FORM
+function validateEmailSearchForm()
+{
+	
+	var sender = document.forms["emailSearchForm"]["sender"];
+	var subject = document.forms["emailSearchForm"]["subject"];
+	var date = document.forms["emailSearchForm"]["date"];
+
+	var status=false; 
+
+
+	//validating the name , nationality  and interest
+	if (sender.value == '' && subject.value == '' && date.value == '' ) 
+	{
+		sender.style.border = "1px solid red";
+		subject.style.border = "1px solid red";
+		date.style.border = "1px solid red";
+		document.getElementById('emailSearchSpan').innerHTML='Fill atleast one';
+		status=false; 
+	}
+	else
+	{
+		sender.style.border = "";
+		subject.style.border = "";
+		date.style.border = "";
+		document.getElementById('emailSearchSpan').innerHTML='';
+		status=true; 
+	}
+
+	return status;
+}
+
+
+//VALIDATING THE SEARCH FORM
+function validateSearchForm()
+{
+	
+	var name = document.forms["searchForm"]["name"];
+	var nationality = document.forms["searchForm"]["nationality"];
+	var interest = document.forms["searchForm"]["interest"];
+
+	var status=false; 
+
+
+	//validating the name , nationality  and interest
+	if (name.value == '' && nationality.value == '' && interest.value == '' ) 
+	{
+		name.style.border = "1px solid red";
+		nationality.style.border = "1px solid red";
+		interest.style.border = "1px solid red";
+		document.getElementById('searhSpan').innerHTML='Fill atleast one';
+		status=false; 
+	}
+	else
+	{
+		name.style.border = "";
+		nationality.style.border = "";
+		interest.style.border = "";
+		document.getElementById('searhSpan').innerHTML='';
+		status=true; 
+	}
+
+	return status;
+}
 
 //VALIDATING THE SIGN IN FORM
 function validateSigninForm()
@@ -12,23 +76,23 @@ function validateSigninForm()
 	if (username.value == '') 
 	{
 		username.style.border = "1px solid red";
- 		status=false; 
+		status=false; 
 	}
 	else
 	{
- 		username.style.border = "";
- 		status=true; 
+		username.style.border = "";
+		status=true; 
 	}
 
 	//validating the password
 	if (password.value == '') 
 	{
 		password.style.border = "1px solid red";
- 		status=false; 
+		status=false; 
 	}
 	else
 	{
- 		password.style.border = "";
+		password.style.border = "";
 	}
 
 	return status;
@@ -43,23 +107,26 @@ function validateContactForm()
 	var subject = document.forms["contactForm"]["subject"];
 	var message = document.forms["contactForm"]["message"];
 
+	var status=false; 
 
-	status=false; 
-
+	alert(name.message);
 	//validating the name
 	if (name.value == '') 
 	{
 		name.style.border = "1px solid red";
- 		status=false; 
+		status=false; 
 	}
 	else
 	{
- 		startUpName.style.border = "";
- 		status=true; 
+		startUpName.style.border = "";
+		status=true; 
 	}
 
 	return status;
 }
+
+
+
 
 //VALIDATING THE REGISTER FORMS
 function validateRegisterForm(){

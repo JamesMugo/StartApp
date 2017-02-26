@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>MYI - Meet Your Investor</title>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>MYI - Meet Your Investor</title>
 
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/overwrite.css">
 	<link href="css/animate.min.css" rel="stylesheet"> 
 	<link href="css/style.css" rel="stylesheet" />	
 	<link href="css/ourStyle.css" rel="stylesheet" />	
-   
-  </head>
-  <body>	
-		<header id="header">
+	
+</head>
+<body>	
+	<header id="header">
 		<nav class="navbar navbar-fixed-top" role="banner">
 			<div class="container">
 				<div class="navbar-header">
@@ -62,7 +62,7 @@
 		</nav><!--/nav-->
 	</header><!--/header-->	
 
-<!--MESSAGES-->
+	<!--MESSAGES-->
 	<div class="container-fluid">
 
 		<!--row-->
@@ -84,68 +84,69 @@
 			<div class="col-md-8" id="middle">
 				<h2 style="text-align: center;">Messages</h2>
 				
-					<div >
-						<table id="messager">
-							<tr>
-								<td>Sender: </td>
-								<td><input type="text" name="sender" size="80%"></td>
-							</tr>
+				<div >
+					<table id="messager">
+						<tr>
+							<td>Sender: </td>
+							<td><input type="text" name="sender" size="80%"></td>
+						</tr>
 
-							<tr>
+						<tr>
 							<td>` </td>	
-							</tr>
+						</tr>
 
 
-							<tr>
-								<td>Subject: </td><
-								<td><input type="text" name="sub" size="80%"></td>
-							</tr>
+						<tr>
+							<td>Subject: </td><
+							<td><input type="text" name="sub" size="80%"></td>
+						</tr>
 
 
-							<tr>
+						<tr>
 							<td>` </td>	
-							</tr>
+						</tr>
 
 
 
-							<tr>
-								<td> </td>
-								<td><textarea rows="4" cols="82.25%"  readonly>Dear James,Kindly upload your start-up's document for consideration.</textarea></td>
-							</tr>
-						</table>
-					</div>
+						<tr>
+							<td> </td>
+							<td><textarea rows="4" cols="82.25%"  readonly>Dear James,Kindly upload your start-up's document for consideration.</textarea></td>
+						</tr>
+					</table>
+				</div>
 			</div>
 
 			<!-- right side bar column-->
 			<div class="col-md-2" id="rightSidebar">
 				<!-- searh-->
 				<h4>Filter by: </h4>
-				<form class="form-horizontal" role="form">
+				<form class="form-horizontal" role="form" onsubmit="return validateEmailSearchForm()" method="post" action="" name="emailSearchForm">
 
 					<div class="form-group">
 						<label class="col-lg-3 control-label">Sender:</label>
 						<div class="col-lg-10">
-							<input class="form-control" value="Alieu" type="text">
+							<input class="form-control" placeholder="Alieu" type="text" name="sender">
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-lg-3 control-label">Subject: </label>
 						<div class="col-lg-10">
-							<input class="form-control" value="First Meeting" type="text">
+							<input class="form-control" placeholder="First Meeting" type="text" name="subject">
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-lg-3 control-label">Date:</label>
 						<div class="col-lg-10">
-							<input class="form-control" value="01.01.2017" type="text">
+							<input class="form-control" placeholder="01.01.2017" type="text" name="date">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-md-3 control-label"></label>
+						<span id="emailSearchSpan" style="color: red;"></span>
 						<div class="col-md-10">
-							<input class="btn btn-primary" value="Search" type="button">
+							<input class="btn btn-primary" value="Search" type="submit">
 						</div>
 					</div>
 
@@ -159,7 +160,7 @@
 	
 	
 	<footer>
-	
+		
 		<div class="container">
 			<div class="sub-footer">
 				<div class="text-center">
@@ -194,24 +195,24 @@
 		<div class="text-center">
 			<div class="copyright">
 				&copy; Meet Your Investor. All Rights Reserved.
-                <div class="credits">
-                    
-              
-                </div>
+				<div class="credits">
+					
+					
+				</div>
 			</div>
 		</div>									
 	</footer>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-2.1.1.min.js"></script>		
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>	
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="js/jquery-2.1.1.min.js"></script>		
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>	
 	<script src="js/parallax.min.js"></script>
 	<script src="js/wow.min.js"></script>
 	<script src="js/jquery.easing.min.js"></script>
 	<script type="text/javascript" src="js/fliplightbox.min.js"></script>
 	<script src="js/functions.js"></script>
-    <script src="contactform/contactform.js"></script>
-    
+	<script src="contactform/contactform.js"></script>
+	<script src="js/ourjs.js"></script>
+	
 </body>
->>>>>>> 67ec24917ae1869fcccccf49d756988f56261ce4
 </html>

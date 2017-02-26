@@ -149,7 +149,10 @@
 #about
 {
 	padding-top: 5%;
-	background-color: cyan;
+	background-color: #f4f4f4;
+}
+#h1Header{
+	color: black;
 }
 
 .login-area{
@@ -239,3 +242,7 @@
 	padding-top: 3%;
 }
 
+.inputBackground
+{
+	color: black;
+}

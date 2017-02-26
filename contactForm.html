@@ -69,9 +69,9 @@
             <div class="well well-sm">
 
             	<!--FORM BEGINS -->
-                <form class="form-horizontal form-position" method="post" name="signUpStartUpForm" onsubmit="return validateRegisterForm()" action="">
+                <form class="form-horizontal form-position" method="post" name="contactForm" onsubmit="return validateContactForm()" action="">
                     <fieldset>
-                        <legend class="text-center header">Register As an Investment Company</legend>
+                        <legend class="text-center header">Contact Us</legend>
 
                         <!--NAME -->
                         <div class="form-group">
@@ -80,15 +80,6 @@
                                 <input id="name" name="name" type="text" placeholder="Name" class="form-control">
                             </div>
                             <span id="startUpNameSpan" style="color:red;"></span>
-                        </div>
-
-                        <!--USER NAME -->
-                        <div class="form-group">
-                            <span class="col-md-2 "></span>
-                            <div class="col-md-8">
-                                <input id="username" name="username" type="text" placeholder="Username" class="form-control">
-                            </div>
-                            <span id="startUpUsernameSpan" style="color:red;"></span>
                         </div>
 
                         <!--EMAIL ADDRESS -->
@@ -100,55 +91,36 @@
                         <span id="startUpEmailSpan" style="color:red"></span>
                     </div>
 
-                    <!--PHONE -->
+                    <!--SUBJECT -->
+                    <div class="form-group">
+                        <span class="col-md-2 "></span>
+                        <div class="col-md-8">
+                            <input id="name" name="subject" type="text" placeholder="Subject" class="form-control">
+                        </div>
+                        <span id="startUpNameSpan" style="color:red;"></span>
+                    </div>
+
+                    <!--MESSAGE-->
                     <div class="form-group">
                      <span class="col-md-2 "></span>
                      <div class="col-md-8">
-                        <input id="phone" name="phone" type="text" placeholder="Phone Number" class="form-control" maxlength="13" minlength="4">
-                    </div>
-                    <span id="startUpPhoneSpan" style="color:red"></span>
-                </div>
+                         <textarea id="message" name="message" class="form-control" placeholder="Enter message Here"></textarea>
+                     </div>
+                     <span id="startUpConfirmPasswordSpan" style="color:red"></span>
+                 </div>
 
-                <!--COUNTRY -->
-                <div class="form-group">
+                 <!--BUTTON -->
+                 <div class="form-group">
                     <span class="col-md-2 "></span>
-                    <div class="col-md-8">
-                        <input id="country" name="country" type="text" placeholder="country" class="form-control">
-                    </div>
-                    <span id="startUpcountrySpan" style="color:red"></span>
-                </div>
-
-                <!--PASSWORD-->
-                <div class="form-group">
-                 <span class="col-md-2 "></span>
-                 <div class="col-md-8">
-                    <input id="password" name="password" type="password" class="form-control" placeholder="password">
-                </div>
-                <span id="startUpPasswordSpan" style="color:red"></span>
-            </div>
-
-            <!--CONFIRM PASSWORD-->
-            <div class="form-group">
-             <span class="col-md-2 "></span>
-             <div class="col-md-8">
-                <input id="passwordConfirm" name="passwordConfirm" type="password" class="form-control" placeholder="password">
-            </div>
-            <span id="startUpConfirmPasswordSpan" style="color:red"></span>
-        </div>
-
-        <!--BUTTON -->
-        <div class="form-group">
-            <span class="col-md-2 "></span>
-
-            <div class="col-md-8 text-center">
-              <span id="passwordMissmarch" style="color:red"></span>
-              <button type="submit" class="btn btn-primary btn-lg col-md-12" id="submitBtn">Submit</button>
-          </div>
-      </div>
-  </fieldset>
-</form>
-<!--FORM ENDS -->
-</div>
+                    <div class="col-md-8 text-center">
+                      <span id="passwordMissmarch" style="color:red"></span>
+                      <button type="submit" class="btn btn-primary btn-lg col-md-12" id="submitBtn">Submit</button>
+                  </div>
+              </div>
+          </fieldset>
+      </form>
+      <!--FORM ENDS -->
+  </div>
 </div>
 </div>
 </div>
