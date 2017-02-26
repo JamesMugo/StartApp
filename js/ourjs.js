@@ -1,4 +1,68 @@
-function validateContactForm(){
+
+//VALIDATING THE SIGN IN FORM
+function validateSigninForm()
+{
+	var username = document.forms["signInForm"]["username"];
+	var password = document.forms["signInForm"]["password"];
+
+	var status=false; 
+
+
+	//validating the username
+	if (username.value == '') 
+	{
+		username.style.border = "1px solid red";
+ 		status=false; 
+	}
+	else
+	{
+ 		username.style.border = "";
+ 		status=true; 
+	}
+
+	//validating the password
+	if (password.value == '') 
+	{
+		password.style.border = "1px solid red";
+ 		status=false; 
+	}
+	else
+	{
+ 		password.style.border = "";
+	}
+
+	return status;
+}
+
+
+//VALIDATING THE CONTACT FORM
+function validateContactForm()
+{
+	var name = document.forms["contactForm"]["name"];
+	var email = document.forms["contactForm"]["email"];
+	var subject = document.forms["contactForm"]["subject"];
+	var message = document.forms["contactForm"]["message"];
+
+
+	status=false; 
+
+	//validating the name
+	if (name.value == '') 
+	{
+		name.style.border = "1px solid red";
+ 		status=false; 
+	}
+	else
+	{
+ 		startUpName.style.border = "";
+ 		status=true; 
+	}
+
+	return status;
+}
+
+//VALIDATING THE REGISTER FORMS
+function validateRegisterForm(){
 
 	var startUpName = document.forms["signUpStartUpForm"]["name"];
 	var startUpUsername = document.forms["signUpStartUpForm"]["username"];
@@ -173,16 +237,4 @@ else
  }
 
 
- /* CONTACT PAGE VALIDATION ENDS*/
-
-
- /*var firstpass = document.getElementById("psw1a");
- var secpass= document.getElementById("psw1b");
- var warn=document.getElementById("warn");
-
- function validPass(){
-
- 	if (firstpass!=secpass) {
- 		warn.innerHTML="passwords to not match";
- 	}*/
 
