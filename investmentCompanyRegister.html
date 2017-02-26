@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>MYI - Meet Your Investor</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/overwrite.css">
+	<link href="css/animate.min.css" rel="stylesheet"> 
+	<link href="css/style.css" rel="stylesheet" />	
+	<link href="css/ourStyle.css" rel="stylesheet" />	
+   
+  </head>
+  <body>	
+	<header id="header">
+        <nav class="navbar navbar-fixed-top" role="banner">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">MYI</a>
+                </div>	
+
+                <div class="collapse navbar-collapse navbar-left" id="menu">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#header">Home</a></li>
+                        <li><a href="#about">About</a></li> 
+                        <li><a href="#our-team">Our Team</a></li> 
+                        <li><a href="#contact">Contact</a></li> 
+                         <li><a href="#signup">Sign up</a></li> 
+
+                    </ul>
+                </div>
+                 <!--Login -->
+                	<form style="color: white;" id="login" action="investors.html">
+                	<TABLE id="tblogin">
+                	<tr>
+                		<td>Username: </td>
+                		<td><input required="required" maxlength="30" type="text" name="Username"></td>
+                		<td>Password:</td>
+                		<td><input required="required" maxlength="30" type="Password" name="Password"></td>
+
+                		<td><input type="submit" name="submit" value="Login"></td>
+
+                	</tr>
+                	</TABLE>
+                	</form>
+                
+            </div><!--/.container-->
+        </nav><!--/nav-->
+
+    </header><!--/header-->	
+
+	<!--REGISTER STARTS HERE-->
+		<!--CONTAINER-->
+<div class="container" id="register">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well well-sm">
+
+            	<!--FORM BEGINS -->
+                <form class="form-horizontal form-position" method="post" name="signUpStartUpForm" onsubmit="return validateContactForm()" action="">
+                    <fieldset>
+                        <legend class="text-center header">Register As a Startup</legend>
+
+                        <!--NAME -->
+                        <div class="form-group">
+                            <span class="col-md-2 "></span>
+                            <div class="col-md-8">
+                                <input id="name" name="name" type="text" placeholder="Name" class="form-control">
+                            </div>
+                            <span id="startUpNameSpan" style="color:red;"></span>
+                        </div>
+
+                        <!--EMAIL ADDRESS -->
+                        <div class="form-group">
+                           <span class="col-md-2 "></span>
+                           <div class="col-md-8">
+                            <input id="email" name="email" type="email" placeholder="Email Address" class="form-control">
+                        </div>
+                        <span id="startUpEmailSpan" style="color:red"></span>
+                      </div>
+
+                       <!--PHONE -->
+                        <div class="form-group">
+                           <span class="col-md-2 "></span>
+                           <div class="col-md-8">
+                            <input id="phone" name="phone" type="text" placeholder="Phone Number" class="form-control" maxlength="13" minlength="4">
+                        </div>
+                        <span id="startUpPhoneSpan" style="color:red"></span>
+                      </div>
+
+                    <!--COUNTRY -->
+                    <div class="form-group">
+                        <span class="col-md-2 "></span>
+                        <div class="col-md-8">
+                            <input id="country" name="country" type="text" placeholder="country" class="form-control">
+                        </div>
+                        <span id="startUpcountrySpan" style="color:red"></span>
+                    </div>
+
+                    <!--PASSWORD-->
+                    <div class="form-group">
+                       <span class="col-md-2 "></span>
+                       <div class="col-md-8">
+                        <input id="password" name="password" type="password" class="form-control" placeholder="password">
+                      </div>
+                      <span id="startUpPasswordSpan" style="color:red"></span>
+                   </div>
+
+                    <!--CONFIRM PASSWORD-->
+                    <div class="form-group">
+                       <span class="col-md-2 "></span>
+                       <div class="col-md-8">
+                        <input id="passwordConfirm" name="passwordConfirm" type="password" class="form-control" placeholder="password">
+                      </div>
+                      <span id="startUpConfirmPasswordSpan" style="color:red"></span>
+                   </div>
+
+                <!--BUTTON -->
+                <div class="form-group">
+                    <span class="col-md-2 "></span>
+
+                    <div class="col-md-8 text-center">
+                     	<span id="passwordMissmarch" style="color:red"></span>
+                        <button type="submit" class="btn btn-primary btn-lg col-md-12" id="submitBtn">Submit</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        <!--FORM ENDS -->
+    </div>
+</div>
+</div>
+</div>
+
+	<!--REGISTER ENDS HERE-->
+
+
+		<!--FOOTER-->
+	<footer>
+		<div class="container">
+			<div class="sub-footer">
+				<div class="text-center">
+					<div class="col-md-12">
+						<form class="form-inline">
+							<div class="form-group">
+								<button type="purchase" name="purchase" class="btn btn-primary btn-lg" required="required">Enter Your Email</button>
+							</div>
+							<div class="form-group">
+								<button type="subscribe" name="subscribe" class="btn btn-primary btn-lg" required="required">Subscribe Now</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>			
+		<div class="social-icon">
+			<div class="container">
+				<div class="col-md-6 col-md-offset-3">						
+					<ul class="social-network">
+						<li><a href="#" class="fb tool-tip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#" class="twitter tool-tip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#" class="gplus tool-tip" title="Google Plus"><i class="fa fa-google-plus"></i></a></li>
+						<li><a href="#" class="linkedin tool-tip" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+						<li><a href="#" class="ytube tool-tip" title="You Tube"><i class="fa fa-youtube-play"></i></a></li>
+						<li><a href="#" class="dribbble tool-tip" title="Dribbble"><i class="fa fa-dribbble"></i></a></li>
+						<li><a href="#" class="pinterest tool-tip" title="Pinterest"><i class="fa fa-pinterest-square"></i></a></li>
+					</ul>						
+				</div>
+			</div>
+		</div>						
+		<div class="text-center">
+			<div class="copyright">
+				&copy; MYI.
+                <div class="credits">
+                    <!-- 
+                        All the links in the footer should remain intact. 
+                        You can delete the links only if you purchased the pro version.
+                        Licensing information: https://bootstrapmade.com/license/
+                        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Bikin
+                    -->
+                    <a href="https://meetyourinvestor.wordpress.com/">Meet Your Investor</a>
+                </div>
+			</div>
+		</div>									
+	</footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-2.1.1.min.js"></script>		
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>	
+	<script src="js/parallax.min.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script src="js/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="js/fliplightbox.min.js"></script>
+	<script src="js/functions.js"></script>
+    <script src="contactform/contactform.js"></script>
+    <script src="js/ourjs.js"></script>
+    
+</body>
+</html>

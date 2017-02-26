@@ -1,103 +1,173 @@
-// function validateContactForm()
-// {
+function validateContactForm(){
 
-//   var name = document.forms["contactForm"]["name"].value;
-//   var email = document.forms["contactForm"]["email"].value;
-//   var phone = document.forms["contactForm"]["phone"].value;
-//   var subject = document.forms["contactForm"]["subject"].value;
-//   var message = document.forms["contactForm"]["message"].value;
-//   var status=false; 
+	var startUpName = document.forms["signUpStartUpForm"]["name"];
+	var startUpEmail = document.forms["signUpStartUpForm"]["email"];
+	var startUpCountry = document.forms["signUpStartUpForm"]["country"];
+	var startUpPassword = document.forms["signUpStartUpForm"]["password"];
+	var startUpConfirmPassword = document.forms["signUpStartUpForm"]["passwordConfirm"];
+	var startUpPhone = document.forms["signUpStartUpForm"]["phone"];
 
-//    //validating name
-//    if (name == "") 
-//    {
-//       document.getElementById('name').style.border = "1px solid red";
-//       document.getElementById('nameSpan').innerHTML = "<img src='../images/xx.png'>";
-//       status=false; 
-//    }
-//    else
-//    {
-//      document.getElementById('nameSpan').innerHTML = "<img src='../images/checked.png'>";
-//      document.getElementById('name').style.border = "";
-//      status=true; 
-//    }
+	var status=false; 
 
-//    //validating email
-//   if (email == "") 
-//    {
-//       document.getElementById('email').style.border = "1px solid red";
-//       document.getElementById('emailSpan').innerHTML = "<img src='../images/xx.png'>";
-//       status=false; 
-//    }
-//   else
-//    {
-//      document.getElementById('emailSpan').innerHTML = "<img src='../images/checked.png'>";
-//      document.getElementById('email').style.border = "";
-//    }
+    //validating name
+  if (startUpName.value == "") 
+  {
+ 	startUpName.style.border = "1px solid red";
+ 	document.getElementById('startUpNameSpan').innerHTML = "<img src='./img/xx.png'>";
+ 	status=false; 
+  }
+  else
+ {
+ 	document.getElementById('startUpNameSpan').innerHTML = "<img src='./img/checked.png'>";
+ 	startUpName.style.border = "";
+ 	status=true; 
+  }
 
-//   //validating phone
-//   if (phone == "") 
-//    {
-//       document.getElementById('phone').style.border = "1px solid red";
-//       document.getElementById('phoneSpan').innerHTML = "<img src='../images/xx.png'>";
-//       status=false; 
-//    }
-//    else
-//    {
-//      if(phoneVerify(phone))
-//      {
-//         document.getElementById('phoneSpan').innerHTML = "<img src='../images/checked.png'>";
-//         document.getElementById('phone').style.border = "";
-//      }
-//      else
-//      {
-//         document.getElementById('phone').style.border = "1px solid red";
-//         document.getElementById('phoneSpan').innerHTML = "<img src='../images/xx.png'> Invalid number";
-//         status=false; 
-//      }
-//    }
+//validating email
+if (startUpEmail.value == "") 
+{
+	 startUpEmail.style.border = "1px solid red";
+	document.getElementById('startUpEmailSpan').innerHTML = "<img src='./img/xx.png'>";
+	status=false; 
+ }
+else
+{
+	 document.getElementById('startUpEmailSpan').innerHTML = "<img src='./img/checked.png'>";
+	startUpEmail.style.border = "";
+}
 
-//   //validating message
-//   if (message == "") 
-//    {
-//       document.getElementById('message').style.border = "1px solid red";
-//       document.getElementById('messageSpan').innerHTML = "<img src='../images/xx.png'>";
-//       status=false; 
-//    }
-//     else
-//    {
-//      document.getElementById('messageSpan').innerHTML = "<img src='../images/checked.png'>";
-//      document.getElementById('message').style.border = "";
-//    }
+//validating phone
+if (startUpPhone.value == "") 
+{
+	startUpPhone.style.border = "1px solid red";
+	document.getElementById('startUpPhoneSpan').innerHTML = "<img src='./img/xx.png'>";
+	status=false; 
+ }
+else
+{
+	//checking for the length of the phone number
+	if(startUpPhone.value.length<=13 && startUpPhone.value.length >= 4)
+	{
 
-//    return status;
-// }
-
-// //validate phone number
-// function phoneVerify(phone)
-// {
-//   var pattern = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/;
-
-//   if(phone.match(pattern))
-//   {
-//     return true;
-//   }
-//   else
-//   {
-//     return false;
-//   }
-
-// }
-/* CONTACT PAGE VALIDATION ENDS*/
-
-
-var firstpass = document.getElementById("psw1a");
-var secpass= document.getElementById("psw1b");
-var warn=document.getElementById("warn");
-
-function validPass(){
-
-	if (firstpass!=secpass) {
-	warn.innerHTML="passwords to not match";
+		//checks if the phone number  meets the pattern
+		if(phoneVerify(startUpPhone.value))
+		 {
+			 document.getElementById('startUpPhoneSpan').innerHTML = "<img src='./img/checked.png'>";
+			startUpPhone.style.border = "";
+			document.getElementById('passwordMissmarch').innerHTML = "";
+		}
+		else
+		{
+		    startUpPhone.style.border = "1px solid red";
+			document.getElementById('startUpPhoneSpan').innerHTML = "<img src='./img/xx.png'>";
+			document.getElementById('passwordMissmarch').innerHTML = "The mobile number you provided is Invalid";
+			status=false; 
+	   }
+	}
+	else
+	{
+		startUpPhone.style.border = "1px solid red";
+		document.getElementById('startUpPhoneSpan').innerHTML = "<img src='./img/xx.png'>";
+		document.getElementById('passwordMissmarch').innerHTML = "The mobile number you provided is Invalid";
+		status=false; 
 	}
 }
+
+
+ //validating country
+ if (startUpCountry.value == "") 
+ {
+ 	startUpCountry.style.border = "1px solid red";
+ 	document.getElementById('startUpcountrySpan').innerHTML = "<img src='./img/xx.png'>";
+ 	status=false; 
+ }
+  else
+   {
+ 	     startUpCountry.style.border = "";
+ 	document.getElementById('startUpcountrySpan').innerHTML = "<img src='./img/checked.png'>";
+   }
+
+   //validating password
+   if (startUpPassword.value == "") 
+    {
+ 	      startUpPassword.style.border = "1px solid red";
+ 	      document.getElementById('startUpPasswordSpan').innerHTML = "<img src='./img/xx.png'>";
+ 	      status=false; 
+    }
+     else
+    {
+ 	     document.getElementById('startUpPasswordSpan').innerHTML = "<img src='./img/checked.png'>";
+ 	     startUpPassword.style.border = "";
+    }
+
+ 	//validating confirm password
+ 	  if (startUpConfirmPassword.value == "") 
+ 	   {
+ 		      startUpConfirmPassword.style.border = "1px solid red";
+ 		      document.getElementById('startUpConfirmPasswordSpan').innerHTML = "<img src='./img/xx.png'>";
+ 		      status=false; 
+ 	   }
+ 	    else
+ 	   {
+ 		     document.getElementById('startUpConfirmPasswordSpan').innerHTML = "<img src='./img/checked.png'>";
+ 		     startUpConfirmPassword.style.border = "";
+ 	   }
+
+
+ 	//checking if the two passwords provided match
+ 	if (startUpConfirmPassword.value!='' && startUpPassword.value!='') 
+ 	{
+
+ 		if (startUpConfirmPassword.value ==  startUpPassword.value) 
+ 		{
+ 			status =true;
+ 		}
+ 		else
+ 		{
+ 			 document.getElementById('startUpConfirmPasswordSpan').innerHTML = "<img src='./img/xx.png'>";
+ 			 document.getElementById('startUpPasswordSpan').innerHTML = "<img src='./img/xx.png'>";
+ 			 startUpPassword.style.border = "1px solid red";
+ 			 startUpConfirmPassword.style.border = "1px solid red";
+ 			 document.getElementById('passwordMissmarch').innerHTML = "The password you provided did not match";
+
+ 			 status =false;
+ 		}
+ 	}
+ 	else
+ 	{
+ 		status =false;
+ 	}
+ 	   return status;
+ }
+
+
+ //validate phone number
+ function phoneVerify(phone)
+ {
+ 	  var pattern = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/;
+
+ 	  if(phone.match(pattern))
+ 	  {
+ 		    return true;
+ 	  }
+ 	  else
+ 	  {
+ 		    return false;
+ 	  }
+
+ }
+
+
+ /* CONTACT PAGE VALIDATION ENDS*/
+
+
+ /*var firstpass = document.getElementById("psw1a");
+ var secpass= document.getElementById("psw1b");
+ var warn=document.getElementById("warn");
+
+ function validPass(){
+
+ 	if (firstpass!=secpass) {
+ 		warn.innerHTML="passwords to not match";
+ 	}*/
+
