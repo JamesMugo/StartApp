@@ -42,14 +42,16 @@
                     </ul>
                 </div>
                  <!--Login -->
-                	<form id="login">
+                	<form style="color: white;" id="login" action="investors.html">
                 	<TABLE id="tblogin">
                 	<tr>
                 		<td>Username: </td>
-                		<td><input type="text" name="Username"></td>
+                		<td><input required="required" maxlength="30" type="text" name="Username"></td>
                 		<td>Password:</td>
-                		<td><input type="Password" name="Password"></td>
+                		<td><input required="required" maxlength="30" type="Password" name="Password"></td>
+
                 		<td><input type="submit" name="submit" value="Login"></td>
+
                 	</tr>
                 	</TABLE>
                 	</form>
@@ -70,6 +72,7 @@
 				</ol>
 
 				<div class="carousel-inner">
+
 					<div class="item active">						
 						<img src="img/7.jpg" class="img-responsive" alt=""> 
 						<div class="carousel-caption">
@@ -80,12 +83,12 @@
 								<p>Where start-ups meet Investors!!!</p>
 							</div>
 							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.9s">								
-								<form class="form-inline">
+								<form class="form-inline" action="#signup">
 									<div class="form-group" id="sign1">
 										<button type="signin" name="Sign In" class="btn btn-primary btn-lg" required="required">Sign In</button>
 									</div>
 									<div class="form-group" id="sign2">
-										<button type="signup" name="Sign Up" class="btn btn-primary btn-lg" required="required"style="background-color: green;">Sign Up</button>
+										<button type="signup" name="Sign Up" class="btn btn-primary btn-lg" required="required"  style=" background-color: green;" >Sign Up</button>
 									</div>
 								</form>
 							</div>
@@ -107,12 +110,13 @@
 										<button type="signin" name="purchase" class="btn btn-primary btn-lg" required="required">Sign In</button>
 									</div>
 									<div class="form-group" id="sign2">
-										<button type="signup" name="signin" class="btn btn-primary btn-lg" required="required" style="background-color: green;">Sign In</button>
+										<button type="signup" name="signin" class="btn btn-primary btn-lg" required="required" style="background-color: green;">Sign up</button>
 									</div>
 								</form>
 							</div>
+							</div>
 						</div>
-				    </div> 
+
 				    <div class="item">
 						<img src="img/1.jpg" class="img-responsive" alt=""> 
 						<div class="carousel-caption">
@@ -134,11 +138,11 @@
 							</div>
 						</div>
 				    </div> 
+
 				</div>
 				
 				<a class="left carousel-control hidden-xs" href="#carousel-slider" data-slide="prev">
-					<i class="fa fa-angle-left"></i> 
-				</a>
+					<i class="fa fa-angle-left"></i> </a>
 				
 				<a class=" right carousel-control hidden-xs"href="#carousel-slider" data-slide="next">
 					<i class="fa fa-angle-right"></i> 
@@ -147,16 +151,14 @@
 		</div><!--/#about-slider-->
 	</div><!--/#slider-->
 	
-	
 	<div class="parallax-window">
 		<div class="col-md-6 col-md-offset-3">
 			<div class="text-center">
 				<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.2s">
-					<h2>Parallax Landing Page</h2>
+					<h2>Greatness starts now</h2>
 				</div>
 				<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.6s">
-					<p>In a elit in lorem congue varius Sed nec arcu<br>
-					ullamcorp-er tellus ut dignissim nisi risus non tortor.
+					<p>Don't let anything stop you from becoming part of our vision<br>
 					</p>
 				</div>
 			</div>
@@ -178,6 +180,7 @@
 			</div>
 		</div>
 	</div><!--/#parallax-window-->
+
 
 	<!--ABOUT BEGINS-->
 	<div id="about">
@@ -207,34 +210,183 @@
 	<!--ABOUT ENDS-->
 
 	<!--SIGNUP BEGINS-->
-	<div id="signup">
+	<div id="signup" style="background: #fafafa; padding-top: 7%">
 		<div class="signup">
 			<div class="container">
-				<div class="row">
-					<P>ABOUTIGN UP
-					SAFHLISH</P>
-					<P>IGN UP
-					SAFHLISH</P>
-					<P>AIGN UP
-					SAFHLISH</P>
-					<P>SIGN UP
-					SAFHLISH</P>
-					<P>AIGN UP
-					SAFHLISH</P>
-					<P>IGN UP
-					SAFHLISH</P>
-					<P>IGN UP
-					SAFHLISH</P>
-					<P>ABOIGN UP
-					SAFHLISH</P>
-					<P>IGN UP
-					SAFHLISH</P>
-					V
+				<div class="container-fluid big-container">
+					<div class="col-lg-12 col-md-8 col-sm-6">
+						<div class="col-lg-3" >
+							
 
+						</div>
+						<div class="col-lg-6">  
+						<!-- first button -->
+							<div>
+								 <button class="opButton" data-toggle="modal" data-target="#startupButton">
+										<p >I am a startup</p>	
+								  </button><br>
+								  <!-- Modal -->
+								  <div class="modal fade" id="startupButton" role="dialog">
+								    <div class="modal-dialog">
+								    
+								      <!-- Modal content-->
+									      <div class="modal-content">
+									        <div class="modal-header" style="padding:35px 50px;">
+									          <button type="button" class="close" data-dismiss="modal">&times;</button>
+									          <h4><span class="glyphicon glyphicon-lock"></span> Register as Startup</h4>
+									        </div>
+									        <div class="modal-body" style="padding:40px 50px;">
+									          <form role="form">
+									            <div class="form-group">
+									              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Startup Name</label>
+									              <input type="text" class="form-control" id="usrname" placeholder="Enter Username">
+									            </div>
+									            <div class="form-group">
+									              <label for="usrname"><span class="glyphicon glyphicon-comment"></span> Company Email</label>
+									              <input type="text" class="form-control" id="email" placeholder="Enter company email">
+									            </div>
+									            <div class="form-group">
+									              <label for="email"><span class="glyphicon glyphicon-globe"></span>Country</label>
+									              <input type="text" class="form-control" id="ctry" placeholder="Enter country">
+									            </div>
+									            <div class="form-group">
+									              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+									              <input type="password" class="form-control" id="psw1a" placeholder="Enter password">
+									            </div>
+									            <div class="form-group">
+									              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Confirm Password</label>
+									              <input type="password" class="form-control" id="psw1b" placeholder="Enter password again">
+									            </div>
+									            <div class="checkbox">
+									              <label><input type="checkbox" value="" checked>Remember me</label>
+									            </div>
+									            <p style="color: red" id="warn"></p>
+									              <button type="submit" class="btn btn-success btn-block" onclick="validPass()" ><span class="glyphicon glyphicon-off"></span> signup</button>
+									          </form>
+									        </div>
+									        <div class="modal-footer">
+									          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+									          <p>Forgot <a href="#">Password?</a></p>
+									        </div>
+									      </div>
+								      
+								    </div>
+								  </div>
+							</div>
+
+							<!-- second button -->
+							<div>
+								 <button class="opButton" data-toggle="modal" data-target="#InvestorB">
+										<p >I am an Invididual Investor</p>	
+								  </button><br>
+								  <!-- Modal -->
+								  <div class="modal fade" id="InvestorB" role="dialog">
+								    <div class="modal-dialog">
+								    
+								      <!-- Modal content-->
+									      <div class="modal-content">
+									        <div class="modal-header" style="padding:35px 50px;">
+									          <button type="button" class="close" data-dismiss="modal">&times;</button>
+									          <h4><span class="glyphicon glyphicon-lock"></span> Register as Investor</h4>
+									        </div>
+									        <div class="modal-body" style="padding:40px 50px;">
+									          <form role="form">
+									            <div class="form-group">
+									              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Name</label>
+									              <input type="text" class="form-control" id="usrname" placeholder="Enter Username">
+									            </div>
+									            <div class="form-group">
+									              <label for="usrname"><span class="glyphicon glyphicon-comment"></span>Email</label>
+									              <input type="text" class="form-control" id="email" placeholder="Enter company email">
+									            </div>
+									            <div class="form-group">
+									              <label for="email"><span class="glyphicon glyphicon-globe"></span>Country</label>
+									              <input type="text" class="form-control" id="ctry" placeholder="Enter country">
+									            </div>
+									            <div class="form-group">
+									              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+									              <input type="password" class="form-control" id="psw" placeholder="Enter password">
+									            </div>
+									            <div class="form-group">
+									              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Confirm Password</label>
+									              <input type="password" class="form-control" id="psw" placeholder="Enter password again">
+									            </div>
+									            <div class="checkbox">
+									              <label><input type="checkbox" value="" checked>Remember me</label>
+									            </div>
+									              <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> signup</button>
+									          </form>
+									        </div>
+									        <div class="modal-footer">
+									          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+									          <p>Forgot <a href="#">Password?</a></p>
+									        </div>
+									      </div>
+								      
+								    </div>
+								  </div>
+							</div>
+								<!-- Third button -->
+							<div>
+								 <button class="opButton" data-toggle="modal" data-target="#InvCom">
+										<p >An Investment Company</p>	
+								  </button><br>
+								  <!-- Modal -->
+								  <div class="modal fade" id="InvCom" role="dialog">
+								    <div class="modal-dialog">
+								    
+								      <!-- Modal content-->
+									      <div class="modal-content">
+									        <div class="modal-header" style="padding:35px 50px;">
+									          <button type="button" class="close" data-dismiss="modal">&times;</button>
+									          <h4><span class="glyphicon glyphicon-lock"></span> Register as an Investor Firm</h4>
+									        </div>
+									        <div class="modal-body" style="padding:40px 50px;">
+									          <form role="form">
+									            <div class="form-group">
+									              <label for="usrname"><span class="glyphicon glyphicon-user"></span>Company Name</label>
+									              <input type="text" class="form-control" id="usrname" placeholder="Enter Username">
+									            </div>
+									            <div class="form-group">
+									              <label for="usrname"><span class="glyphicon glyphicon-comment"></span>Email</label>
+									              <input type="text" class="form-control" id="email" placeholder="Enter company email">
+									            </div>
+									            <div class="form-group">
+									              <label for="email"><span class="glyphicon glyphicon-globe"></span>Country</label>
+									              <input type="text" class="form-control" id="ctry" placeholder="Enter country">
+									            </div>
+									            <div class="form-group">
+									              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+									              <input type="password" class="form-control" id="psw" placeholder="Enter password">
+									            </div>
+									            <div class="form-group">
+									              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Confirm Password</label>
+									              <input type="password" class="form-control" id="psw" placeholder="Enter password again">
+									            </div>
+									            <div class="checkbox">
+									              <label><input type="checkbox" value="" checked>Remember me</label>
+									            </div>
+									              <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> signup</button>
+									          </form>
+									        </div>
+									        <div class="modal-footer">
+									          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+									          <p>Forgot <a href="#">Password?</a></p>
+									        </div>
+									      </div>
+								      
+								    </div>
+								  </div>
+							</div>
+						<div class="col-lg-3">	
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+  </div>
+</div>
+<!-- 	</div> -->
 	<!--SIGNUP ENDS-->
 
 
@@ -242,7 +394,6 @@
 	<div id="our-team">
 		<div class="team">
 			<div class="container">
-
 				<div class="row">
 					<div class="col-md-3 wow fadeInRight" data-wow-offset="0" data-wow-delay="0.3s">
 						<div class="text-center">
@@ -260,6 +411,7 @@
 							<p>Bachelors Degree: Computer Science, Ashesi University College</p>
 						</div>
 					</div>
+
 					<div class="col-md-3 wow fadeInLeft" data-wow-offset="0" data-wow-delay="0.3s">
 						<div class="text-center">
 							<img src="img/team/kwabena.jpg" class="img-responsive" alt="">
@@ -268,6 +420,7 @@
 							<p>Bachelors Degree: Management Information System, Ashesi University College</p>
 						</div>
 					</div>
+	
 					<div class="col-md-3 wow fadeInLeft" data-wow-offset="0" data-wow-delay="0.3s">
 						<div class="text-center">
 							<img src="img/team/kaaniru.jpg" class="img-responsive" alt="">
@@ -276,6 +429,7 @@
 							<p>Bachelors Degree: Computer Science, Ashesi University College</p>
 						</div>
 					</div>
+
 					<div class="col-md-3 wow fadeInLeft" data-wow-offset="0" data-wow-delay="0.3s">
 						<div class="text-center">
 							<img src="img/team/phyllis.jpg" class="img-responsive" alt="">
@@ -284,10 +438,10 @@
 							<p>Bachelors Degree: Computer Science, Ashesi University College</p>
 						</div>
 					</div>
-				</div>
-			</div>
 		</div>
 	</div>
+</div>
+</div>
 	<!--MEET OUR TEAM ENDS-->
 	
 	<footer>
