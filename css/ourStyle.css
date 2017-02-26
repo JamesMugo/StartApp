@@ -135,6 +135,10 @@
 {
 	padding-top: 55%;
 }
+#lefSidebar-list1
+{
+	padding-top: 20%;
+}
 .tdtitle
 {
 	font-family: Arial;
@@ -202,4 +206,22 @@
 #register
 {
 	margin-top: 10%;
+}
+
+#form2{
+	/*background-color: red;*/
+	display: inline;
+	position: absolute;
+	left: 45%;
+}
+
+#messager
+{
+	margin-left: 10%;
+	margin-top: 5%;
+}
+#sbody
+ {
+    padding-top: 5%;
+    
 }
