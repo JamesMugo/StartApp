@@ -135,6 +135,10 @@
 {
 	padding-top: 55%;
 }
+#lefSidebar-list1
+{
+	padding-top: 20%;
+}
 .tdtitle
 {
 	font-family: Arial;
@@ -198,4 +202,21 @@
   .modal-footer {
       background-color: #f9f9f9;
   }
+#form2s
+{
+	/*background-color: orange;*/
+    padding-left: 40%;
+    width: 10%;
+}
+#form2{
+	/*background-color: red;*/
+	display: inline;
+	position: absolute;
+	left: 45%;
+}
+#messager
+{
+	margin-left: 10%;
+	margin-top: 5%;
+}
 
