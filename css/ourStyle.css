@@ -1,3 +1,16 @@
+/* ==== Google font ==== */
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700,100);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600);
+@import url('font-awesome.css');
+
+/* ==== overwrite bootstrap standard ==== */
+@import url('overwrite.css');
+@import url('animate.css');
+
+/*************************
+*******Typography******
+**************************/
+
 #menu
 {
 	margin-left: 15%;
@@ -19,28 +32,27 @@
 
 #lefSidebar
     {
-        background-color: red;
+        background-color:#fafafa;
         height: 450px;
         margin-top: 10%;
     }
 
     #rightSidebar
     {
-        background-color: blue;
+        background-color: #fafafa;
         height: 450px;
         margin-top: 10%;
     }
 
      #middle
     {
-        background-color: green;
         height: 450px;
         margin-top: 10%;
     }
 
 #card1
 {
-	background-color: pink;
+	background-color: #d9edf7;;
 	margin-top: 2%;
 	float: left;
 	width: 49%;
@@ -49,7 +61,7 @@
 
 #card2
 {
-	background-color: pink;
+	background-color: #d9edf7;;
 	margin-top: 2%;
 	float: right;
 	width: 49%;
@@ -64,7 +76,6 @@
 
 #pictb
 {
-	background-color: red;
 	float: right;
 	width: 15%;
 	margin-right: 10%;
@@ -72,7 +83,7 @@
 
 #investorInfo
 {
-	background-color: yellow;
+	background-color:#bce8f1;
 	float: left;
 }
 #cardrow
@@ -93,4 +104,27 @@
 #userlogindropdown
 {
 	margin-left: 92%;
+}
+
+#cardrow td
+{
+  color: red;
+  font-family: fantasy;
+}
+
+#editprofilepic
+{
+	width: 35%;
+	height: auto;
+}
+
+#saveProfileBtn
+{
+	background-color: #428bca;
+	color: white;
+}
+
+#lefSidebar-list
+{
+	padding-top: 55%;
 }
