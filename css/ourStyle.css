@@ -16,3 +16,170 @@
 {
 	margin: auto;
 }
+
+#favleft{
+	background-color:#B0C4DE;
+	height: 500px;
+	margin-top: 7%;
+	float:left;
+	width:250px;
+	color:black;
+	font-size:14px;
+}
+
+#favmid{
+    background-color: red;
+    height: 50px;
+    margin-top: 7%;
+    }
+	
+	
+#one.box {
+   background-color: #00FFFF;
+   width: 40%;
+   height:120px;
+   border: 2px solid grey;
+   padding: 5px;
+   margin: 25px;
+   align-content:center;
+   position: absolute;
+   top: 30%;
+   left: 50%;
+   margin-top: -50px;
+   margin-left: -300px;
+   text-align:left;
+   color:black;
+}
+
+
+#two.box {
+   background-color: #00FFFF;
+   width: 40%;
+   height:120px;
+   border: 2px solid grey;
+   padding: 3px;
+   margin: 25px;
+   align-content:center;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   margin-top: -50px;
+   margin-left: -300px;
+   text-align:left;
+   color:blue;
+}
+
+#three.box {
+   background-color: #00FFFF;
+   width: 40%;
+   height:120px;
+   border: 2px solid grey;
+   padding: 5px;
+   margin: 25px;
+   align-content:center;
+   position: absolute;
+   top: 70%;
+   left: 50%;
+   margin-top: -50px;
+   margin-left: -300px;
+   text-align:left;
+   color:white;
+}
+
+#mess1.box {
+   background-color: grey;
+   width: 35%;
+   height:170px;
+   border: 2px solid grey;
+   padding: 5px;
+   margin: 25px;
+   align-content:center;
+   position: absolute;
+   top: 30%;
+   left: 50%;
+   margin-top: -50px;
+   margin-left: -200px;
+   text-align:left;
+   color:white;
+}
+
+
+#mess2.box {
+   background-color: grey;
+   width: 35%;
+   height:170px;
+   border: 2px solid grey;
+   padding: 5px;
+   margin: 25px;
+   align-content:center;
+   position: absolute;
+   top: 60%;
+   left: 50%;
+   margin-top: -50px;
+   margin-left: -200px;
+   text-align:left;
+   color:white;
+}
+
+
+
+
+#inner1.box {
+   background-color: #00FFFF;
+   width: 300px;
+   height:50px;
+   border: 2px solid grey;
+   padding: 5px;
+   margin: 25px;
+   align-content:center;
+   position: absolute;
+   top: 60%;
+   left: 50%;
+   margin-top: -50px;
+   margin-left: -200px;
+   text-align:left;
+   color:white;
+}
+
+
+#inner2.box {
+   background-color: #00FFFF;
+   width: 300px;
+   height:50px;
+   border: 2px solid grey;
+   padding: 5px;
+   margin: 25px;
+   align-content:center;
+   position: absolute;
+   top: 60%;
+   left: 50%;
+   margin-top: -50px;
+   margin-left: -200px;
+   text-align:left;
+   color:white;
+}
+
+	
+#favright{
+    background-color: #B0C4DE;
+    height: 500px;
+    margin-top: 7%;
+    float:right;
+	width:250px;
+	color:black;
+	font-size:14px;
+	position:relative;
+
+  
+}
+
+#footer {
+	position : absolute;
+    bottom : 0;
+    height : 40px;
+    margin-top : 40px;
+	
+}
+	
+
+    
