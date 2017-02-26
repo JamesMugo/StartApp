@@ -21,21 +21,21 @@
     {
         background-color: red;
         height: 450px;
-        margin-top: 5%;
+        margin-top: 10%;
     }
 
     #rightSidebar
     {
         background-color: blue;
         height: 450px;
-        margin-top: 5%;
+        margin-top: 10%;
     }
 
      #middle
     {
         background-color: green;
         height: 450px;
-        margin-top: 5%;
+        margin-top: 10%;
     }
 
 #card1
@@ -82,5 +82,15 @@
 
 #panel
 {
-	margin-top: 13%;
+	margin-top: 22%;
+}
+
+#userloginpic
+{
+	width: 65%;
+	height: auto;
+}
+#userlogindropdown
+{
+	margin-left: 92%;
 }

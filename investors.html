@@ -30,19 +30,34 @@
                     </button>
                     <a class="navbar-brand" href="index.html">MYI</a>
                 </div>	
-
-                <div>
-                	<ul class="nav pull-right">
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, User <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/user/preferences"><i class="icon-cog"></i> Preferences</a></li>
-                            <li><a href="/help/support"><i class="icon-envelope"></i> Contact Support</a></li>
-                            <li class="divider"></li>
-                            <li><a href="/auth/logout"><i class="icon-off"></i> Logout</a></li>
+                <div id="userlogindropdown">
+					 <!-- user login dropdown start-->
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="profile-ava">
+                                <img alt="" src="img/team/james.jpg"  class="img-circle img-responsive" id="userloginpic">
+                            </span>
+                            <span class="username">Alieu Jallow</span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu extended logout">
+                            <div class="log-arrow-up"></div>
+                            <li class="eborder-top">
+                                <a href="#"><i class="icon_profile"></i> My Profile</a>
+                            </li>
+        
+                           
+                            
+                            <li>
+                                <a href="login.html"><i class="icon_key_alt"></i> Log Out</a>
+                            </li>
+                            
                         </ul>
                     </li>
-                </ul>
-                </div>
+                    <!-- user login dropdown end -->
+					
+				</div>
+                
 
              </div>
         </nav><!--/nav-->
@@ -281,15 +296,9 @@
 		</div>						
 		<div class="text-center">
 			<div class="copyright">
-				&copy; Bikin Theme. All Rights Reserved.
+				&copy; Meet Your Investor. All Rights Reserved.
                 <div class="credits">
-                    <!-- 
-                        All the links in the footer should remain intact. 
-                        You can delete the links only if you purchased the pro version.
-                        Licensing information: https://bootstrapmade.com/license/
-                        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Bikin
-                    -->
-                    <a href="https://bootstrapmade.com/">Free Bootstrap Themes</a> by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                    
                 </div>
 			</div>
 		</div>									
