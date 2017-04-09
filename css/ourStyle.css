@@ -13,7 +13,7 @@
 
 #menu
 {
-	margin-left: 15%;
+	margin-left: 27%;
 
 }
 
@@ -33,22 +33,22 @@
 
 #lefSidebar
 {
-	background-color:#fafafa;
-	height: 450px;
-	margin-top: 10%;
+	background-color:#fafafa;;
+	height: 550px;
+	margin-top: 5%;
 }
 
 #rightSidebar
 {
-	background-color: #fafafa;
-	height: 450px;
-	margin-top: 10%;
+	background-color: #fafafa;;
+	height: 550px;
+	margin-top: 5%;
 }
 
 #middle
 {
-	height: 450px;
-	margin-top: 10%;
+	height: 550px;
+	margin-top: 5%;
 
 }
 
@@ -245,4 +245,23 @@
 .inputBackground
 {
 	color: black;
+}
+
+.inputwidth
+{
+	width: 15%;
+}
+#panelf
+{
+	height:100px;
+}
+
+#submitBtn1
+{
+	width: 100%;
+}
+
+#logo
+{
+	margin-left: 12%;
 }

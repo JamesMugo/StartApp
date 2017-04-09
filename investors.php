@@ -4,8 +4,18 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
+    <meta name="author" content="GeeksLabs">
+    <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+    <link rel="shortcut icon" href="img/favicon.png">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<title>investors' Page</title>
+
+   
+    <!-- Custom styles -->
+    <link href="css/css/style.css" rel="stylesheet">
 
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -13,53 +23,24 @@
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/overwrite.css">
 	<link href="css/animate.min.css" rel="stylesheet"> 
+
 	<link href="css/style.css" rel="stylesheet" />	
 	<link href="css/ourStyle.css" rel="stylesheet" />	
+
+    <!-- bootstrap theme -->
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <!-- font icon -->
+    <link href="css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />    
+    <!-- Custom styles -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet" />
 	
 </head>
 <body>
-	<header id="header">
-		<nav class="navbar navbar-fixed-top" role="banner">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="index.html">MYI</a>
-				</div>	
-				<div id="userlogindropdown">
-					<!-- user login dropdown start-->
-					<li class="dropdown">
-						<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-							<span class="profile-ava">
-								<img alt="" src="img/team/james.jpg"  class="img-circle img-responsive" id="userloginpic">
-							</span>
-							<span class="username">Alieu Jallow</span>
-							<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu extended logout">
-							<div class="log-arrow-up"></div>
-							<li class="eborder-top">
-								<a href="investorEditProfile.html"><i class="icon_profile"></i> My Profile</a>
-							</li>
-
-
-							<li>
-								<a href="index.html"><i class="icon_key_alt"></i> Log Out</a>
-							</li>
-
-						</ul>
-					</li>
-					<!-- user login dropdown end -->
-					
-				</div>
-
-			</div>
-		</nav><!--/nav-->
-	</header><!--/header-->	
+	<!--header begins-->
+	<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/InvestorStartupHeader.php');?>
+	<!--header ends-->
 
 	<!--CONTAINER-->
 	<div class="container-fluid">
@@ -67,13 +48,9 @@
 		<!--row-->
 		<div class="row">
 			
-			<!-- left side bar column-->
-			<div class="col-md-2" id="lefSidebar">
-				<ul id="lefSidebar-list" class="nav ">
-					<li><a href="messages.html">Messages</a></li><br>
-					<li><a href="favoriteInvestorpage.html">Favorite Investors</a></li><br>
-				</ul>
-			</div>
+			<!--left sidebar begins-->
+			<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/leftSidebar.php');?>
+			<!--left sidebar ends-->
 
 			<!--middle bar-->
 			<div class="col-md-8" id="middle">
@@ -236,90 +213,16 @@
 
 
 			</div>
-
-			<!-- right side bar column-->
-			<div class="col-md-2" id="rightSidebar">
-				<!-- searh-->
-				<h4>Filter by: </h4>
-				<form class="form-horizontal" role="form" name="searchForm" onsubmit="return validateSearchForm()" action="">
-
-					<div class="form-group">
-						<label class="col-lg-3 control-label">Name:</label>
-						<div class="col-lg-10">
-							<input class="form-control" placeholder="StartupName" type="text" name="name">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-lg-3 control-label">Nationality: </label>
-						<div class="col-lg-10">
-							<input class="form-control" placeholder="Choose Country" type="text" name="nationality">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-lg-3 control-label">Interest:</label>
-						<div class="col-lg-10">
-							<input class="form-control" placeholder="Choose interest" type="text" name="interest">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-md-3 control-label"></label>
-						<span style="color: red;" id="searhSpan"></span>
-						<div class="col-md-10">
-							<input class="btn btn-primary" value="Search" type="submit">
-						</div>
-					</div>
-
-				</form>
-			</div>
-
+				<!--right sidebar begins-->
+				<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/rightSidebar.php');?>
+				<!--right sidebar ends-->
 		</div>
 
 	</div>	
-
-	<!--Footer-->
-	<footer>
-		<div class="container">
-			<div class="sub-footer">
-				<div class="text-center">
-					<div class="col-md-12">
-						<form class="form-inline">
-							<div class="form-group">
-								<button type="purchase" name="purchase" class="btn btn-primary btn-lg" required="required">Enter Your Email</button>
-							</div>
-							<div class="form-group">
-								<button type="subscribe" name="subscribe" class="btn btn-primary btn-lg" required="required">Subscribe Now</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>			
-		<div class="social-icon">
-			<div class="container">
-				<div class="col-md-6 col-md-offset-3">						
-					<ul class="social-network">
-						<li><a href="https://www.facebook.com/" class="fb tool-tip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="https://twitter.com/" class="twitter tool-tip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="https://plus.google.com/" class="gplus tool-tip" title="Google Plus"><i class="fa fa-google-plus"></i></a></li>
-						<li><a href="https://www.linkedin.com/" class="linkedin tool-tip" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-						<li><a href="https://www.youtube.com/" class="ytube tool-tip" title="You Tube"><i class="fa fa-youtube-play"></i></a></li>
-						<li><a href="https://dribbble.com/" class="dribbble tool-tip" title="Dribbble"><i class="fa fa-dribbble"></i></a></li>
-						<li><a href="https://www.pinterest.com/" class="pinterest tool-tip" title="Pinterest"><i class="fa fa-pinterest-square"></i></a></li>
-					</ul>						
-				</div>
-			</div>
-		</div>						
-		<div class="text-center">
-			<div class="copyright">
-				&copy; Meet Your Investor. All Rights Reserved.
-				<div class="credits">
-
-				</div>
-			</div>
-		</div>									
-	</footer>
+	<!--footer begins-->
+	<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/footer.php');?>
+	<!--footer ends-->
+	
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/jquery-2.1.1.min.js"></script>		
 	<!-- Include all compiled plugins (below), or include individual files as needed -->

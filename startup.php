@@ -18,48 +18,9 @@
 	
 </head>
 <body>
-	<header id="header">
-		<nav class="navbar navbar-fixed-top" role="banner">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="index.html">MYI</a>
-				</div>	
-				<div id="userlogindropdown">
-					<!-- user login dropdown start-->
-					<li class="dropdown">
-						<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-							<span class="profile-ava">
-								<img alt="" src="img/team/james.jpg"  class="img-circle img-responsive" id="userloginpic">
-							</span>
-							<span class="username">Alieu Jallow</span>
-							<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu extended logout">
-							<div class="log-arrow-up"></div>
-							<li class="eborder-top">
-								<a href="investorEditProfile.html"><i class="icon_profile"></i> My Profile</a>
-							</li>
-
-
-							<li>
-								<a href="index.html"><i class="icon_key_alt"></i> Log Out</a>
-							</li>
-
-						</ul>
-					</li>
-					<!-- user login dropdown end -->
-					
-				</div>
-
-			</div>
-		</nav><!--/nav-->
-	</header><!--/header-->	
+	<!--header begins-->
+	<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/startup.php');?>
+	<!--header ends-->
 
 	<!--CONTAINER-->
 	<div class="container-fluid">
@@ -70,7 +31,6 @@
 			<!-- left side bar column-->
 			<div class="col-md-2" id="lefSidebar">
 				<ul id="lefSidebar-list" class="nav ">
-					<li><a href="#">Messages</a></li><br>
 					<li><a href="favoriteInvestorpage.html">Favorite Investors</a></li><br>
 				</ul>
 			</div>
