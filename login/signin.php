@@ -7,12 +7,12 @@
 
   <title>Log-in</title>
   <!-- Bootstrap -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/font-awesome.min.css">
-  <link href="css/style.css" rel="stylesheet" />  
-  <link href="css/ourStyle.css" rel="stylesheet" /> 
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/font-awesome.min.css">
+  <link href="../css/style.css" rel="stylesheet" />  
+  <link href="../css/ourStyle.css" rel="stylesheet" /> 
   <link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
-  <link rel="stylesheet" href="css/style1.css" media="screen" type="text/css" />
+  <link rel="stylesheet" href="../css/style1.css" media="screen" type="text/css" />
 </head>
 
 <body>
@@ -48,7 +48,7 @@
 
   <div class="login-card">
     <h1>Log-in</h1><br>
-  <form action="investors.html">
+  <form action="../pages/investors.php">
     <input type="text" name="user" placeholder="Username">
     <input type="password" name="pass" placeholder="Password">
     <input type="submit" name="login" class="login login-submit" value="login">

@@ -15,26 +15,26 @@
 
    
     <!-- Custom styles -->
-    <link href="css/css/style.css" rel="stylesheet">
+    <link href="../css/css/style.css" rel="stylesheet">
 
 	<!-- Bootstrap -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/animate.css">
-	<link rel="stylesheet" href="css/overwrite.css">
-	<link href="css/animate.min.css" rel="stylesheet"> 
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="../css/font-awesome.min.css">
+	<link rel="stylesheet" href="../css/animate.css">
+	<link rel="stylesheet" href="../css/overwrite.css">
+	<link href="../css/animate.min.css" rel="stylesheet"> 
 
-	<link href="css/style.css" rel="stylesheet" />	
-	<link href="css/ourStyle.css" rel="stylesheet" />	
+	<link href="../css/style.css" rel="stylesheet" />	
+	<link href="../css/ourStyle.css" rel="stylesheet" />	
 
     <!-- bootstrap theme -->
-    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="../css/bootstrap-theme.css" rel="stylesheet">
     <!-- font icon -->
-    <link href="css/elegant-icons-style.css" rel="stylesheet" />
-    <link href="css/font-awesome.min.css" rel="stylesheet" />    
+    <link href="../css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="../css/font-awesome.min.css" rel="stylesheet" />    
     <!-- Custom styles -->
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/style-responsive.css" rel="stylesheet" />
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/style-responsive.css" rel="stylesheet" />
 	
 </head>
 <body>
@@ -80,7 +80,7 @@
 								</table>
 							</div>
 							<div id="pictb">
-								<td><img src="img/team/james.jpg" id="investorimg"></td>
+								<td><img src="../img/team/james.jpg" id="investorimg"></td>
 							</div>
 						</div>
 					</a>
@@ -105,7 +105,7 @@
 							</table>
 						</div>
 						<div id="pictb">
-							<td><img src="img/team/james.jpg" id="investorimg"></td>
+							<td><img src="../img/team/james.jpg" id="investorimg"></td>
 						</div>
 					</div>
 				</div>
@@ -131,7 +131,7 @@
 							</table>
 						</div>
 						<div id="pictb">
-							<td><img src="img/team/james.jpg" id="investorimg"></td>
+							<td><img src="../img/team/james.jpg" id="investorimg"></td>
 						</div>
 					</div>
 
@@ -155,7 +155,7 @@
 							</table>
 						</div>
 						<div id="pictb">
-							<td><img src="img/team/james.jpg" id="investorimg"></td>
+							<td><img src="../img/team/james.jpg" id="investorimg"></td>
 						</div>
 					</div>
 				</div>
@@ -182,7 +182,7 @@
 							</table>
 						</div>
 						<div id="pictb">
-							<td><img src="img/team/james.jpg" id="investorimg"></td>
+							<td><img src="../img/team/james.jpg" id="investorimg"></td>
 						</div>
 					</div>
 
@@ -206,7 +206,7 @@
 							</table>
 						</div>
 						<div id="pictb">
-							<td><img src="img/team/james.jpg" id="investorimg"></td>
+							<td><img src="../img/team/james.jpg" id="investorimg"></td>
 						</div>
 					</div>
 				</div>
@@ -224,15 +224,15 @@
 	<!--footer ends-->
 	
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="js/jquery-2.1.1.min.js"></script>		
+	<script src="../js/jquery-2.1.1.min.js"></script>		
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="js/bootstrap.min.js"></script>	
-	<script src="js/parallax.min.js"></script>
-	<script src="js/wow.min.js"></script>
-	<script src="js/jquery.easing.min.js"></script>
-	<script type="text/javascript" src="js/fliplightbox.min.js"></script>
-	<script src="js/functions.js"></script>
-	<script src="contactform/contactform.js"></script>
-	<script src="js/ourjs.js"></script>
+	<script src="../js/bootstrap.min.js"></script>	
+	<script src="../js/parallax.min.js"></script>
+	<script src="../js/wow.min.js"></script>
+	<script src="../js/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="../js/fliplightbox.min.js"></script>
+	<script src="../js/functions.js"></script>
+	<script src="../contactform/contactform.js"></script>
+	<script src="../js/ourjs.js"></script>
 </body>
 </html>
