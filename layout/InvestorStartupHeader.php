@@ -1,6 +1,8 @@
+<?php //define("URL", "http://localhost/MeetYourInvestor")?>
+
 <header class="header dark-bg">
             <!--logo start-->
-            <a href="index.html" class="logo"><span>MYI</span></a>
+            <a href="<?php echo URL;?>" class="logo"><span>MYI</span></a>
             <!--logo end-->
 
             <div class="top-nav notification-row">                
@@ -18,10 +20,10 @@
                         <ul class="dropdown-menu extended logout">
                             <div class="log-arrow-up"></div>
                             <li class="eborder-top">
-                                <a href="startupEditProfile.html"><i class="icon_profile"></i> My Profile</a>
+                                <a href="<?php echo URL;?>/pages/startupEditProfile.php"><i class="icon_profile"></i> My Profile</a>
                             </li>
                             <li>
-                                <a href="index.html"><i class="icon_key_alt"></i> Log Out</a>
+                                <a href="<?php echo URL;?>"><i class="icon_key_alt"></i> Log Out</a>
                             </li>
                         </ul>
                     </li>

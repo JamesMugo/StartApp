@@ -10,53 +10,19 @@
 
 
 	<!-- Custom styles -->
-    <link href="css/css/style.css" rel="stylesheet">
+    <link href="../css/css/style.css" rel="stylesheet">
 
-	<!-- Bootstrap -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/animate.css">
-	<link rel="stylesheet" href="css/overwrite.css">
-	<link href="css/animate.min.css" rel="stylesheet"> 
-	<link href="css/style.css" rel="stylesheet" />	
-	<link href="css/ourStyle.css" rel="stylesheet" />	
+	<!--css links begins-->
+    <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/cssLinks.php');?>
+    <!--csslinks ends-->
 
 	
 </head>
 <body>
-	<header class="header dark-bg">
-            <!--logo start-->
-            <a href="index.html" class="logo"><span>MYI</span></a>
-            <!--logo end-->
 
-            <div class="top-nav notification-row">                
-                <!-- notificatoin dropdown start-->
-                <ul class="nav pull-right top-menu">
-                    <!-- user login dropdown start-->
-                    <li class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="profile-ava">
-                                <img alt="" src="img/avatar1_small.jpg">
-                            </span>
-                            <span class="username">Alieu Jallow</span>
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu extended logout">
-                            <div class="log-arrow-up"></div>
-                            <li class="eborder-top">
-                                <a href="startupEditProfile.html"><i class="icon_profile"></i> My Profile</a>
-                            </li>
-                            <li>
-                                <a href="index.html"><i class="icon_key_alt"></i> Log Out</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- user login dropdown end -->
-                </ul>
-                <!-- notificatoin dropdown end-->
-            </div>
-      </header>      
-      <!--header end-->
+	<!--header begins-->
+	<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/InvestorStartupHeader.php');?>
+	<!--header ends-->
 
 	<!--CONTAINER-->
 	<div class="container" style="padding-top: 60px;">
@@ -65,7 +31,7 @@
 			<!-- left column -->
 			<div class="col-md-4 col-sm-6 col-xs-12">
 				<div class="text-center">
-					<img src="img/team/james.jpg" class="avatar img-circle img-thumbnail" alt="avatar" id="editprofilepic">
+					<img src="../img/team/james.jpg" class="avatar img-circle img-thumbnail" alt="avatar" id="editprofilepic">
 					<h6>Upload a different photo...</h6>
 					<input type="file" class="text-center center-block well well-sm">
 				</div>
@@ -159,17 +125,11 @@
 			</div>
 		</div>
 	</div>
-	<!--Footer-->
-	<footer>						
-		<div class="text-center">
-			<div class="copyright">
-				&copy; Meet Your Investor. All Rights Reserved.
-				<div class="credits">
 
-				</div>
-			</div>
-		</div>									
-	</footer>
+	<!--footer begins-->
+	<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/footer.php');?>
+	<!--footer ends-->
+
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/jquery-2.1.1.min.js"></script>		
 	<!-- Include all compiled plugins (below), or include individual files as needed -->

@@ -17,16 +17,10 @@
     <!-- Custom styles -->
     <link href="../css/css/style.css" rel="stylesheet">
 
-	<!-- Bootstrap -->
-	<link href="../css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="../css/font-awesome.min.css">
-	<link rel="stylesheet" href="../css/animate.css">
-	<link rel="stylesheet" href="../css/overwrite.css">
-	<link href="../css/animate.min.css" rel="stylesheet"> 
-
-	<link href="../css/style.css" rel="stylesheet" />	
-	<link href="../css/ourStyle.css" rel="stylesheet" />	
-
+	<!--css links begins-->
+    <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/cssLinks.php');?>
+    <!--csslinks ends-->
+    
     <!-- bootstrap theme -->
     <link href="../css/bootstrap-theme.css" rel="stylesheet">
     <!-- font icon -->
