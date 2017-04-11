@@ -42,17 +42,14 @@
 							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.9s">
 
 								<div id="form2s">
-									<form class="form-inline" action="#signup">
 										<div id="form2">
 											<div class="form-group" id="sign2">
-												<button type="signup" name="Sign Up" class="btn btn-primary btn-lg" required="required"  style=" background-color: green;" >Sign Up</button>
+												<a class="btn btn-primary btn-lg" href="#signup" style=" background-color: green;" >Sign Up</a>
 											</div>
 											<div class="form-group" id="sign2">
-												<button type="signup" name="Sign Up" class="btn btn-primary btn-lg" required="required"  style=" background-color:#0BA9F9;" >Sign in</button>
+												<a class="btn btn-primary btn-lg" href="login/signin.php" style=" background-color:#0BA9F9;" >Sign in</a>
 											</div>
 										</div>
-
-									</form>
 								</div>	
 
 							</div>
@@ -74,10 +71,10 @@
 									<form class="form-inline" action="#signup">
 										<div id="form2">
 											<div class="form-group" id="sign2">
-												<button type="signup" name="Sign Up" class="btn btn-primary btn-lg" required="required"  style=" background-color: green;" >Sign Up</button>
+												<a class="btn btn-primary btn-lg" href="#signup" style=" background-color: green;" >Sign Up</a>
 											</div>
 											<div class="form-group" id="sign2">
-												<button type="signup" name="Sign Up" class="btn btn-primary btn-lg" required="required"  style=" background-color: #0BA9F9;" >Sign in</button>
+												<a class="btn btn-primary btn-lg" href="login/signin.php" style=" background-color:#0BA9F9;" >Sign in</a>
 											</div>
 										</div>
 
@@ -102,10 +99,10 @@
 									<form class="form-inline" action="#signup">
 										<div id="form2">
 											<div class="form-group" id="sign2">
-												<button type="signup" name="Sign Up" class="btn btn-primary btn-lg" required="required"  style=" background-color: green;" >Sign Up</button>
+												<a class="btn btn-primary btn-lg" href="#signup" style=" background-color: green;" >Sign Up</a>
 											</div>
 											<div class="form-group" id="sign2">
-												<button type="signup" name="Sign Up" class="btn btn-primary btn-lg" required="required"  style=" background-color: #0BA9F9;" >Sign in</button>
+												<a class="btn btn-primary btn-lg" href="login/signin.php" style=" background-color:#0BA9F9;" >Sign in</a>
 											</div>
 										</div>
 
