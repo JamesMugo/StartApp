@@ -15,7 +15,7 @@
 
 				<div class="collapse navbar-collapse navbar-left" id="menu">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="#header">Home</a></li>
+						<li><a href="<?php echo URL;?>">Home</a></li>
 						<li><a href="<?php echo URL;?>#about">About</a></li> 
 						<li><a href="<?php echo URL;?>#our-team">Our Team</a></li> 
 						<li><a href="<?php echo URL;?>#contact">Contact</a></li> 

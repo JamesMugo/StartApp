@@ -8,55 +8,18 @@
   <title>Startups</title>
 
   <!-- Custom styles -->
-    <link href="css/css/style.css" rel="stylesheet">
+    <link href="../css/css/style.css" rel="stylesheet">
 
-  <!-- Bootstrap -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/animate.css">
-  <link rel="stylesheet" href="css/overwrite.css">
-  <link href="css/animate.min.css" rel="stylesheet"> 
-  <link href="css/style.css" rel="stylesheet" />  
-  <link href="css/ourStyle.css" rel="stylesheet" /> 
+  <!--css links begins-->
+    <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/cssLinks.php');?>
+    <!--csslinks ends-->
 
- 
-  
 </head>
 <body>
- <header class="header dark-bg">
-            <!--logo start-->
-            <a href="index.html" class="logo"><span>MYI</span></a>
-            <!--logo end-->
 
-            <div class="top-nav notification-row">                
-                <!-- notificatoin dropdown start-->
-                <ul class="nav pull-right top-menu">
-                    <!-- user login dropdown start-->
-                    <li class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="profile-ava">
-                                <img alt="" src="img/avatar1_small.jpg">
-                            </span>
-                            <span class="username">Alieu Jallow</span>
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu extended logout">
-                            <div class="log-arrow-up"></div>
-                            <li class="eborder-top">
-                                <a href="startupEditProfile.html"><i class="icon_profile"></i> My Profile</a>
-                            </li>
-                            <li>
-                                <a href="index.html"><i class="icon_key_alt"></i> Log Out</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- user login dropdown end -->
-                </ul>
-                <!-- notificatoin dropdown end-->
-            </div>
-      </header>      
-      <!--header end-->
-
+ <!--header begins-->
+  <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/InvestorStartupHeader.php');?>
+  <!--header ends-->
 
   <!--CONTAINER-->
   <div class="container-fluid">
@@ -67,7 +30,7 @@
       <!-- left side bar column-->
       <div class="col-md-2" id="lefSidebar">
         <ul id="lefSidebar-list" class="nav ">
-          <li><a href="investors.html">Back to Investors</a></li><br>
+          <li><a href="investors.php">Back to Investors</a></li><br>
         </ul>
       </div>
 
@@ -233,68 +196,27 @@
 
     </div>
 
-    <!-- right side bar column-->
-    <div class="col-md-2" id="rightSidebar">
-      <!-- searh-->
-      <h4>Filter by: </h4>
-      <form class="form-horizontal" role="form" name="searchForm" onsubmit="return validateSearchForm()" action="">
-
-        <div class="form-group">
-          <label class="col-lg-3 control-label">Name:</label>
-          <div class="col-lg-10">
-            <input class="form-control" placeholder="StartupName" type="text" name="name">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-lg-3 control-label">Nationality: </label>
-          <div class="col-lg-10">
-            <input class="form-control" placeholder="Choose Country" type="text" name="nationality">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-lg-3 control-label">Interest:</label>
-          <div class="col-lg-10">
-            <input class="form-control" placeholder="Choose interest" type="text" name="interest">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-md-3 control-label"></label>
-          <span style="color: red;" id="searhSpan"></span>
-          <div class="col-md-10">
-            <input class="btn btn-primary" value="Search" type="submit">
-          </div>
-        </div>
-
-      </form>
-    </div>
+        <!--right sidebar begins-->
+        <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/rightSidebar.php');?>
+        <!--right sidebar ends-->
 
   </div>
 
 </div>  
 
-<!--Footer-->
-  <footer>            
-    <div class="text-center">
-      <div class="copyright">
-        &copy; Meet Your Investor. All Rights Reserved.
-        <div class="credits">
+<!--footer begins-->
+  <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/footer.php');?>
+  <!--footer ends-->
 
-        </div>
-      </div>
-    </div>                  
-  </footer>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery-2.1.1.min.js"></script>    
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/parallax.min.js"></script>
-<script src="js/wow.min.js"></script>
-<script src="js/jquery.easing.min.js"></script>
-<script type="text/javascript" src="js/fliplightbox.min.js"></script>
-<script src="js/functions.js"></script>
-<script src="contactform/contactform.js"></script>
-<script src="js/ourjs.js"></script>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="../js/jquery-2.1.1.min.js"></script>   
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="../js/bootstrap.min.js"></script>  
+  <script src="../js/parallax.min.js"></script>
+  <script src="../js/wow.min.js"></script>
+  <script src="../js/jquery.easing.min.js"></script>
+  <script type="text/javascript" src="../js/fliplightbox.min.js"></script>
+  <script src="../js/functions.js"></script>
+  <script src="contactform/contactform.js"></script>
 </body>
 </html>
