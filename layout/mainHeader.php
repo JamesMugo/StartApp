@@ -1,3 +1,5 @@
+<?php define("URL", "http://localhost/MeetYourInvestor")?>
+
 <header id="header">
 		<nav class="navbar navbar-fixed-top" role="banner">
 			<div class="container-fluid">
@@ -8,17 +10,17 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a id="logo" class="navbar-brand" href="index.html">MYI</a>
+					<a id="logo" class="navbar-brand" href="<?php echo URL;?>">MYI</a>
 				</div>	
 
 				<div class="collapse navbar-collapse navbar-left" id="menu">
 					<ul class="nav navbar-nav">
 						<li class="active"><a href="#header">Home</a></li>
-						<li><a href="#about">About</a></li> 
-						<li><a href="#our-team">Our Team</a></li> 
-						<li><a href="#contact">Contact</a></li> 
-						<li><a href="#signup">Sign up</a></li> 
-						<li><a href="login/signin.html">Sign in</a></li> 
+						<li><a href="<?php echo URL;?>#about">About</a></li> 
+						<li><a href="<?php echo URL;?>#our-team">Our Team</a></li> 
+						<li><a href="<?php echo URL;?>#contact">Contact</a></li> 
+						<li><a href="<?php echo URL;?>#signup">Sign up</a></li> 
+						<li><a href="<?php echo URL;?>/login/signin.php">Sign in</a></li> 
 					</ul>
 				</div>
 

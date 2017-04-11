@@ -7,14 +7,9 @@
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<title>MYI - Meet Your Investor</title>
 
-	<!-- Bootstrap -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/animate.css">
-	<link rel="stylesheet" href="css/overwrite.css">
-	<link href="css/animate.min.css" rel="stylesheet"> 
-	<link href="css/style.css" rel="stylesheet" />	
-	<link href="css/ourStyle.css" rel="stylesheet" />	
+	<!--css links begins-->
+    <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/cssLinks.php');?>
+    <!--csslinks ends-->
 	
 </head>
 <body>	
@@ -182,10 +177,10 @@
 				<div class="col-lg-10">  
 
 					<!-- SIGN UP Button -->
-					<a href="startupRegister.html"> <div  class="signupBtn">I am a startup</div></a><br>
+					<a href="register/startupRegister.php"> <div  class="signupBtn">I am a startup</div></a><br>
 
 					<!-- SIGN UP Button -->
-					<a href="investorRegister.html"><div class="signupBtn"> I am an Investor</div></a><br>
+					<a href="register/investorRegister.php"><div class="signupBtn"> I am an Investor</div></a><br>
 
 					<!-- SIGN UP Button -->
 					<a href="investmentCompanyRegister.html"><div class="signupBtn"> I am an investment company</div></a><br>
@@ -236,26 +231,11 @@
 							</div>
 						</div>
 					</div>	
-
-					<div class="row">
-						
-
-						<div class="col-md-3 wow fadeInLeft" data-wow-offset="0" data-wow-delay="0.3s">
-							<div class="text-center">
-								<img src="img/team/phyllis.jpg" class="img-responsive" alt="">
-								<h2>Phyllis Sitati</h2>
-								<h4>Lead Developer</h4>
-								<p>Bachelors Degree: Computer Science, Ashesi University College</p>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
 		<!--MEET OUR TEAM ENDS-->
 		
-		<footer>
-
 			<!--CONTACT BEGINS-->
 			<div id="contact">
 				<div class="container">
@@ -313,47 +293,10 @@
 			</div>
 			<!--CONTACT ENDS-->
 
+			<!--footer begins-->
+			<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/mainFooter.php');?>
+			<!--footer ends-->
 			
-			<div class="container">
-				<div class="sub-footer">
-					<div class="text-center">
-						<div class="col-md-12">
-							<form class="form-inline">
-								<div class="form-group">
-									<button type="purchase" name="purchase" class="btn btn-primary btn-lg" required="required">MYI is on youtube</button>
-								</div>
-								<div class="form-group">
-									<button type="subscribe" name="subscribe" class="btn btn-primary btn-lg" required="required">Subscribe Now</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>			
-			<div class="social-icon">
-				<div class="container">
-					<div class="col-md-6 col-md-offset-3">						
-						<ul class="social-network">
-							<li><a href="https://www.facebook.com/" class="fb tool-tip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="https://twitter.com/" class="twitter tool-tip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="https://plus.google.com/" class="gplus tool-tip" title="Google Plus"><i class="fa fa-google-plus"></i></a></li>
-							<li><a href="https://www.linkedin.com/" class="linkedin tool-tip" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-							<li><a href="https://www.youtube.com/" class="ytube tool-tip" title="You Tube"><i class="fa fa-youtube-play"></i></a></li>
-							<li><a href="https://dribbble.com/" class="dribbble tool-tip" title="Dribbble"><i class="fa fa-dribbble"></i></a></li>
-							<li><a href="https://www.pinterest.com/" class="pinterest tool-tip" title="Pinterest"><i class="fa fa-pinterest-square"></i></a></li>
-						</ul>						
-					</div>
-				</div>
-			</div>						
-			<div class="text-center">
-				<div class="copyright">
-					&copy; Meet Your Investor. All Rights Reserved.
-					<div class="credits">
-						
-					</div>
-				</div>
-			</div>									
-		</footer>
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery-2.1.1.min.js"></script>		
 		<!-- Include all compiled plugins (below), or include individual files as needed -->

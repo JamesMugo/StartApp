@@ -7,46 +7,16 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>MYI - Meet Your Investor</title>
 
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/overwrite.css">
-    <link href="css/animate.min.css" rel="stylesheet"> 
-    <link href="css/style.css" rel="stylesheet" />	
-    <link href="css/ourStyle.css" rel="stylesheet" />	
+  <!--css links begins-->
+  <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/cssLinks.php');?>
+  <!--csslinks ends-->
     
 </head>
 <body>	
-	<header id="header">
-    <nav class="navbar navbar-fixed-top" role="banner">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a id="logo" class="navbar-brand" href="index.html">MYI</a>
-        </div>  
 
-        <div class="collapse navbar-collapse navbar-left" id="menu">
-          <ul class="nav navbar-nav">
-            <li><a href="#header">Home</a></li>
-            <li><a href="#about">About</a></li> 
-            <li><a href="#our-team">Our Team</a></li> 
-            <li><a href="#contact">Contact</a></li> 
-            <li><a href="#signup">Sign up</a></li> 
-            <li><a href="signin.html">Sign in</a></li> 
-
-          </ul>
-        </div>
-
-      </div><!--/.container-->
-    </nav><!--/nav-->
-
-  </header><!--/header--> 
+	<!--header begins-->
+  <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/mainHeader.php');?>
+  <!--header ends-->
 
   <!--REGISTER STARTS HERE-->
   <!--CONTAINER-->
