@@ -45,7 +45,7 @@
 				<div id="cardrow">
 					<!--card-->
 
-					<a href="investorProfile.html">
+					<a href="investorProfile.php">
 						<div id="card1">
 
 							<div id="investorInfo">
