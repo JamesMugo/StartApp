@@ -1,3 +1,7 @@
+/*
+*@author Alieu Jallow
+*@version 1.0
+*/
 /********************************************************************************************
 					THIS SECTION VALIDATES THE SEARCH FORM
 *********************************************************************************************/
@@ -23,9 +27,9 @@ function validateSearchForm()
 	}
 	else
 	{
-		name.style.border = "";
-		nationality.style.border = "";
-		interest.style.border = "";
+		name.style.border = "1px solid green";
+		nationality.style.border = "1px solid green";
+		interest.style.border = "1px solid green";
 		document.getElementById('searhSpan').innerHTML='';
 		status=true; 
 	}
@@ -53,7 +57,7 @@ function validateMessage()
   else
   {
 
-  	message.style.border = "";
+  	message.style.border = "1px solid green";
  	span.innerHTML = "";
  	return true; 
   }
@@ -74,7 +78,7 @@ function validateSubject()
   else
   {
 
-  	subject.style.border = "";
+  	subject.style.border = "1px solid green";
  	span.innerHTML = "";
  	return true; 
   }
@@ -119,7 +123,7 @@ function validateLoginForm()
   }
   else
   {
-  	 username.style.border = "";
+  	 username.style.border = "1px solid green";
  	 usernameSpan.innerHTML = "";
   	 count++;
   }
@@ -132,7 +136,7 @@ function validateLoginForm()
   }
   else
   {
-  	 password.style.border = "";
+  	 password.style.border = "1px solid green";
  	 passwordSpan.innerHTML = "";
  	 count++;
   }
@@ -169,7 +173,7 @@ function validateUsername()
 
   	if (pattern.test(username.value)) 
   	{
-  		username.style.border = "";
+  		username.style.border = "1px solid green";
  		span.innerHTML = "";
  		return true; 
   	}
@@ -218,8 +222,8 @@ function validatePhone()
 		//checks if the phone number  meets the pattern
 		if(phoneVerify(phone.value))
 		 {
-			span.innerHTML = "invalid";
-			phone.style.border = "";
+			span.innerHTML = "";
+			phone.style.border = "1px solid green";
 			return true;
 		}
 		else
@@ -247,13 +251,13 @@ function validateCountry()
 	if (country.value == "") 
 	{
 		country.style.border = "1px solid red";
-		span.innerHTML = "<img src='./img/xx.png'>";
+		span.innerHTML = "country should be filled";
 		status=false; 
 	}
 	else
 	  {
-		country.style.border = "";
-		span.innerHTML = "<img src='./img/checked.png'>";
+		country.style.border = "1px solid green";
+		span.innerHTML = "";
 		return true;
 	  }
 
@@ -277,7 +281,7 @@ function validateFirstName(form)
 
 	  	if (pattern.test(firstName.value)) 
 	  	{
-	  		firstName.style.border = "";
+	  		firstName.style.border = "1px solid green";
 	 		span.innerHTML = "";
 	 		return true; 
 	  	}
@@ -309,7 +313,7 @@ function validateLastName()
 
 	  	if (pattern.test(lastName.value)) 
 	  	{
-	  		lastName.style.border = "";
+	  		lastName.style.border = "1px solid green";
 	 		span.innerHTML = "";
 	 		return true; 
 	  	}
@@ -342,7 +346,7 @@ function validateEmail(form)
 
 	  	if (pattern.test(email.value)) 
 	  	{
-	  		email.style.border = "";
+	  		email.style.border = "1px solid green";
 	 		span.innerHTML = "";
 	 		return true; 
 	  	}
@@ -379,7 +383,7 @@ function validatePassword(pas,span)
   		if(pattern.test(password.value))
   		{
   			span.innerHTML = "";
-  			password.style.border = "";
+  			password.style.border = "1px solid green";
   			return true; 
   		}
   		else
@@ -405,6 +409,7 @@ function passwordEqual()
 {
 	var confirmPassword = document.forms["registerForm"]["confirmPassword"].value;
 	var password = document.forms["registerForm"]["password"].value;
+	var passwordMismach = document.getElementById("passwordMismarch");
 
 	//checks if the two passwords march
 	var fPass = validatePassword("password","passwordSpan");
@@ -415,7 +420,12 @@ function passwordEqual()
 	 	//checks if the two passwords match
 	 	if (confirmPassword==password) 
 	 	{
+	 		passwordMismach.innerHTML="";
 	 		return true;
+	 	}
+	 	else
+	 	{
+	 		passwordMismach.innerHTML="password did not match";
 	 	}
 	 }
 	 return false;

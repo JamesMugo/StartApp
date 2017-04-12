@@ -100,7 +100,7 @@
             </div>
             <span id="confirmPasswordSpan" style="color:red"></span>
         </div>
-
+         <span id="passwordMismarch" style="color:red"></span>
         <!--BUTTON -->
         <div class="form-group">
             <span class="col-md-2 "></span>
