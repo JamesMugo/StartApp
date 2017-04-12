@@ -34,17 +34,16 @@
                             <span class="col-md-2 "></span>
                             <div class="col-md-8">
                                 <input id="name" name="fname" type="text" placeholder="Name" class="form-control">
+                                <span id="firstNameSpan" style="color:red;" class="span"></span>
                             </div>
-                            <span id="firstNameSpan" style="color:red;"></span>
                         </div>
-
                         <!--LAST NAME -->
                         <div class="form-group">
                             <span class="col-md-2 "></span>
                             <div class="col-md-8">
                                 <input id="name" name="lname" type="text" placeholder="Name" class="form-control">
+                                <span id="lastNameSpan" style="color:red;"></span>
                             </div>
-                            <span id="lastNameSpan" style="color:red;"></span>
                         </div>
 
                         <!--USER NAME -->
@@ -52,8 +51,8 @@
                             <span class="col-md-2 "></span>
                             <div class="col-md-8">
                                 <input id="username" name="username" type="text" placeholder="Username" class="form-control">
+                                 <span id="usernameSpan" style="color:red;"></span>
                             </div>
-                            <span id="usernameSpan" style="color:red;"></span>
                         </div>
 
                         <!--EMAIL ADDRESS -->
@@ -61,8 +60,8 @@
                          <span class="col-md-2 "></span>
                          <div class="col-md-8">
                             <input id="email" name="email" type="email" placeholder="Email Address" class="form-control">
+                            <span id="emailSpan" style="color:red"></span>
                         </div>
-                        <span id="emailSpan" style="color:red"></span>
                     </div>
 
                     <!--PHONE -->
@@ -70,8 +69,8 @@
                      <span class="col-md-2 "></span>
                      <div class="col-md-8">
                         <input id="phone" name="phone" type="text" placeholder="Phone Number" class="form-control" maxlength="13" minlength="4">
+                        <span id="phoneSpan" style="color:red"></span>
                     </div>
-                    <span id="phoneSpan" style="color:red"></span>
                 </div>
 
                 <!--COUNTRY -->
@@ -79,8 +78,8 @@
                     <span class="col-md-2 "></span>
                     <div class="col-md-8">
                         <input id="country" name="country" type="text" placeholder="country" class="form-control">
+                        <span id="countrySpan" style="color:red"></span>
                     </div>
-                    <span id="countrySpan" style="color:red"></span>
                 </div>
 
                 <!--PASSWORD-->
@@ -88,8 +87,8 @@
                  <span class="col-md-2 "></span>
                  <div class="col-md-8">
                     <input id="password" name="password" type="password" class="form-control" placeholder="password">
+                    <span id="passwordSpan" style="color:red"></span>
                 </div>
-                <span id="passwordSpan" style="color:red"></span>
             </div>
 
             <!--CONFIRM PASSWORD-->
@@ -97,10 +96,10 @@
              <span class="col-md-2 "></span>
              <div class="col-md-8">
                 <input id="confirmPassword" name="confirmPassword" type="password" class="form-control" placeholder="password">
+                <span id="confirmPasswordSpan" style="color:red"></span>
+                <span id="passwordMismarch" style="color:red"></span>
             </div>
-            <span id="confirmPasswordSpan" style="color:red"></span>
         </div>
-         <span id="passwordMismarch" style="color:red"></span>
         <!--BUTTON -->
         <div class="form-group">
             <span class="col-md-2 "></span>
