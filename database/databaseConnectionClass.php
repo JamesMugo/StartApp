@@ -16,8 +16,8 @@ require_once('dbcredentials.php');
 class Dbconnection
 {
 	//properties
-	public $connection;
-	public $result;
+	private $connection;
+	private $result;
 
 	//methods
 
@@ -25,18 +25,15 @@ class Dbconnection
 	*connection method
 	*@return returns true or false
 	*/
-	function getConnection()
+	private function getConnection()
 	{
 		$this ->connection = mysqli_connect(SERVER,USER,PASS,DB);
 
-		if (mysqli_connect_errno())
-		{
-			return false;
-		}
-		else
+		if ($connection)
 		{
 			return true;
 		}
+		return false;
 	}
 
 	/*
@@ -44,55 +41,57 @@ class Dbconnection
 	*@param $sql
 	*@return returns true or false
 	*/
-	function query($sql)
+	function queryDatabase($sql)
 	{
+		//returns flase if connection is not established
 		if(!$this->getConnection())
 		{
 			return false;
 		}
 
-		//reun query
+		//run query  returns false if query fails
 		$this->result = mysqli_query($this->connection,$sql);
 
+		//closes the mysql connection
+		mysqli_close($this->connection);
+		
+		//checks if the query fails
 		if ($this->result == false) 
 		{
 			return false;
 		}
-		else
-		{
-			return true;
-		}
+		return true;
 	}
 
 	/*
-	*fetch method
-	*@return returns true or false
+	*gets a row from the result
+	*@return returns false or a row
 	*/
-	function fetch()
+	function getRow()
 	{
-		//checks if the result has content
+		//checks if the result is false
 		if ($this->result == false) 
 		{
 			return false;
 		}
 
-		//return result  it returns only one record
+		//returns a row from the result or null if the result is null
 		return mysqli_fetch_assoc($this->result);
 	}
 
 	/*
-	*fetch method
-	*@return returns true or false
+	*gets the number of rows from the result
+	*@return returns false or the number of rows
 	*/
-	function getRows()
+	function getNumRows()
 	{
-		//checks if the result has content
+		//checks if the result is false
 		if ($this->result == false) 
 		{
 			return false;
 		}
 
-		//return result  it returns only one record
+		//returns the number of rows from the result
 		return mysqli_num_rows($this->result);
 	}
 

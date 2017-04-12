@@ -19,9 +19,11 @@
 
   <div class="login-card">
     <h1>Log-in</h1><br>
-  <form action="../pages/investors.php">
-    <input type="text" name="user" placeholder="Username">
-    <input type="password" name="pass" placeholder="Password">
+  <form method="post" name="loginForm" onsubmit="return validateLoginForm()" action="">
+    <input type="text" name="username" placeholder="Username">
+    <span id="usernameSpan" style="color:red;"></span>
+    <input type="password" name="password" placeholder="Password">
+    <span id="passwordSpan" style="color:red;"></span>
     <input type="submit" name="login" class="login login-submit" value="login">
   </form>
 
@@ -33,6 +35,8 @@
       <!--footer begins-->
       <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/mainFooter.php');?>
       <!--footer ends-->
+
+      <script src="../js/ourjs.js"></script>
 </body>
 
 </html>

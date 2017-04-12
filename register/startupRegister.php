@@ -25,17 +25,26 @@
             <div class="well well-sm">
 
             	<!--FORM BEGINS -->
-                <form class="form-horizontal form-position" method="post" name="signUpStartUpForm" onsubmit="return validateRegisterForm()" action="">
+                <form class="form-horizontal form-position" method="post" name="registerForm" onsubmit="return validateRegisterForm()" action="">
                     <fieldset>
                         <legend class="text-center header">Register As a Startup</legend>
 
-                        <!--NAME -->
+                        <!--FIRST NAME -->
                         <div class="form-group">
                             <span class="col-md-2 "></span>
                             <div class="col-md-8">
-                                <input id="name" name="name" type="text" placeholder="Name" class="form-control">
+                                <input id="name" name="fname" type="text" placeholder="Name" class="form-control">
                             </div>
-                            <span id="startUpNameSpan" style="color:red;"></span>
+                            <span id="firstNameSpan" style="color:red;"></span>
+                        </div>
+
+                        <!--LAST NAME -->
+                        <div class="form-group">
+                            <span class="col-md-2 "></span>
+                            <div class="col-md-8">
+                                <input id="name" name="lname" type="text" placeholder="Name" class="form-control">
+                            </div>
+                            <span id="lastNameSpan" style="color:red;"></span>
                         </div>
 
                         <!--USER NAME -->
@@ -44,7 +53,7 @@
                             <div class="col-md-8">
                                 <input id="username" name="username" type="text" placeholder="Username" class="form-control">
                             </div>
-                            <span id="startUpUsernameSpan" style="color:red;"></span>
+                            <span id="usernameSpan" style="color:red;"></span>
                         </div>
 
                         <!--EMAIL ADDRESS -->
@@ -53,7 +62,7 @@
                          <div class="col-md-8">
                             <input id="email" name="email" type="email" placeholder="Email Address" class="form-control">
                         </div>
-                        <span id="startUpEmailSpan" style="color:red"></span>
+                        <span id="emailSpan" style="color:red"></span>
                     </div>
 
                     <!--PHONE -->
@@ -62,7 +71,7 @@
                      <div class="col-md-8">
                         <input id="phone" name="phone" type="text" placeholder="Phone Number" class="form-control" maxlength="13" minlength="4">
                     </div>
-                    <span id="startUpPhoneSpan" style="color:red"></span>
+                    <span id="phoneSpan" style="color:red"></span>
                 </div>
 
                 <!--COUNTRY -->
@@ -71,7 +80,7 @@
                     <div class="col-md-8">
                         <input id="country" name="country" type="text" placeholder="country" class="form-control">
                     </div>
-                    <span id="startUpcountrySpan" style="color:red"></span>
+                    <span id="countrySpan" style="color:red"></span>
                 </div>
 
                 <!--PASSWORD-->
@@ -80,16 +89,16 @@
                  <div class="col-md-8">
                     <input id="password" name="password" type="password" class="form-control" placeholder="password">
                 </div>
-                <span id="startUpPasswordSpan" style="color:red"></span>
+                <span id="passwordSpan" style="color:red"></span>
             </div>
 
             <!--CONFIRM PASSWORD-->
             <div class="form-group">
              <span class="col-md-2 "></span>
              <div class="col-md-8">
-                <input id="passwordConfirm" name="passwordConfirm" type="password" class="form-control" placeholder="password">
+                <input id="confirmPassword" name="confirmPassword" type="password" class="form-control" placeholder="password">
             </div>
-            <span id="startUpConfirmPasswordSpan" style="color:red"></span>
+            <span id="confirmPasswordSpan" style="color:red"></span>
         </div>
 
         <!--BUTTON -->
@@ -117,16 +126,15 @@
     <!--footer ends-->
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-2.1.1.min.js"></script>		
+    <script src="../js/jquery-2.1.1.min.js"></script>		
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>	
-    <script src="js/parallax.min.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
-    <script type="text/javascript" src="js/fliplightbox.min.js"></script>
-    <script src="js/functions.js"></script>
-    <script src="contactform/contactform.js"></script>
-    <script src="js/ourjs.js"></script>
+    <script src="../js/bootstrap.min.js"></script>	
+    <script src="../js/parallax.min.js"></script>
+    <script src="../js/wow.min.js"></script>
+    <script src="../js/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="../js/fliplightbox.min.js"></script>
+    <script src="../js/functions.js"></script>
+    <script src="../js/ourjs.js"></script>
     
 </body>
 </html>

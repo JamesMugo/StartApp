@@ -1,36 +1,6 @@
-//VALIDATING THE SEARCH FORM
-function validateEmailSearchForm()
-{
-	
-	var sender = document.forms["emailSearchForm"]["sender"];
-	var subject = document.forms["emailSearchForm"]["subject"];
-	var date = document.forms["emailSearchForm"]["date"];
-
-	var status=false; 
-
-
-	//validating the name , nationality  and interest
-	if (sender.value == '' && subject.value == '' && date.value == '' ) 
-	{
-		sender.style.border = "1px solid red";
-		subject.style.border = "1px solid red";
-		date.style.border = "1px solid red";
-		document.getElementById('emailSearchSpan').innerHTML='Fill atleast one';
-		status=false; 
-	}
-	else
-	{
-		sender.style.border = "";
-		subject.style.border = "";
-		date.style.border = "";
-		document.getElementById('emailSearchSpan').innerHTML='';
-		status=true; 
-	}
-
-	return status;
-}
-
-
+/********************************************************************************************
+					THIS SECTION VALIDATES THE SEARCH FORM
+*********************************************************************************************/
 //VALIDATING THE SEARCH FORM
 function validateSearchForm()
 {
@@ -63,231 +33,156 @@ function validateSearchForm()
 	return status;
 }
 
-//VALIDATING THE SIGN IN FORM
-function validateSigninForm()
+
+/********************************************************************************************
+	THIS SECTION VALIDATES THE CONTACT FORM  AND IT HAS ALL THE FUNCTIONS REQUIRED FOR THAT
+*********************************************************************************************/
+
+//VALIDATING MESSAGE
+function validateMessage()
 {
-	var username = document.forms["signInForm"]["username"];
-	var password = document.forms["signInForm"]["password"];
+	var message= document.forms["contactForm"]["message"];
+	var span = document.getElementById('messageSpan');
 
-	var status=false; 
+  if (message.value == "") 
+  {
+ 	span.innerHTML = "*message must be filled";
+ 	message.style.border = "1px solid red";
+ 	return false; 
+  }
+  else
+  {
 
-
-	//validating the username
-	if (username.value == '') 
-	{
-		username.style.border = "1px solid red";
-		status=false; 
-	}
-	else
-	{
-		username.style.border = "";
-		status=true; 
-	}
-
-	//validating the password
-	if (password.value == '') 
-	{
-		password.style.border = "1px solid red";
-		status=false; 
-	}
-	else
-	{
-		password.style.border = "";
-	}
-
-	return status;
+  	message.style.border = "";
+ 	span.innerHTML = "";
+ 	return true; 
+  }
 }
 
+//VALIDATING SUBJECT
+function validateSubject()
+{
+	var subject= document.forms["contactForm"]["subject"];
+	var span = document.getElementById('subjectSpan');
+
+  if (subject.value == "") 
+  {
+ 	span.innerHTML = "*subject must be filled";
+ 	subject.style.border = "1px solid red";
+ 	return false; 
+  }
+  else
+  {
+
+  	subject.style.border = "";
+ 	span.innerHTML = "";
+ 	return true; 
+  }
+}
 
 //VALIDATING THE CONTACT FORM
 function validateContactForm()
 {
-	var name = document.forms["contactForm"]["name"];
-	var email = document.forms["contactForm"]["email"];
-	var subject = document.forms["contactForm"]["subject"];
-	var message = document.forms["contactForm"]["message"];
+	
+	var emailVlidation = validateEmail("contactForm");
+	var nameValidation = validateFirstName("contactForm");
+	var messageValidation = validateMessage();
+	var subjectValidation = validateSubject();
 
-	var status=false; 
-
-	alert(name.message);
-	//validating the name
-	if (name.value == '') 
+	if (emailVlidation & nameValidation & messageValidation & subjectValidation) 
 	{
-		name.style.border = "1px solid red";
-		status=false; 
+		return true;
 	}
-	else
-	{
-		startUpName.style.border = "";
-		status=true; 
-	}
-
-	return status;
+	return false;
 }
 
 
+/********************************************************************************************
+						THIS SECTION VALIDATES THE LOGIN FORM
+*********************************************************************************************/
 
+//VALIDATING THE LOGIN FORM
+function validateLoginForm()
+{
+	var username = document.forms["loginForm"]["username"];
+	var password = document.forms["loginForm"]["password"];
 
-//VALIDATING THE REGISTER FORMS
-function validateRegisterForm(){
+	var usernameSpan = document.getElementById('usernameSpan');
+	var passwordSpan = document.getElementById('passwordSpan');
+	var count =0;
 
-	var startUpName = document.forms["signUpStartUpForm"]["name"];
-	var startUpUsername = document.forms["signUpStartUpForm"]["username"];
-	var startUpEmail = document.forms["signUpStartUpForm"]["email"];
-	var startUpCountry = document.forms["signUpStartUpForm"]["country"];
-	var startUpPassword = document.forms["signUpStartUpForm"]["password"];
-	var startUpConfirmPassword = document.forms["signUpStartUpForm"]["passwordConfirm"];
-	var startUpPhone = document.forms["signUpStartUpForm"]["phone"];
-
-	var status=false; 
-
-    //validating name
-  if (startUpName.value == "") 
+	//validating the username
+  if (username.value == "") 
   {
- 	startUpName.style.border = "1px solid red";
- 	document.getElementById('startUpNameSpan').innerHTML = "<img src='./img/xx.png'>";
- 	status=false; 
+ 	usernameSpan.innerHTML = "*username must be filled";
+ 	username.style.border = "1px solid red";
   }
-  else
- {
- 	document.getElementById('startUpNameSpan').innerHTML = "<img src='./img/checked.png'>";
- 	startUpName.style.border = "";
- 	status=true; 
-  }
-
-   //validating username
-   if (startUpUsername.value == "") 
-   {
-  	startUpUsername.style.border = "1px solid red";
-  	document.getElementById('startUpUsernameSpan').innerHTML = "<img src='./img/xx.png'>";
-  	status=false; 
-   }
-   else
+  else
   {
-  	document.getElementById('startUpUsernameSpan').innerHTML = "<img src='./img/checked.png'>";
-  	startUpUsername.style.border = "";
-  	status=true; 
-   }
+  	 username.style.border = "";
+ 	 usernameSpan.innerHTML = "";
+  	 count++;
+  }
 
-//validating email
-if (startUpEmail.value == "") 
-{
-	 startUpEmail.style.border = "1px solid red";
-	document.getElementById('startUpEmailSpan').innerHTML = "<img src='./img/xx.png'>";
-	status=false; 
- }
-else
-{
-	 document.getElementById('startUpEmailSpan').innerHTML = "<img src='./img/checked.png'>";
-	startUpEmail.style.border = "";
-}
-
-//validating phone
-if (startUpPhone.value == "") 
-{
-	startUpPhone.style.border = "1px solid red";
-	document.getElementById('startUpPhoneSpan').innerHTML = "<img src='./img/xx.png'>";
-	status=false; 
- }
-else
-{
-	//checking for the length of the phone number
-	if(startUpPhone.value.length<=13 && startUpPhone.value.length >= 4)
-	{
-
-		//checks if the phone number  meets the pattern
-		if(phoneVerify(startUpPhone.value))
-		 {
-			 document.getElementById('startUpPhoneSpan').innerHTML = "<img src='./img/checked.png'>";
-			startUpPhone.style.border = "";
-			document.getElementById('passwordMissmarch').innerHTML = "";
-		}
-		else
-		{
-			startUpPhone.style.border = "1px solid red";
-			document.getElementById('startUpPhoneSpan').innerHTML = "<img src='./img/xx.png'>";
-			document.getElementById('passwordMissmarch').innerHTML = "The mobile number you provided is Invalid";
-			status=false; 
-		   }
-	}
-	else
-	{
-		startUpPhone.style.border = "1px solid red";
-		document.getElementById('startUpPhoneSpan').innerHTML = "<img src='./img/xx.png'>";
-		document.getElementById('passwordMissmarch').innerHTML = "The mobile number you provided is Invalid";
-		status=false; 
-	}
+  //validating the passowrd
+  if (password.value == "") 
+  {
+ 	passwordSpan.innerHTML = "*password must be filled";
+ 	password.style.border = "1px solid red";
+  }
+  else
+  {
+  	 password.style.border = "";
+ 	 passwordSpan.innerHTML = "";
+ 	 count++;
+  }
+  
+  if (count==2) 
+  {
+  	return true;
+  }
+  return false;
 }
 
 
- //validating country
- if (startUpCountry.value == "") 
- {
- 	startUpCountry.style.border = "1px solid red";
- 	document.getElementById('startUpcountrySpan').innerHTML = "<img src='./img/xx.png'>";
- 	status=false; 
- }
-  else
-   {
- 	     startUpCountry.style.border = "";
- 	document.getElementById('startUpcountrySpan').innerHTML = "<img src='./img/checked.png'>";
-   }
+/********************************************************************************************
+	THIS SECTION VALIDATES THE REGISTER FORM  AND IT HAS ALL THE FUNCTIONS REQUIRED FOR THAT
+*********************************************************************************************/
 
-   //validating password
-   if (startUpPassword.value == "") 
-    {
- 	      startUpPassword.style.border = "1px solid red";
- 	      document.getElementById('startUpPasswordSpan').innerHTML = "<img src='./img/xx.png'>";
- 	      status=false; 
-    }
-     else
-    {
- 	     document.getElementById('startUpPasswordSpan').innerHTML = "<img src='./img/checked.png'>";
- 	     startUpPassword.style.border = "";
-    }
+ //VALIDATING USERNAME
+function validateUsername()
+{
+	var username = document.forms["registerForm"]["username"];
+	var span = document.getElementById('usernameSpan');
 
- 	//validating confirm password
- 	  if (startUpConfirmPassword.value == "") 
- 	   {
- 		      startUpConfirmPassword.style.border = "1px solid red";
- 		      document.getElementById('startUpConfirmPasswordSpan').innerHTML = "<img src='./img/xx.png'>";
- 		      status=false; 
- 	   }
- 	    else
- 	   {
- 		     document.getElementById('startUpConfirmPasswordSpan').innerHTML = "<img src='./img/checked.png'>";
- 		     startUpConfirmPassword.style.border = "";
- 	   }
+  if (username.value == "") 
+  {
+ 	span.innerHTML = "*username must be filled";
+ 	username.style.border = "1px solid red";
+ 	return false; 
+  }
+  else
+  {
 
+  	//checks if the username does not contain numbers or symbols 
+  	var pattern = new RegExp("^[a-zA-Z]+$");
 
- 	//checking if the two passwords provided match
- 	if (startUpConfirmPassword.value!='' && startUpPassword.value!='') 
- 	{
+  	if (pattern.test(username.value)) 
+  	{
+  		username.style.border = "";
+ 		span.innerHTML = "";
+ 		return true; 
+  	}
+  	else
+  	{
+  		span.innerHTML = "*username must not contain numbers or symbols";
+ 		username.style.border = "1px solid red";
+ 		return false; 
+  	}
+  }
+}
 
- 		if (startUpConfirmPassword.value ==  startUpPassword.value) 
- 		{
- 			status =true;
- 		}
- 		else
- 		{
- 			 document.getElementById('startUpConfirmPasswordSpan').innerHTML = "<img src='./img/xx.png'>";
- 			document.getElementById('startUpPasswordSpan').innerHTML = "<img src='./img/xx.png'>";
- 			startUpPassword.style.border = "1px solid red";
- 			startUpConfirmPassword.style.border = "1px solid red";
- 			document.getElementById('passwordMissmarch').innerHTML = "The password you provided did not match";
-
- 			status =false;
- 		}
- 	}
- 	else
- 	{
- 		status =false;
- 	}
- 	   return status;
- }
-
-
- //validate phone number
+//VERIFY PHONE NUMBER
  function phoneVerify(phone)
  {
  	  var pattern = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/;
@@ -300,8 +195,246 @@ else
  	  {
  		    return false;
  	  }
-
  }
+ 
+//VALIDATE PHONE
+function validatePhone()
+{
+	var phone = document.forms["registerForm"]["phone"];
+	var span = document.getElementById('phoneSpan');
 
+	if (phone.value == "") 
+	{
+		phone.style.border = "1px solid red";
+		span.innerHTML = "invalid";
+		status=false; 
+	 }
+	else
+	{
+	//checking for the length of the phone number
+	if(phone.value.length<=13 && phone.value.length >= 4)
+	{
 
+		//checks if the phone number  meets the pattern
+		if(phoneVerify(phone.value))
+		 {
+			span.innerHTML = "invalid";
+			phone.style.border = "";
+			return true;
+		}
+		else
+		{
+			phone.style.border = "1px solid red";
+			span.innerHTML = "sfsfsd";
+			status=false; 
+		}
+	}
+	else
+	{
+		phone.style.border = "1px solid red";
+		span.innerHTML = "asfsf";
+		status=false; 
+	}
+  }
+}
 
+//VALIDATE COUNTRY
+function validateCountry()
+{
+	var country = document.forms["registerForm"]["country"];
+	var span = document.getElementById('countrySpan');
+
+	if (country.value == "") 
+	{
+		country.style.border = "1px solid red";
+		span.innerHTML = "<img src='./img/xx.png'>";
+		status=false; 
+	}
+	else
+	  {
+		country.style.border = "";
+		span.innerHTML = "<img src='./img/checked.png'>";
+		return true;
+	  }
+
+}
+
+//VALIDATING FIRST NAME
+function validateFirstName(form)
+{
+	var firstName = document.forms[form]["fname"];
+	var span = document.getElementById('firstNameSpan');
+	if (firstName.value == "") 
+	{
+		 span.innerHTML = "*Fist name must be filled";
+		 firstName.style.border = "1px solid red";
+		 return false; 
+	 }
+	else
+	{
+		//if not empty do the folling 
+	  	var pattern = new RegExp("^[a-zA-Z]+$");
+
+	  	if (pattern.test(firstName.value)) 
+	  	{
+	  		firstName.style.border = "";
+	 		span.innerHTML = "";
+	 		return true; 
+	  	}
+	  	else
+	  	{
+	  		span.innerHTML = "*First name must not contain numbers or symbols";
+	 		username.style.border = "1px solid red";
+	 		return false; 
+	  	}
+	}
+}
+
+//VALIDATING LAST NAME
+function validateLastName()
+{
+	var lastName = document.forms["registerForm"]["lname"];
+	var span = document.getElementById('lastNameSpan');
+
+	if (lastName.value == "") 
+	{
+		span.innerHTML = "*Last name must be filled";
+		lastName.style.border = "1px solid red";
+		return false; 
+	 }
+	else
+	{
+		//if not empty do the folling 
+	  	var pattern = new RegExp("^[a-zA-Z]+$");
+
+	  	if (pattern.test(lastName.value)) 
+	  	{
+	  		lastName.style.border = "";
+	 		span.innerHTML = "";
+	 		return true; 
+	  	}
+	  	else
+	  	{
+	  		span.innerHTML = "*last name name must not contain numbers or symbols";
+	 		lastName.style.border = "1px solid red";
+	 		return false; 
+	  	}
+	}
+
+}
+
+//VALIDATING EMAIL
+function validateEmail(form)
+{
+	var email = document.forms[form]["email"];
+	var span = document.getElementById("emailSpan");
+
+   if (email.value == "") 
+    {
+ 		  span.innerHTML = "*Email must be filled";
+ 	      email.style.border = "1px solid red";
+ 	      return false; 
+    }
+     else
+    {
+ 		//if not empty do the folling 
+	  	var pattern = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+	  	if (pattern.test(email.value)) 
+	  	{
+	  		email.style.border = "";
+	 		span.innerHTML = "";
+	 		return true; 
+	  	}
+	  	else
+	  	{
+	  		span.innerHTML = "*invalid email address";
+	 		email.style.border = "1px solid red";
+	 		return false; 
+	  	}
+    }
+}
+
+//VALIDATING PASSWORD
+function validatePassword(pas,span)
+{
+	var password = document.forms["registerForm"][pas];
+	var span = document.getElementById(span);
+   if (password.value == "") 
+   {
+  	span.innerHTML = "*password must be filled";
+  	password.style.border = "1px solid red";
+  	return false; 
+   }
+   else
+  {
+
+  	//if password is not empty do the following
+  	//checks the length of the password
+  	if (password.value.length>=6 & password.value.length<13)
+  	{
+
+  		//if the password meets the length, check for an Uppercase letter, symbol, nummber, 
+  		var pattern = new RegExp("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$");
+  		if(pattern.test(password.value))
+  		{
+  			span.innerHTML = "";
+  			password.style.border = "";
+  			return true; 
+  		}
+  		else
+  		{
+
+  			span.innerHTML = "*password must have atleast a number, symbol and an uppercase letter";
+  			password.style.border = "1px solid red";
+  			return false; 
+  		}
+  	}
+  	else
+  	{
+  		span.innerHTML = "*password length shoud be between 6 and 12 characters";
+  		password.style.border = "1px solid red";
+  		return false; 
+  	}
+
+   }
+}
+
+  //CHECKING IF THE TWO PASSWORDS ARE EQUAL
+function passwordEqual()
+{
+	var confirmPassword = document.forms["registerForm"]["confirmPassword"].value;
+	var password = document.forms["registerForm"]["password"].value;
+
+	//checks if the two passwords march
+	var fPass = validatePassword("password","passwordSpan");
+	var sPass = validatePassword("confirmPassword","confirmPasswordSpan");
+
+	if (fPass&sPass)
+	 {
+	 	//checks if the two passwords match
+	 	if (confirmPassword==password) 
+	 	{
+	 		return true;
+	 	}
+	 }
+	 return false;
+}
+
+//VALIDATING THE REGISTER FORM
+function validateRegisterForm()
+{
+	var lname = validateLastName();
+	var email= validateEmail("registerForm");
+	var fname =validateFirstName("registerForm");
+	var password =passwordEqual();
+	var username =validateUsername();
+	var country = validateCountry();
+	var phone=validatePhone();
+
+	if (lname&email&fname&password&username&country&phone)
+	 {
+	 	return true;
+	 }
+	return false;
+ }

@@ -266,23 +266,23 @@
 							<div id="errormessage"></div>
 							<form action="" method="post" role="form" class="contactForm" name="contactForm" onsubmit="return validateContactForm()">
 								<div class="form-group">
-									<input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-									<div class="validation"></div>
+									<input type="text" name="fname" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+									 <span id="firstNameSpan" style="color:red;"></span>
 								</div>
 								<div class="form-group">
 									<input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-									<div class="validation"></div>
+									 <span id="emailSpan" style="color:red"></span>
 								</div>
 								<div class="form-group">
 									<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-									<div class="validation"></div>
+									<span id="subjectSpan" style="color:red;"></span>
 								</div>
 								<div class="form-group">
 									<textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-									<div class="validation"></div>
+									<span id="messageSpan" style="color:red;"></span>
 								</div>
 								
-								<button type="button" class="btn btn-theme pull-left">SEND MESSAGE</button>
+								<button type="submit" class="btn btn-theme pull-left">SEND MESSAGE</button>
 							</form>
 						</div>	
 					</div>
@@ -303,7 +303,6 @@
 		<script src="js/jquery.easing.min.js"></script>
 		<script type="text/javascript" src="js/fliplightbox.min.js"></script>
 		<script src="js/functions.js"></script>
-		<script src="contactform/contactform.js"></script>
 		<script src="js/ourjs.js"></script>
 		
 	</body>
