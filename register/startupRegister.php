@@ -39,16 +39,17 @@
                         <div class="form-group">
                             <span class="col-md-2 "></span>
                             <div class="col-md-8">
-                                <input id="name" name="fname" type="text" placeholder="Name" class="form-control">
-                                <span id="firstNameSpan" style="color:red;" class="span"></span>
+                                <input name="fname" type="text" placeholder="Name" class="form-control" style="border-color: <?php echo $firstNameColor;?>" value="<?php echo $firstName;?>">
+                                <span id="firstNameSpan" style="color:red;"><?php echo $firstNameErrorMessage;?></span>
                             </div>
                         </div>
+
                         <!--LAST NAME -->
                         <div class="form-group">
                             <span class="col-md-2 "></span>
                             <div class="col-md-8">
-                                <input id="name" name="lname" type="text" placeholder="Name" class="form-control">
-                                <span id="lastNameSpan" style="color:red;"></span>
+                                <input name="lname" type="text" placeholder="Name" class="form-control" style="border-color: <?php echo $lastNameColor;?>" value="<?php echo $lastName;?>">
+                                <span id="lastNameSpan" style="color:red;"><?php echo $lastNameErrorMessage;?></span>
                             </div>
                         </div>
 
@@ -65,8 +66,8 @@
                         <div class="form-group">
                          <span class="col-md-2 "></span>
                          <div class="col-md-8">
-                            <input id="email" name="email" type="email" placeholder="Email Address" class="form-control">
-                            <span id="emailSpan" style="color:red"></span>
+                            <input id="email" name="email" type="email" placeholder="Email Address" class="form-control" style="border-color: <?php echo $emailColor;?>" value="<?php echo $email;?>">
+                            <span id="emailSpan" style="color:red"><?php echo $emailErrorMessage;?></span>
                         </div>
                     </div>
 
@@ -74,8 +75,8 @@
                     <div class="form-group">
                      <span class="col-md-2 "></span>
                      <div class="col-md-8">
-                        <input id="phone" name="phone" type="text" placeholder="Phone Number" class="form-control" maxlength="13" minlength="4">
-                        <span id="phoneSpan" style="color:red"></span>
+                        <input id="phone" name="phone" type="text" placeholder="Phone Number" class="form-control" maxlength="13" minlength="4" style="border-color: <?php echo $phoneColor;?>" value="<?php echo $phone;?>">
+                        <span id="phoneSpan" style="color:red"><?php echo $phoneErrorMessage;?></span>
                     </div>
                 </div>
 
@@ -92,8 +93,8 @@
                 <div class="form-group">
                  <span class="col-md-2 "></span>
                  <div class="col-md-8">
-                    <input id="password" name="password" type="password" class="form-control" placeholder="password">
-                    <span id="passwordSpan" style="color:red"></span>
+                    <input id="password" name="password" type="password" class="form-control" placeholder="password" style="border-color: <?php echo $passwordColor;?>">
+                    <span id="passwordSpan" style="color:red"><?php echo $passwordErrorMessage;?></span>
                 </div>
             </div>
 
@@ -101,9 +102,9 @@
             <div class="form-group">
              <span class="col-md-2 "></span>
              <div class="col-md-8">
-                <input id="confirmPassword" name="confirmPassword" type="password" class="form-control" placeholder="password">
-                <span id="confirmPasswordSpan" style="color:red"></span>
-                <span id="passwordMismarch" style="color:red"></span>
+                <input id="confirmPassword" name="confirmPassword" type="password" class="form-control" placeholder="password" style="border-color: <?php echo $passwordConfirmColor;?>">
+                <span id="confirmPasswordSpan" style="color:red"><?php echo $passwordConfirmErrorMessage;?></span>
+                <span id="passwordMismarch" style="color:red"><?php echo $passwordMisMach;?></span>
             </div>
         </div>
         <!--BUTTON -->
