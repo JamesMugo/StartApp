@@ -24,7 +24,7 @@
     <span id="usernameSpan" style="color:red;"></span>
     <input type="password" name="password" placeholder="Password">
     <span id="passwordSpan" style="color:red;"></span>
-    <input type="submit" name="login" class="login login-submit" value="login">
+    <input type="submit" name="loginButton" class="login login-submit" value="login">
   </form>
 
   <div class="login-help">

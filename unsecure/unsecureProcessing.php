@@ -11,44 +11,54 @@ $usernameErrorMessage=$phoneErrorMessage=$passwordErrorMessage=$passwordConfirmE
 $firstNameErrorMessage=$lastNameErrorMessage=$emailErrorMessage="";
 
 
-/********************************************************************************************
-	THIS SECTION VALIDATES THE REGISTER FORM  AND IT HAS ALL THE FUNCTIONS REQUIRED FOR THAT
-*********************************************************************************************/
-
- //VALIDATING USERNAME
-function validateUsername()
+//CHECKS WHICH BUTTON IS CLICKED
+if (isset($_POST['registerButton'])) 
 {
-	global $username,$usernameColor,$usernameErrorMessage;
-
-  if (isset($_POST['username']) & !empty($_POST['username'])) 
-  {
- 	$username = $_POST['username'];
-
- 	//checks if the username does not contain numbers or symbols 
-  	$pattern = "/^[a-zA-Z]+$/";
-
-  	if (preg_match($pattern , $username)) 
-  	{
-  		$usernameColor = "green";
- 		return true; 
-  	}
-  	else
-  	{
-  		$usernameColor = "red";
-  		$usernameErrorMessage = "*invalid username";
- 		return false; 
-  	}
-  }
-  else
-  {
-  	$usernameColor = "red";
-  	$usernameErrorMessage = "*username must be filled";
-  	return false; 
-  }
+	//validateRegisterForm();
+	validatingUsername();
+	validateCountry();
+}
+else if (isset($_POST['loginButton']))
+{
+	# code...
+}
+else if (isset($_POST['contactButton']))
+{
+	# code...
 }
 
- 
-//VALIDATE PHONE
+//VALIDATING USERNAME
+function validatingUsername()
+{
+	global $username,$usernameColor,$usernameErrorMessage;
+	if (isset($_POST['username']) & !empty($_POST['username']))
+    {
+    	$username = $_POST['username'];
+
+ 		//checks if the username does not contain numbers or symbols 
+  		$pattern = "/^[a-zA-Z]+$/";
+  		if (preg_match($pattern,$username))
+  	    {
+  			$usernameColor= "green";
+  			return true;
+  		}
+  		else
+  		{
+  			$usernameColor= "red";
+  			$usernameErrorMessage= "invalid username";
+  			return false;
+  		}
+		
+	}
+	else
+	{
+		$usernameColor= "red";
+  		$usernameErrorMessage= "username must be filled";
+  		return false;
+	}
+}
+
+/*//VALIDATE PHONE
 function validatePhone()
 {
 	global $phone,$phoneColor,$phoneErrorMessage;
@@ -88,30 +98,30 @@ function validatePhone()
 		$phoneErrorMessage= "*phone must be filled";
 		return false;
     }
-}
+}*/
 
-//VALIDATE COUNTRY
+//VALIDATING COUNTRY
 function validateCountry()
 {
 	global $country,$countryColor,$countryErrorMessage;
 
-	if (isset($_POST['country']) & !empty($_POST['country'])) 
-	{
-		$country = $_POST['country'];
-		$countryColor ="green";
+	if (isset($_POST['country']) & !empty($_POST['country']))
+    {
+		$country=$_POST['country'];
+		$countryColor="green";
 		return true;
 	}
 	else
 	{
-		$countryColor ="red";
+		$countryColor="red";
 		$countryErrorMessage ="*country must be filled";
 		return false;
 	}
-
 }
 
+
 //VALIDATING FIRST NAME
-function validateFirstName()
+/*function validateFirstName()
 {
 	global $firstName,$firstNameColor,$firstNameErrorMessage;
 
@@ -326,7 +336,7 @@ function validateRegisterForm()
 	 	return true;
 	 }
 	return false;
- }
+ }*/
 
 
 ?>

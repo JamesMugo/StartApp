@@ -282,7 +282,7 @@
 									<span id="messageSpan" style="color:red;"></span>
 								</div>
 								
-								<button type="submit" class="btn btn-theme pull-left">SEND MESSAGE</button>
+								<button type="submit" class="btn btn-theme pull-left" name="contactButton">SEND MESSAGE</button>
 							</form>
 						</div>	
 					</div>

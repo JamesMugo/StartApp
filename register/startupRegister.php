@@ -12,9 +12,15 @@
   <!--csslinks ends-->
     
 </head>
-<body>	
+<body>
+
+  <?php
+   include('../unsecure/unsecureProcessing.php');
+  ?>	
 	<!--header begins-->
-  <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/mainHeader.php');?>
+  <?php
+   require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/mainHeader.php');
+  ?>
   <!--header ends-->
 
   <!--REGISTER STARTS HERE-->
@@ -50,8 +56,8 @@
                         <div class="form-group">
                             <span class="col-md-2 "></span>
                             <div class="col-md-8">
-                                <input id="username" name="username" type="text" placeholder="Username" class="form-control">
-                                 <span id="usernameSpan" style="color:red;"></span>
+                                <input id="username" name="username" type="text" placeholder="Username" class="form-control" style="border-color: <?php echo $usernameColor;?>" value="<?php echo $username;?>">
+                                 <span id="usernameSpan" style="color:red;"><?php echo $usernameErrorMessage;?></span>
                             </div>
                         </div>
 
@@ -77,8 +83,8 @@
                 <div class="form-group">
                     <span class="col-md-2 "></span>
                     <div class="col-md-8">
-                        <input id="country" name="country" type="text" placeholder="country" class="form-control">
-                        <span id="countrySpan" style="color:red"></span>
+                        <input id="country" name="country" type="text" placeholder="country" class="form-control" style="border-color: <?php echo $countryColor;?>"  value="<?php echo $country;?>">
+                        <span id="countrySpan" style="color:red"><?php echo $countryErrorMessage;?></span>
                     </div>
                 </div>
 
@@ -106,7 +112,7 @@
 
             <div class="col-md-8 text-center">
               <span id="passwordMissmarch" style="color:red"></span>
-              <button type="submit" class="btn btn-primary btn-lg col-md-12" id="submitBtn">Submit</button>
+              <button type="submit" class="btn btn-primary btn-lg col-md-12" id="submitBtn" name="registerButton">Submit</button>
           </div>
       </div>
   </fieldset>
@@ -133,7 +139,7 @@
     <script src="../js/jquery.easing.min.js"></script>
     <script type="text/javascript" src="../js/fliplightbox.min.js"></script>
     <script src="../js/functions.js"></script>
-    <script src="../js/ourjs.js"></script>
+    <!-- <script src="../js/ourjs.js"></script>-->
     
 </body>
 </html>
