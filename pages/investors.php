@@ -207,7 +207,7 @@
 	<!--footer begins-->
 	<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/footer.php');?>
 	<!--footer ends-->
-	
+
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="../js/jquery-2.1.1.min.js"></script>		
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -218,6 +218,6 @@
 	<script type="text/javascript" src="../js/fliplightbox.min.js"></script>
 	<script src="../js/functions.js"></script>
 	<script src="../contactform/contactform.js"></script>
-	<script src="../js/ourjs.js"></script>
+	<!--<script src="../js/ourjs.js"></script>-->
 </body>
 </html>

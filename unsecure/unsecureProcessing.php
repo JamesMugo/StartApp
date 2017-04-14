@@ -1,16 +1,20 @@
 <?php
 
 //global variables
-$username=$phone=$password=$passwordConfirm=$country=$firstName=$lastName=$email="";
+$username=$phone=$password=$passwordConfirm=$country=$firstName=$lastName=$email=$message=$subject="";
+
+//search from variables
+$interest=$interestColor=$nationality=$nationalityColor=$name=$nameColor=$errorMessage="";
 
 //error color
-$usernameColor=$phoneColor=$passwordColor=$passwordConfirmColor=$countryColor=$firstNameColor=$lastNameColor=$emailColor="";
+$usernameColor=$phoneColor=$passwordColor=$passwordConfirmColor=$countryColor=$firstNameColor=$lastNameColor=
+$emailColor=$messageColor=$subjectColor="";
 
 //error message variables
 $usernameErrorMessage=$phoneErrorMessage=$passwordErrorMessage=$passwordConfirmErrorMessage=$countryErrorMessage=
-$firstNameErrorMessage=$lastNameErrorMessage=$emailErrorMessage=$passwordMisMach="";
+$firstNameErrorMessage=$lastNameErrorMessage=$emailErrorMessage=$passwordMisMach=$messageErrorMessage=
+$subjectErrorMessage="";
 
-$dd="";
 /********************************************************************************************
 						THIS SECTION CHECKS WHICH BUTTON IS CLICKED
 *********************************************************************************************/
@@ -21,37 +25,144 @@ if (isset($_POST['registerButton']))
 }
 else if (isset($_POST['loginButton']))
 {
-	# code...
+	vlaidateLogin();
 }
 else if (isset($_POST['contactButton']))
 {
-	# code...
+	validateContactForm();
+}
+else if (isset($_POST['searchButton']))
+{
+	validateSearchForm();
 }
 
 /********************************************************************************************
 						THIS SECTION VALIDATES THE CONTACT FORM
 *********************************************************************************************/
+//VALIDATING MESSAGE
+function validateMessage()
+{
+	global $message,$messageColor,$messageErrorMessage;
+	//checks if the message box is empty
+	if (isset($_POST['message']) & !empty($_POST['message'])) 
+	{
+		$message=$_POST['message'];
+		$messageColor="green";
+		return true;
 
+	}else
+	{
+		$messageColor="red";
+		$messageErrorMessage="*message must be filled";
+		return false;
+	}
+}
 
+//VALIDATING SUBJECT
+function validateSubject()
+{
+	global $subject,$subjectColor,$subjectErrorMessage;
+	//checks if the message box is empty
+	if (isset($_POST['subject']) & !empty($_POST['subject'])) 
+	{
+		$subject=$_POST['subject'];
+		$subjectColor="green";
+		return true;
 
+	}else
+	{
+		$subjectColor="red";
+		$subjectErrorMessage="*subject must be filled";
+		return false;
+	}
+}
+
+//VALIDATING CONTACT FORM
+function validateContactForm()
+{
+	 validateMessage();
+	 validateSubject();
+	 validateEmail();
+	 validateFirstName();
+}
 
 
 
 /********************************************************************************************
 						THIS SECTION VALIDATES THE LOGIN FORM 
 *********************************************************************************************/
+//VALIDATING THE LOGIN FORM
+function vlaidateLogin()
+{
+	global $username,$usernameColor,$usernameErrorMessage,$password,$passwordColor,$passwordErrorMessage;
+	$count=0;
 
+	//VALIDATES THE USERNAME
+	//checks if the username is set and not empty
+	if (isset($_POST['username']) & !empty($_POST['username']))
+    {
+		$username=$_POST['username'];
+		$usernameColor="green";
+		$count++;
+	}
+	else
+	{
+		$usernameColor="red";
+		$usernameErrorMessage="*username must be filled";
+	}
 
+	//VALIDATES THE PASSWORD
+	//checks if the password is set and not empty
+	if (isset($_POST['password']) & !empty($_POST['password']))
+    {
+		$password=$_POST['password'];
+		$passwordColor="green";
+		$count++;
+	}
+	else
+	{
+		$passwordColor="red";
+		$passwordErrorMessage="*password must be filled";
+	}
 
-
+	if ($count==2)
+    {
+		return true;
+	}
+	return false;
+}
 
 
 /********************************************************************************************
 						THIS SECTION VALIDATES THE SEARCH FORM
 *********************************************************************************************/
 
+//VALIDATING THE SEARCH FORM
+function validateSearchForm()
+{
+	global $interest,$interestColor,$nationality,$nationalityColor,$name,$nameColor,$errorMessage;
 
-
+	//checks if the interest, name, and nationality is set
+	if (isset($_POST['interest']) & isset($_POST['name']) & isset($_POST['nationality']))
+    {
+    	//checks if all the fields are empty
+    	if (empty($_POST['nationality']) & empty($_POST['interest']) & empty($_POST['name']))
+        {
+    		$interestColor="red";
+    		$nameColor="red";
+    		$nationalityColor="red";
+    		$errorMessage="*fill ateleast one";
+    		return false;
+    	}
+    	else
+    	{
+    		$interest=$_POST['interest'];
+    		$name=$_POST['name'];
+    		$nationality=$_POST['nationality'];
+    		return true;
+    	}
+	}
+}
 
 
 /********************************************************************************************
@@ -171,14 +282,14 @@ function validateFirstName()
 		else
 		{
 			$firstNameColor="red";
-			$firstNameErrorMessage="*first name must not contain numbers";
+			$firstNameErrorMessage="*name must not contain numbers";
 			return false;
 		}
 	}
 	else
 	{
 		$firstNameColor="red";
-		$firstNameErrorMessage="*first name must be filled";
+		$firstNameErrorMessage="*name must be filled";
 		return false;
 	}
 }

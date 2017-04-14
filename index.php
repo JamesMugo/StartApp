@@ -13,7 +13,9 @@
 	
 </head>
 <body>	
-	
+	 <?php
+ 	  include('unsecure/unsecureProcessing.php');
+ 	 ?>	
 	<!--header begins-->
 	<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/mainHeader.php');?>
 	<!--header ends-->
@@ -266,20 +268,25 @@
 							<div id="errormessage"></div>
 							<form action="" method="post" role="form" class="contactForm" name="contactForm" onsubmit="return validateContactForm()">
 								<div class="form-group">
-									<input type="text" name="fname" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-									 <span id="firstNameSpan" style="color:red;"></span>
+									<input type="text" name="fname" class="form-control" id="name" placeholder="Your Name" style="border-color:<?php echo $firstNameColor;?>" 
+									value="<?php echo $firstName;?>"/>
+									 <span id="firstNameSpan" style="color:red;"><?php echo $firstNameErrorMessage;?></span>
 								</div>
 								<div class="form-group">
-									<input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-									 <span id="emailSpan" style="color:red"></span>
+									<input type="email" class="form-control" name="email" id="email" placeholder="Your Email" style="border-color:<?php echo $emailColor;?>"
+									value="<?php echo $email;?>"/>
+									 <span id="emailSpan" style="color:red"><?php echo $emailErrorMessage;?></span>
 								</div>
 								<div class="form-group">
-									<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-									<span id="subjectSpan" style="color:red;"></span>
+									<input type="text" class="form-control" name="subject" id="subject"
+									 placeholder="Subject" style="border-color:<?php echo $subjectColor;?>"
+									 value="<?php echo $subject;?>" />
+									<span id="subjectSpan" style="color:red;"><?php echo $subjectErrorMessage;?></span>
 								</div>
 								<div class="form-group">
-									<textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-									<span id="messageSpan" style="color:red;"></span>
+									<textarea class="form-control" name="message" rows="5" placeholder="Message" 
+									style="border-color:<?php echo $messageColor;?>"><?php echo $message;?></textarea>
+									<span id="messageSpan" style="color:red;"><?php echo $messageErrorMessage;?></span>
 								</div>
 								
 								<button type="submit" class="btn btn-theme pull-left" name="contactButton">SEND MESSAGE</button>
@@ -303,7 +310,7 @@
 		<script src="js/jquery.easing.min.js"></script>
 		<script type="text/javascript" src="js/fliplightbox.min.js"></script>
 		<script src="js/functions.js"></script>
-		<script src="js/ourjs.js"></script>
+		<!-- <script src="js/ourjs.js"></script>-->
 		
 	</body>
 	</html>
