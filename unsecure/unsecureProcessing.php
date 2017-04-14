@@ -82,10 +82,25 @@ function validateSubject()
 //VALIDATING CONTACT FORM
 function validateContactForm()
 {
-	 validateMessage();
-	 validateSubject();
-	 validateEmail();
-	 validateFirstName();
+	 $messageValidation=validateMessage();
+	 $subjectValidation=validateSubject();
+	 $emailValidation=validateEmail();
+	 $nameValidation=validateFirstName();
+
+	 if($messageValidation & $subjectValidation & $emailValidation & $nameValidation)
+	 {
+	 	sendEmail();
+	 }
+}
+
+//sends admin an email
+function sendEmail()
+{
+	global $firstName,$email,$message,$subject;
+	$adminEmail="alieujallow93@gmail.com";
+
+	 //send email
+ 	 mail($adminEmail, $subject, $message, "From:" . $email);
 }
 
 
