@@ -8,7 +8,7 @@
 */
 
 //includes the credentials of the database
-require_once('dbcredentials.php');
+require_once('databaseCredentials.php');
 
 /**
 * 
@@ -29,7 +29,7 @@ class Dbconnection
 	{
 		$this ->connection = mysqli_connect(SERVER,USER,PASS,DB);
 
-		if ($connection)
+		if ($this ->connection)
 		{
 			return true;
 		}

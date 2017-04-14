@@ -1,5 +1,7 @@
 <?php
 
+//includes the datbase class
+require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/database/databaseConnectionClass.php');
 //global variables
 $username=$phone=$password=$passwordConfirm=$country=$firstName=$lastName=$email=$message=$subject="";
 
@@ -475,13 +477,90 @@ function passwordEqual()
 //VALIDATING THE REGISTER FORM
 function validateRegisterForm()
 {
-	validateLastName();
-	validateEmail();
-	validateFirstName();
-	passwordEqual();
-	validateUsername();
-	validateCountry();
-	validatePhone();
+	global $usernameErrorMessage,$usernameColor,$test;
+
+	$lastNameValidation = validateLastName();
+	$emailValidation = validateEmail();
+	$firstNameValidation = validateFirstName();
+	$passwordValidation = passwordEqual();
+	$usernameValidation = validateUsername();
+	$countryValidation = validateCountry();
+	$phoneValidation = validatePhone();
+
+	if ($lastNameValidation & $emailValidation & $firstNameValidation & $passwordValidation & $usernameValidation & 
+		$countryValidation & $phoneValidation)
+    {
+		//checks if the username exists
+		if (checkusername())
+	    {
+			//$test="check usename returns true";
+		}
+		else
+		{
+			//user name exists
+			$usernameErrorMessage="*username exists";
+			$usernameColor="red";
+		}
+	}
  }
+
+
+ //registers the user
+function registerNewUser()
+{
+	global $username,$phone,$password,$country,$firstName,$lastName,$email;
+	/*$firstName=$_POST['fname'];
+	$lastName=$_POST['lname'];
+	$username=$_POST['username'];  
+	$email=$_POST['email'];
+	$password=$_POST['password'];
+	$phone=$_POST['phone'];
+	$country=$_POST['country'];*/
+
+	//hash the password
+	$password=password_hash($password, PASSWORD_DEFAULT);
+
+	//creates a new instance of database
+	$registerUser = new Dbconnection;
+
+	$sql = "INSERT INTO
+		 user(username,password,firstName,lastName,emailAddress,phoneNumber,country,userStatus,role_id) 
+		VALUES ('$username','$password','$firstName','$lastName','$email','$phone','country','ACTIVE','2');";
+	
+	$result = $registerUser->queryDatabase($sql);
+
+	if ($result)
+	{
+		header("Location: ../login/signin.php");
+	}
+	else
+	{
+		$test="error";
+	}		
+}
+
+
+//checks if the user name exists
+function checkusername()
+{
+	global $username;
+
+	//sql
+	$sql="SELECT *FROM user WHERE username='$username';";
+	$checkUser = new Dbconnection;
+	$checkUser->queryDatabase($sql);
+	$result= $checkUser->getRow();
+
+	if ($result==null)
+	{
+		registerNewUser();
+		return true;
+	}
+	else
+	{
+		//echo "username exists";
+		return false;
+	}
+}
 
 ?>

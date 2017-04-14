@@ -126,7 +126,6 @@
 
 <!--REGISTER ENDS HERE-->
 
-
     <!--footer begins-->
       <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/mainFooter.php');?>
     <!--footer ends-->

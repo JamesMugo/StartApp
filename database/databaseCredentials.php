@@ -7,5 +7,5 @@
 	define('SERVER', 'localhost');
 	define('USER', 'root');
 	define('PASS', '');
-	define('DB', 'classproject2017');
+	define('DB', 'myi');
 ?>
