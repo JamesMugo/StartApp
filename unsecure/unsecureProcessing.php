@@ -97,7 +97,7 @@ function validateContactForm()
 function sendEmail()
 {
 	global $firstName,$email,$message,$subject;
-	$adminEmail="alieujallow93@gmail.com";
+	$adminEmail="alieu.jallow@ashesi.edu.gh";
 
 	 //send email
  	 mail($adminEmail, $subject, $message, "From:" . $email);
@@ -144,9 +144,8 @@ function vlaidateLogin()
 
 	if ($count==2)
     {
-		return true;
+    	loginUser();
 	}
-	return false;
 }
 
 
@@ -576,6 +575,56 @@ function checkusername()
 		//echo "username exists";
 		return false;
 	}
+}
+
+//veryfies the login
+function loginUser()
+{
+		//global variables
+		global $passwordErrorMessage,$usernameErrorMessage,$usernameColor,$passwordColor,$username,$password;
+
+		//creates a new instance of database
+		$loginUser = new Dbconnection;
+		$sql="SELECT * FROM user WHERE username ='$username'";
+
+		$result = $loginUser->queryDatabase($sql);
+
+		//checks if the query runs successfully
+		if($result)
+		{
+			//returns a row of the result
+			$row = $loginUser->getRow();
+
+			//checks if the row is empty
+			 if ($row==null )
+			 {
+			 		//incorrect username
+			 		$usernameColor="red";
+					$usernameErrorMessage ="Wrong username";
+					$passwordColor="";
+			 }
+			 else
+			 {
+			 	//correct username //now verify the password
+				 if(password_verify($password, $row['password'])) 
+				 {
+				 	//password is correct
+				 	//creating sessions
+				 	/*session_start();
+				 	$_SESSION['userid'] = $row['userid'];
+				 	$_SESSION['username'] = $row['username'];
+				 	$_SESSION['perid'] = $row['per_id'];
+				 	$_SESSION['majorid'] = $row['major_id'];*/
+					header("Location: ../pages/investors.php");
+				 }
+				 else
+				 {
+				 	//incorrect passowrd
+				 	$passwordColor="red";
+					$passwordErrorMessage ="Wrong password";
+				 }
+			 }
+		}	
 }
 
 ?>
