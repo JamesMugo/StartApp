@@ -14,7 +14,12 @@
                             <span class="profile-ava">
                                 <img alt="" src="../img/avatar1_small.jpg">
                             </span>
-                            <span class="username">Alieu Jallow</span>
+                            <span class="username">
+                             <?php
+                                session_start();
+                                echo $_SESSION['username'];
+                              ?>
+                             </span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
@@ -23,7 +28,7 @@
                                 <a href="<?php echo URL;?>/pages/startupEditProfile.php"><i class="icon_profile"></i> My Profile</a>
                             </li>
                             <li>
-                                <a href="<?php echo URL;?>"><i class="icon_key_alt"></i> Log Out</a>
+                                <a href="<?php echo URL;?>/login/logout.php"><i class="icon_key_alt"></i> Log Out</a>
                             </li>
                         </ul>
                     </li>
