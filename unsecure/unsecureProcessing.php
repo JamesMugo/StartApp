@@ -591,7 +591,7 @@ function registerNewUser()
 
 	$sql = "INSERT INTO
 		 user(username,password,firstName,lastName,emailAddress,phoneNumber,country,userStatus,role_id) 
-		VALUES ('$username','$password','$firstName','$lastName','$email','$phone','country','ACTIVE','2');";
+		VALUES ('$username','$password','$firstName','$lastName','$email','$phone','$country','ACTIVE','2');";
 	
 	$result = $registerUser->queryDatabase($sql);
 

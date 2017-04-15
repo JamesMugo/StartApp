@@ -63,6 +63,13 @@ class Dbconnection
 		return true;
 	}
 
+
+	//function that returns the result
+	function getResult()
+	{
+		return $this ->result;
+	}
+
 	/*
 	*gets a row from the result
 	*@return returns false or a row
