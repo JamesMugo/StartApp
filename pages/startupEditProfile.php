@@ -19,7 +19,10 @@
 <body>
 
 	<!--header begins-->
-	<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/InvestorStartupHeader.php');?>
+	<?php
+	 require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/InvestorStartupHeader.php');
+	 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/userController.php');
+	 ?>
 	<!--header ends-->
 
 	<!--CONTAINER-->
@@ -42,80 +45,16 @@
 					This is an <strong>.alert</strong>. Use this to show important messages to the user.
 				</div>
 				<h3>Personal info</h3>
-				<form class="form-horizontal" role="form">
-					<div class="form-group">
-						<label class="col-lg-3 control-label">CompanyName:</label>
-						<div class="col-lg-8">
-							<input class="form-control" value="TiwaleProject" type="text">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-lg-3 control-label">Location:</label>
-						<div class="col-lg-8">
-							<input class="form-control" value="Malawi" type="text">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-lg-3 control-label">Interested in:</label>
-						<div class="col-lg-8">
-							<div class="ui-select">
-								<select id="user_time_zone" class="form-control">
-									<option value="Hawaii">Agriculture</option>
-									<option value="Hawaii">Health</option>
-									<option value="Hawaii">Tourism</option>
-									<option value="Hawaii">Education</option>
-									<option value="Hawaii">Sports</option>
-									<option value="Hawaii">Entertainment</option>
-								</select>
-							</div>
-						</div>
-					</div>
+				<form class="form-horizontal" role="form" method="post" action="">
 
-					<div class="form-group">
-						<label class="col-md-3 control-label">Company address:</label>
-						<div class="col-md-8">
-							<input class="form-control" value="Malawi, Londoncorner" type="text">
-						</div>
-					</div>
+					<?php
+						getProfile($_SESSION['userId']);
+					?>
 
-					<div class="form-group">
-						<label class="col-md-3 control-label">Email:</label>
-						<div class="col-md-8">
-							<input class="form-control" value="tiwaleProject@gmail.com" type="email">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-md-3 control-label">Tel (primary) :</label>
-						<div class="col-md-8">
-							<input class="form-control" value="0872274469" type="text">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-md-3 control-label">Tel (secondary) :</label>
-						<div class="col-md-8">
-							<input class="form-control" value="002209954952" type="text">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-md-3 control-label">Password:</label>
-						<div class="col-md-8">
-							<input class="form-control" value="11111122333" type="password">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-md-3 control-label">Confirm password:</label>
-						<div class="col-md-8">
-							<input class="form-control" value="11111122333" type="password">
-						</div>
-					</div>
 					<div class="form-group">
 						<label class="col-md-3 control-label"></label>
 						<div class="col-md-8">
-							<input class="btn btn-default" value="Save Changes" type="button" id="saveProfileBtn">
-
+							<input class="btn btn-default" value="Save Changes" type="submit" id="saveProfileBtn" name="saveChanges">
 							<input class="btn btn-default" value="Cancel" type="reset">
 						</div>
 					</div>

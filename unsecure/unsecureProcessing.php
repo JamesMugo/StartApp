@@ -184,7 +184,7 @@ function loginUser()
 				 	//creating sessions
 				 	session_start();
 				 	
-				 	$_SESSION['userId'] = $row['userid'];
+				 	$_SESSION['userId'] = $row['userId'];
 				 	$_SESSION['username'] = $row['username'];
 				 	$_SESSION['roleId'] = $row['role_id'];
 
