@@ -88,6 +88,26 @@ class user
 			return false;
 		}
 	}
+
+	//update profile picture
+	function updateProfilePicture($profilePic,$id)
+	{
+		//sql
+		$sql="UPDATE user SET profilePicture ='$profilePic' WHERE userId='$id';";
+
+		//creates an instace of a database
+		$database = new Dbconnection;
+		$result= $database->queryDatabase($sql);
+
+		if($result)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 }
 
 //$user = new user;

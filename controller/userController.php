@@ -3,9 +3,6 @@
 //includes the user class
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/classes/user.php');
 
-$username=$phone=$nationality=$firstName=$lastName=$email=$bio=$address="";
-
-
 //function that lists all the users depending who is logged in to the system
 function listUsers($roleid)
 {
@@ -129,7 +126,7 @@ function getProfile($userid)
 	}
 }
 
-
+//checks which button is clicked
 if (isset($_POST['saveChanges'])) 
 {
 	$username=$_POST['username'];
@@ -143,10 +140,40 @@ if (isset($_POST['saveChanges']))
 
 	//create an instance of the user class
 	$user = new user;
-	$user->saveChanges($username,$firstName,$lastName,$nationality,$address,$email,$phone,$bio,6);
+	$user->saveChanges($username,$firstName,$lastName,$nationality,$address,$email,$phone,$bio,$_SESSION['userId']);
 }
+elseif (isset($_POST['saveImage']))
+{
+	//checks if a file is selected
+	if (empty($_FILES['image']['name'])) 
+	{
+		//file input is empty
+	}
+	else
+	{
+		//image properties
+		$name = $_FILES["image"]["name"];
+		$size =$_FILES["image"]["size"];
+		$type =$_FILES["image"]["type"];
+		$error =$_FILES["image"]["error"];
+		$tempName =$_FILES["image"]["tmp_name"];
 
+		$image = addslashes(file_get_contents($tempName));
+		$imageSize = getimagesize($tempName);
 
+		if ($imageSize==false) 
+		{
+			//this is not an image
+		}
+		else
+		{
+			//insert image in database
+			//create an instance of the user class
+			$user = new user;
+			$user->updateProfilePicture($image,$_SESSION['userId']);
+		}
+	}
 
+}
 
 ?>

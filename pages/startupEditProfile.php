@@ -31,11 +31,14 @@
 		<div class="row">
 			<!-- left column -->
 			<div class="col-md-4 col-sm-6 col-xs-12">
-				<div class="text-center">
-					<img src="../img/team/james.jpg" class="avatar img-circle img-thumbnail" alt="avatar" id="editprofilepic">
-					<h6>Upload a different photo...</h6>
-					<input type="file" class="text-center center-block well well-sm">
-				</div>
+				<form action="" method="post" enctype="multipart/form-data">
+					<div class="text-center">
+						<img src="../img/team/james.jpg" class="avatar img-circle img-thumbnail" alt="avatar" id="editprofilepic">
+						<h6>Upload a different photo...</h6>
+						<input type="file" class="text-center center-block well well-sm" name="image">
+						<input type="submit" value="save" name="saveImage">
+					</div>
+				</form>
 			</div>
 			<!-- edit form column -->
 			<div class="col-md-8 col-sm-6 col-xs-12 personal-info">
