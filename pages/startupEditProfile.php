@@ -33,7 +33,9 @@
 			<div class="col-md-4 col-sm-6 col-xs-12">
 				<form action="" method="post" enctype="multipart/form-data">
 					<div class="text-center">
-						<img src="../img/team/james.jpg" class="avatar img-circle img-thumbnail" alt="avatar" id="editprofilepic">
+						<img src="<?php echo "../controller/getImage.php?id=".$_SESSION['userId']?>" 
+						class="avatar img-circle img-thumbnail" alt="avatar" id="editprofilepic" width="70"
+						 height="70">
 						<h6>Upload a different photo...</h6>
 						<input type="file" class="text-center center-block well well-sm" name="image">
 						<input type="submit" value="save" name="saveImage">

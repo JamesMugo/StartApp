@@ -108,6 +108,26 @@ class user
 			return false;
 		}
 	}
+
+	//update profile picture
+	function retrieveProfilePicture($id)
+	{
+		//sql
+		$sql="SELECT profilePicture from user WHERE userId='$id';";
+
+		//creates an instace of a database
+		$database = new Dbconnection;
+		$result= $database->queryDatabase($sql);
+
+		if($result)
+		{
+			return $database->getResult();
+		}
+		else
+		{
+			return false;
+		}
+	}
 }
 
 //$user = new user;

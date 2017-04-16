@@ -1,4 +1,7 @@
-<?php //define("URL", "http://localhost/MeetYourInvestor")?>
+<?php
+ //define("URL", "http://localhost/MeetYourInvestor")
+ session_start();
+?>
 
 <header class="header dark-bg">
             <!--logo start-->
@@ -12,11 +15,15 @@
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="profile-ava">
-                                <img alt="" src="../img/avatar1_small.jpg">
+                            <?php
+
+                                echo "<img src=\"http://localhost/MeetYourInvestor/controller/getImage.php?id=". 
+                                $_SESSION['userId']."\" width=\"40\" height=\"40\">"
+                             ?>
+
                             </span>
                             <span class="username">
                              <?php
-                                session_start();
                                 echo $_SESSION['username'];
                               ?>
                              </span>
