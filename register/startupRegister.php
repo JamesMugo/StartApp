@@ -39,7 +39,7 @@
                         <div class="form-group">
                             <span class="col-md-2 "></span>
                             <div class="col-md-8">
-                                <input name="fname" type="text" placeholder="Name" class="form-control" style="border-color: <?php echo $firstNameColor;?>" value="<?php echo $firstName;?>">
+                                <input name="fname" type="text" placeholder="First Name" class="form-control" style="border-color: <?php echo $firstNameColor;?>" value="<?php echo $firstName;?>">
                                 <span id="firstNameSpan" style="color:red;"><?php echo $firstNameErrorMessage;?></span>
                             </div>
                         </div>
@@ -48,7 +48,7 @@
                         <div class="form-group">
                             <span class="col-md-2 "></span>
                             <div class="col-md-8">
-                                <input name="lname" type="text" placeholder="Name" class="form-control" style="border-color: <?php echo $lastNameColor;?>" value="<?php echo $lastName;?>">
+                                <input name="lname" type="text" placeholder="Last Name" class="form-control" style="border-color: <?php echo $lastNameColor;?>" value="<?php echo $lastName;?>">
                                 <span id="lastNameSpan" style="color:red;"><?php echo $lastNameErrorMessage;?></span>
                             </div>
                         </div>
@@ -113,7 +113,8 @@
 
             <div class="col-md-8 text-center">
               <span id="passwordMissmarch" style="color:red"></span>
-              <button type="submit" class="btn btn-primary btn-lg col-md-12" id="submitBtn" name="registerButton">Submit</button>
+              <button type="submit" class="btn btn-primary btn-lg col-md-12" id="submitBtn"
+               name="startupRegisterButton">Submit</button>
           </div>
       </div>
   </fieldset>

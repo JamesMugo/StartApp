@@ -12,10 +12,15 @@
   <!--csslinks ends-->
     
 </head>
-<body>	
+<body>
 
-	<!--header begins-->
-  <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/mainHeader.php');?>
+  <?php
+   include('../unsecure/unsecureProcessing.php');
+  ?>  
+  <!--header begins-->
+  <?php
+   require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/mainHeader.php');
+  ?>
   <!--header ends-->
 
   <!--REGISTER STARTS HERE-->
@@ -25,81 +30,91 @@
         <div class="col-md-12">
             <div class="well well-sm">
 
-            	<!--FORM BEGINS -->
-                <form class="form-horizontal form-position" method="post" name="signUpStartUpForm" onsubmit="return validateRegisterForm()" action="">
+              <!--FORM BEGINS -->
+                <form class="form-horizontal form-position" method="post" name="registerForm" onsubmit="return validateRegisterForm()" action="">
                     <fieldset>
                         <legend class="text-center header">Register As an Investor</legend>
 
-                        <!--NAME -->
+                        <!--FIRST NAME -->
                         <div class="form-group">
                             <span class="col-md-2 "></span>
                             <div class="col-md-8">
-                                <input id="name" name="name" type="text" placeholder="Name" class="form-control">
+                                <input name="fname" type="text" placeholder="First Name" class="form-control" style="border-color: <?php echo $firstNameColor;?>" value="<?php echo $firstName;?>">
+                                <span id="firstNameSpan" style="color:red;"><?php echo $firstNameErrorMessage;?></span>
                             </div>
-                            <span id="startUpNameSpan" style="color:red;"></span>
+                        </div>
+
+                        <!--LAST NAME -->
+                        <div class="form-group">
+                            <span class="col-md-2 "></span>
+                            <div class="col-md-8">
+                                <input name="lname" type="text" placeholder="Last Name" class="form-control" style="border-color: <?php echo $lastNameColor;?>" value="<?php echo $lastName;?>">
+                                <span id="lastNameSpan" style="color:red;"><?php echo $lastNameErrorMessage;?></span>
+                            </div>
                         </div>
 
                         <!--USER NAME -->
                         <div class="form-group">
                             <span class="col-md-2 "></span>
                             <div class="col-md-8">
-                                <input id="username" name="username" type="text" placeholder="Username" class="form-control">
+                                <input id="username" name="username" type="text" placeholder="Username" class="form-control" style="border-color: <?php echo $usernameColor;?>" value="<?php echo $username;?>">
+                                 <span id="usernameSpan" style="color:red;"><?php echo $usernameErrorMessage;?></span>
                             </div>
-                            <span id="startUpUsernameSpan" style="color:red;"></span>
                         </div>
 
                         <!--EMAIL ADDRESS -->
                         <div class="form-group">
                          <span class="col-md-2 "></span>
                          <div class="col-md-8">
-                            <input id="email" name="email" type="email" placeholder="Email Address" class="form-control">
+                            <input id="email" name="email" type="email" placeholder="Email Address" class="form-control" style="border-color: <?php echo $emailColor;?>" value="<?php echo $email;?>">
+                            <span id="emailSpan" style="color:red"><?php echo $emailErrorMessage;?></span>
                         </div>
-                        <span id="startUpEmailSpan" style="color:red"></span>
                     </div>
 
                     <!--PHONE -->
                     <div class="form-group">
                      <span class="col-md-2 "></span>
                      <div class="col-md-8">
-                        <input id="phone" name="phone" type="text" placeholder="Phone Number" class="form-control" maxlength="13" minlength="4">
+                        <input id="phone" name="phone" type="text" placeholder="Phone Number" class="form-control" maxlength="13" minlength="4" style="border-color: <?php echo $phoneColor;?>" value="<?php echo $phone;?>">
+                        <span id="phoneSpan" style="color:red"><?php echo $phoneErrorMessage;?></span>
                     </div>
-                    <span id="startUpPhoneSpan" style="color:red"></span>
                 </div>
 
                 <!--COUNTRY -->
                 <div class="form-group">
                     <span class="col-md-2 "></span>
                     <div class="col-md-8">
-                        <input id="country" name="country" type="text" placeholder="country" class="form-control">
+                        <input id="country" name="country" type="text" placeholder="country" class="form-control" style="border-color: <?php echo $countryColor;?>"  value="<?php echo $country;?>">
+                        <span id="countrySpan" style="color:red"><?php echo $countryErrorMessage;?></span>
                     </div>
-                    <span id="startUpcountrySpan" style="color:red"></span>
                 </div>
 
                 <!--PASSWORD-->
                 <div class="form-group">
                  <span class="col-md-2 "></span>
                  <div class="col-md-8">
-                    <input id="password" name="password" type="password" class="form-control" placeholder="password">
+                    <input id="password" name="password" type="password" class="form-control" placeholder="password" style="border-color: <?php echo $passwordColor;?>">
+                    <span id="passwordSpan" style="color:red"><?php echo $passwordErrorMessage;?></span>
                 </div>
-                <span id="startUpPasswordSpan" style="color:red"></span>
             </div>
 
             <!--CONFIRM PASSWORD-->
             <div class="form-group">
              <span class="col-md-2 "></span>
              <div class="col-md-8">
-                <input id="passwordConfirm" name="passwordConfirm" type="password" class="form-control" placeholder="password">
+                <input id="confirmPassword" name="confirmPassword" type="password" class="form-control" placeholder="password" style="border-color: <?php echo $passwordConfirmColor;?>">
+                <span id="confirmPasswordSpan" style="color:red"><?php echo $passwordConfirmErrorMessage;?></span>
+                <span id="passwordMismarch" style="color:red"><?php echo $passwordMisMach;?></span>
             </div>
-            <span id="startUpConfirmPasswordSpan" style="color:red"></span>
         </div>
-
         <!--BUTTON -->
         <div class="form-group">
             <span class="col-md-2 "></span>
 
             <div class="col-md-8 text-center">
               <span id="passwordMissmarch" style="color:red"></span>
-              <button type="submit" class="btn btn-primary btn-lg col-md-12" id="submitBtn">Submit</button>
+              <button type="submit" class="btn btn-primary btn-lg col-md-12" id="submitBtn"
+               name="investorRegisterButton">Submit</button>
           </div>
       </div>
   </fieldset>
@@ -112,20 +127,20 @@
 
 <!--REGISTER ENDS HERE-->
 
-      <!--footer begins-->
+    <!--footer begins-->
       <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/mainFooter.php');?>
-      <!--footer ends-->
+    <!--footer ends-->
+    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-2.1.1.min.js"></script>		
+    <script src="../js/jquery-2.1.1.min.js"></script>   
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>	
-    <script src="js/parallax.min.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
-    <script type="text/javascript" src="js/fliplightbox.min.js"></script>
-    <script src="js/functions.js"></script>
-    <script src="contactform/contactform.js"></script>
-    <script src="js/ourjs.js"></script>
+    <script src="../js/bootstrap.min.js"></script>  
+    <script src="../js/parallax.min.js"></script>
+    <script src="../js/wow.min.js"></script>
+    <script src="../js/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="../js/fliplightbox.min.js"></script>
+    <script src="../js/functions.js"></script>
+    <!-- <script src="../js/ourjs.js"></script>-->
     
 </body>
 </html>

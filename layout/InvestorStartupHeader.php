@@ -5,7 +5,7 @@
 
 <header class="header dark-bg">
             <!--logo start-->
-            <a href="<?php echo URL;?>" class="logo"><span>MYI</span></a>
+            <a href="<?php echo URL;?>/pages/investors.php" class="logo"><span>MYI</span></a>
             <!--logo end-->
 
             <div class="top-nav notification-row">                
@@ -16,11 +16,16 @@
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="profile-ava">
                             <?php
-
-                                echo "<img src=\"http://localhost/MeetYourInvestor/controller/getImage.php?id=". 
-                                $_SESSION['userId']."\" width=\"40\" height=\"40\">"
+                                if (isset($_SESSION['profilePicture']) & empty($_SESSION['profilePicture']))
+                                {
+                                    echo"<img src=\"../img/placeholder.png\" width=\"40\" height=\"40\">";
+                                }
+                                else
+                                {
+                                    echo "<img src=\"http://localhost/MeetYourInvestor/controller/getImage.php?id=". 
+                                    $_SESSION['userId']."\" width=\"40\" height=\"40\">";
+                                }
                              ?>
-
                             </span>
                             <span class="username">
                              <?php

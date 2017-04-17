@@ -2,6 +2,7 @@
 
 //includes the user class
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/classes/user.php');
+$sizeError=$generalError="";
 
 //function that lists all the users depending who is logged in to the system
 function listUsers($roleid)
@@ -14,7 +15,9 @@ function listUsers($roleid)
 	{
 		while ($row = mysqli_fetch_assoc($result)) 
 		{
-			echo "<div id=\"card1\">
+			if (empty($row['profilePicture']))
+			{
+				echo "<div id=\"card1\">
 				<div id=\"investorInfo\">
 					<table>
 						<tr>
@@ -22,7 +25,7 @@ function listUsers($roleid)
 							<td>".$row['firstName']."</td>
 						</tr>
 						<tr>
-							<td  class=\"tdtitle\">Nationality: </td>
+							<td  class=\"tdtitle\">Nationality: </td>         
 							<td>".$row['country']."</td>
 						</tr>
 						<tr>
@@ -32,14 +35,41 @@ function listUsers($roleid)
 					</table>
 				</div>
 					<div id=\"pictb\">
-						<td><img src=\"\" id=\"investorimg\"></td>
+						<td><img src=\"../img/placeholder.png\" id=\"investorimg\">
+						</td>
 					</div>
 			</div>";
 		}
+		else
+		{
+			echo "<div id=\"card1\">
+				<div id=\"investorInfo\">
+					<table>
+						<tr>
+							<td  class=\"tdtitle\">Name: </td>
+							<td>".$row['firstName']."</td>
+						</tr>
+						<tr>
+							<td  class=\"tdtitle\">Nationality: </td>         
+							<td>".$row['country']."</td>
+						</tr>
+						<tr>
+						    <td  class=\"tdtitle\">Interest: </td>
+							<td>Finance</td>
+						</tr>
+					</table>
+				</div>
+					<div id=\"pictb\">
+						<td><img src=\"../controller/getImage.php?id=".$row['userId']."\" id=\"investorimg\">
+						</td>
+					</div>
+			</div>";
+
+		}
+			
+	}
 	}
 }
-
-
 
 //function that lists all the users depending who is logged in to the system
 function getProfile($userid)
@@ -147,7 +177,7 @@ elseif (isset($_POST['saveImage']))
 	//checks if a file is selected
 	if (empty($_FILES['image']['name'])) 
 	{
-		//file input is empty
+		$generalError="please select an Image";
 	}
 	else
 	{
@@ -163,17 +193,45 @@ elseif (isset($_POST['saveImage']))
 
 		if ($imageSize==false) 
 		{
-			//this is not an image
+			$generalError="This is not an image";
 		}
 		else
 		{
-			//insert image in database
-			//create an instance of the user class
-			$user = new user;
-			$user->updateProfilePicture($image,$_SESSION['userId']);
+			$count=0;
+			//check if the image meets the size of 1000 kb
+			if ($size>1000000) 
+			{
+				$sizeError="sorry,your file is too large";
+			}
+			else
+			{
+				$count++;
+			}
+
+			//cheks if the file is meets the standard 
+			if($type != "image/jpg" && $type != "image/png" && $type != "image/jpeg"&& $type != "image/gif" )
+		    {
+		    	$generalError="Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+			}
+			else
+			{
+				$count++;
+			}
+
+			//checks if the picture meets all the requirements
+			if ($count==2)
+		    {
+				//create an instance of the user class
+				$user = new user;
+
+				//insert image in database
+				$user->updateProfilePicture($image,$_SESSION['userId']);
+
+				//destroys the session
+				unset($_SESSION['profilePicture']);
+			}
 		}
 	}
-
 }
 
 ?>

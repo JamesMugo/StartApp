@@ -46,7 +46,7 @@
 					<!--card-->
 					<?php
 						require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/userController.php');
-						listUsers(3);
+						listUsers($_SESSION['roleId']);
 					?>
 				</div>
 			</div>

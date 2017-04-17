@@ -33,9 +33,19 @@
 			<div class="col-md-4 col-sm-6 col-xs-12">
 				<form action="" method="post" enctype="multipart/form-data">
 					<div class="text-center">
-					<img src="<?php echo "../controller/getImage.php?id=".$_SESSION['userId'];?>"
-					class="avatar img-circle img-thumbnail">
-						<h6>Upload a different photo...</h6>
+					<?php
+						if (isset($_SESSION['profilePicture']) & empty($_SESSION['profilePicture']))
+                        {
+                             echo"<img src=\"../img/placeholder.png\" class=\"avatar img-circle img-thumbnail\">";
+                        }
+                        else
+                        {
+                            echo"<img src=\"../controller/getImage.php?id=".$_SESSION['userId']."\"
+							class=\"avatar img-circle img-thumbnail\">";
+                        }
+					?>
+						<h6 style="color: red;"><?php echo $generalError;?></h6>
+						<h6 style="color: red;"><?php echo $sizeError;?></h6>
 						<input type="file" class="text-center center-block well well-sm" name="image">
 						<input type="submit" value="save" name="saveImage">
 					</div>

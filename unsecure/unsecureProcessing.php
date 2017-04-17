@@ -21,9 +21,13 @@ $subjectErrorMessage="";
 						THIS SECTION CHECKS WHICH BUTTON IS CLICKED
 *********************************************************************************************/
 //CHECKS WHICH BUTTON IS CLICKED
-if (isset($_POST['registerButton'])) 
+if (isset($_POST['startupRegisterButton'])) 
 {
-	validateRegisterForm();
+	validateRegisterForm("startup");
+}
+elseif (isset($_POST['investorRegisterButton']))
+{
+	validateRegisterForm("investor");
 }
 else if (isset($_POST['loginButton']))
 {
@@ -187,6 +191,7 @@ function loginUser()
 				 	$_SESSION['userId'] = $row['userId'];
 				 	$_SESSION['username'] = $row['username'];
 				 	$_SESSION['roleId'] = $row['role_id'];
+				 	$_SESSION['profilePicture'] = $row['profilePicture'];
 
 					header("Location: ../pages/investors.php");
 				 }
@@ -541,7 +546,7 @@ function passwordEqual()
 }
 
 //VALIDATING THE REGISTER FORM
-function validateRegisterForm()
+function validateRegisterForm($name)
 {
 	global $usernameErrorMessage,$usernameColor,$test;
 
@@ -557,7 +562,7 @@ function validateRegisterForm()
 		$countryValidation & $phoneValidation)
     {
 		//checks if the username exists
-		if (checkusername())
+		if (checkusername($name))
 	    {
 			//$test="check usename returns true";
 		}
@@ -572,7 +577,7 @@ function validateRegisterForm()
 
 
  //registers the user
-function registerNewUser()
+function registerNewUser($name)
 {
 	global $username,$phone,$password,$country,$firstName,$lastName,$email;
 	/*$firstName=$_POST['fname'];
@@ -589,10 +594,19 @@ function registerNewUser()
 	//creates a new instance of database
 	$registerUser = new Dbconnection;
 
-	$sql = "INSERT INTO
+	if($name=="investor")
+	{
+		$sql = "INSERT INTO
 		 user(username,password,firstName,lastName,emailAddress,phoneNumber,country,userStatus,role_id) 
 		VALUES ('$username','$password','$firstName','$lastName','$email','$phone','$country','ACTIVE','2');";
-	
+	}
+	elseif ($name=="startup")
+    {
+		$sql = "INSERT INTO
+		 user(username,password,firstName,lastName,emailAddress,phoneNumber,country,userStatus,role_id) 
+		VALUES ('$username','$password','$firstName','$lastName','$email','$phone','$country','ACTIVE','3');";
+	}
+
 	$result = $registerUser->queryDatabase($sql);
 
 	if ($result)
@@ -607,7 +621,7 @@ function registerNewUser()
 
 
 //checks if the user name exists
-function checkusername()
+function checkusername($name)
 {
 	global $username;
 
@@ -619,7 +633,7 @@ function checkusername()
 
 	if ($result==null)
 	{
-		registerNewUser();
+		registerNewUser($name);
 		return true;
 	}
 	else
