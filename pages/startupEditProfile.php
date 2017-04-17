@@ -12,7 +12,7 @@
 	<!-- Custom styles -->
     <link href="../css/css/style.css" rel="stylesheet">
 
-	<!--css links begins-->
+	<!--css links begins             <?php ///echo "../controller/getImage.php?id=".$_SESSION['userId']?>-->
     <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/cssLinks.php');?>
     <!--csslinks ends-->
 </head>
@@ -33,9 +33,8 @@
 			<div class="col-md-4 col-sm-6 col-xs-12">
 				<form action="" method="post" enctype="multipart/form-data">
 					<div class="text-center">
-						<img src="<?php echo "../controller/getImage.php?id=".$_SESSION['userId']?>" 
-						class="avatar img-circle img-thumbnail" alt="avatar" id="editprofilepic" width="70"
-						 height="70">
+					<img src="<?php echo "../controller/getImage.php?id=".$_SESSION['userId'];?>"
+					class="avatar img-circle img-thumbnail">
 						<h6>Upload a different photo...</h6>
 						<input type="file" class="text-center center-block well well-sm" name="image">
 						<input type="submit" value="save" name="saveImage">
