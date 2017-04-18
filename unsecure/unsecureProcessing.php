@@ -611,7 +611,7 @@ function registerNewUser($name)
 
 	if ($result)
 	{
-		header("Location: ../login/signin.php");
+		header("Location: ../login/");
 	}
 	else
 	{

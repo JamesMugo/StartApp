@@ -1,7 +1,7 @@
 <?php
-
 //includes the user class
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/classes/user.php');
+//require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/unsecure/unsecureProcessing.php');
 $sizeError=$generalError="";
 
 //function that lists all the users depending who is logged in to the system
@@ -18,6 +18,7 @@ function listUsers($roleid)
 			if (empty($row['profilePicture']))
 			{
 				echo "<div id=\"card1\">
+				<form action=\"\" method=\"post\">
 				<div id=\"investorInfo\">
 					<table>
 						<tr>
@@ -38,11 +39,14 @@ function listUsers($roleid)
 						<td><img src=\"../img/placeholder.png\" id=\"investorimg\">
 						</td>
 					</div>
+					 <button name=\"viewProfile\" value=\"".$row['userId']."\"  type=\"submit\" class=\"btn btn-primary btn-sm\">view profile</button>
+					 </form>
 			</div>";
 		}
 		else
 		{
 			echo "<div id=\"card1\">
+			<form action=\"\" method=\"post\">
 				<div id=\"investorInfo\">
 					<table>
 						<tr>
@@ -63,10 +67,11 @@ function listUsers($roleid)
 						<td><img src=\"../controller/getImage.php?id=".$row['userId']."\" id=\"investorimg\">
 						</td>
 					</div>
+					 <button name=\"viewProfile\" value=\"".$row['userId']."\"  type=\"submit\" class=\"btn btn-primary btn-sm\">view profile</button>
+					 </form>
 			</div>";
 
-		}
-			
+		}	
 	}
 	}
 }
@@ -155,7 +160,6 @@ function getProfile($userid)
 		}
 	}
 }
-
 //checks which button is clicked
 if (isset($_POST['saveChanges'])) 
 {
@@ -164,9 +168,11 @@ if (isset($_POST['saveChanges']))
 	$nationality=$_POST['nationality'];
 	$firstName=$_POST['firstName'];
 	$lastName=$_POST['lastName'];
-	$email=$_POST['email'];
+	//$email=$_POST['email'];
 	$bio=$_POST['bio'];
 	$address=$_POST['address'];
+
+	//validateEmail();
 
 	//create an instance of the user class
 	$user = new user;
@@ -233,5 +239,10 @@ elseif (isset($_POST['saveImage']))
 		}
 	}
 }
+elseif (isset($_POST['viewProfile'])) 
+{
+	$userId = $_POST['viewProfile'];
 
+	header("Location: investorProfile.php?id=".$userId);
+}
 ?>

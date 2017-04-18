@@ -28,52 +28,13 @@
 		<!--PANNEL BEGINS-->
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-				<div class="panel panel-info" id="panel">
-					<div class="panel-heading">
-						<h3 class="panel-title">Alice Kamanda</h3>
-					</div>
-					<div class="panel-body">
-						<div class="row">
-							<div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="img/team/james.jpg" class="img-circle img-responsive"> </div>
+				<div class="panel panel-info" id="panel">	
 
-							<div class=" col-md-9 col-lg-9 "> 
-								<table class="table table-user-information">
-									<tbody>
-										<tr>
-											<td>Name:</td>
-											<td>Alice Kamanda</td>
-										</tr>
-										<tr>
-											<td>Nationality:</td>
-											<td>Ugandan</td>
-										</tr>
-										<tr>
-											<td>Gender</td>
-											<td>Male</td>
-										</tr>
-
-										<tr>
-											<tr>
-												<td>Interested in </td>
-												<td>Entrepreneurship and Education</td>
-											</tr>
-											<tr>
-												<td>Home Address</td>
-												<td>Karamoja, Uganda</td>
-											</tr>
-											<tr>
-												<td>Email</td>
-												<td><a href="mailto:info@support.com">kamanda@gmail.com</a></td>
-											</tr>
-											<td>Phone Number</td>
-											<td>123-4567-890(Landline)<br><br>555-4567-890(Mobile)
-											</td>   
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
+				<?php
+					require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/controller/viewProfileController.php');
+					$userid = $_GET['id'];
+					viewUserProfile($userid);
+				?>
 					<div class="panel-footer">
 
 					</div>

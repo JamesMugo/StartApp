@@ -18,13 +18,17 @@
     <link href="../css/css/style.css" rel="stylesheet">
 
 	<!--css links begins-->
-    <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/cssLinks.php');?>
+    <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/cssLinks.php'); ob_start();?>
     <!--csslinks ends-->
 	
 </head>
 <body>
 	<!--header begins-->
-	<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/InvestorStartupHeader.php');?>
+	<?php 
+		require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/InvestorStartupHeader.php');
+		require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/settings/initialization.php');
+		checkUserLogin();
+	?>
 	<!--header ends-->
 
 	<!--CONTAINER-->
@@ -57,7 +61,10 @@
 
 	</div>	
 	<!--footer begins-->
-	<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/footer.php');?>
+	<?php 
+		require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/footer.php');
+		ob_end_flush();
+	?>
 	<!--footer ends-->
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

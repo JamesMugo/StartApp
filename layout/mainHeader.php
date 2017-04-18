@@ -20,7 +20,7 @@
 						<li><a href="<?php echo URL;?>#our-team">Our Team</a></li> 
 						<li><a href="<?php echo URL;?>#contact">Contact</a></li> 
 						<li><a href="<?php echo URL;?>#signup">Sign up</a></li> 
-						<li><a href="<?php echo URL;?>/login/signin.php">Sign in</a></li> 
+						<li><a href="<?php echo URL;?>/login/">Sign in</a></li> 
 					</ul>
 				</div>
 
