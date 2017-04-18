@@ -2,14 +2,6 @@
 //includes the datbase class
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/database/databaseConnectionClass.php');
 
-
-
-
-
-
-
-
-
 /**
 * 
 */
@@ -121,6 +113,66 @@ class user
 		if($result)
 		{
 			return $database->getResult();
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	//update profile picture
+	function getFavorite($userid)
+	{
+		//sql
+		$sql="SELECT * FROM user WHERE userId IN( SELECT favoriteId FROM favorite WHERE user_id = $userid);";
+
+		//creates an instace of a database
+		$database = new Dbconnection;
+		$result= $database->queryDatabase($sql);
+
+		if($result)
+		{
+			return $database->getResult();
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	//add favorite
+	function addFavorite($userid,$favoriteid)
+	{
+		//sql
+		$sql="INSERT INTO favorite(user_id,favoriteId) VALUES ('$userid','$favoriteid');";
+
+		//creates an instace of a database
+		$database = new Dbconnection;
+		$result= $database->queryDatabase($sql);
+
+		if($result)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	//add favorite
+	function removeFavorite($favoriteid)
+	{
+		//sql
+		$sql=" DELETE FROM favorite WHERE favoriteId='$favoriteid';";
+
+		//creates an instace of a database
+		$database = new Dbconnection;
+		$result= $database->queryDatabase($sql);
+
+		if($result)
+		{
+			return true;
 		}
 		else
 		{

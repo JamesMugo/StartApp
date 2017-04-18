@@ -10,20 +10,20 @@ function listUsers($roleid)
 	//create an instance of the user class
 	$user = new user;
 	$result = $user->queryUsers($roleid);
-
+	$space="   ";
 	if ($result!=false) 
 	{
 		while ($row = mysqli_fetch_assoc($result)) 
 		{
 			if (empty($row['profilePicture']))
 			{
-				echo "<div id=\"card1\">
+				echo "<div id=\"card1\" class=\"panel panel-primary\">
 				<form action=\"\" method=\"post\">
 				<div id=\"investorInfo\">
 					<table>
 						<tr>
 							<td  class=\"tdtitle\">Name: </td>
-							<td>".$row['firstName']."</td>
+							<td>".$row['firstName'].$space.$row['lastName']."</td>
 						</tr>
 						<tr>
 							<td  class=\"tdtitle\">Nationality: </td>         
@@ -36,22 +36,22 @@ function listUsers($roleid)
 					</table>
 				</div>
 					<div id=\"pictb\">
-						<td><img src=\"../img/placeholder.png\" id=\"investorimg\">
-						</td>
+						<td><img src=\"../img/placeholder.png\" class=\"investorimg\"></td>
 					</div>
-					 <button name=\"viewProfile\" value=\"".$row['userId']."\"  type=\"submit\" class=\"btn btn-primary btn-sm\">view profile</button>
+					 <button name=\"viewProfile\" value=\"".$row['userId']."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"viewProfile\">view profile</button>
+					 <button name=\"addFavorite\" value=\"".$row['userId']."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"addFavorite\">Add To Favorite</button>
 					 </form>
 			</div>";
 		}
 		else
 		{
-			echo "<div id=\"card1\">
+			echo "<div id=\"card1\" class=\"panel panel-primary\">
 			<form action=\"\" method=\"post\">
 				<div id=\"investorInfo\">
 					<table>
 						<tr>
 							<td  class=\"tdtitle\">Name: </td>
-							<td>".$row['firstName']."</td>
+							<td>".$row['firstName'].$space.$row['lastName']."</td>
 						</tr>
 						<tr>
 							<td  class=\"tdtitle\">Nationality: </td>         
@@ -64,10 +64,11 @@ function listUsers($roleid)
 					</table>
 				</div>
 					<div id=\"pictb\">
-						<td><img src=\"../controller/getImage.php?id=".$row['userId']."\" id=\"investorimg\">
+						<td><img src=\"../controller/getImage.php?id=".$row['userId']."\" class=\"investorimg\">
 						</td>
 					</div>
-					 <button name=\"viewProfile\" value=\"".$row['userId']."\"  type=\"submit\" class=\"btn btn-primary btn-sm\">view profile</button>
+					 <button name=\"viewProfile\" value=\"".$row['userId']."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"viewProfile\">view profile</button>
+					 <button name=\"addFavorite\" value=\"".$row['userId']."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"addFavorite\">Add To Favorite</button>
 					 </form>
 			</div>";
 
@@ -244,5 +245,99 @@ elseif (isset($_POST['viewProfile']))
 	$userId = $_POST['viewProfile'];
 
 	header("Location: investorProfile.php?id=".$userId);
+}
+elseif (isset($_POST['addFavorite']))
+{
+	$favoriteId = $_POST['addFavorite'];
+	addFavorite($_SESSION['userId'],$favoriteId);
+}
+elseif (isset($_POST['removeFavorite']))
+{
+	$favoriteId = $_POST['removeFavorite'];
+	removeFavorite($favoriteId);
+}
+
+function addFavorite($userid,$favoriteid)
+{
+	$user = new user;
+	$result = $user->addFavorite($userid,$favoriteid);
+}
+
+function removeFavorite($favoriteid)
+{
+	$user = new user;
+	$result = $user->removeFavorite($favoriteid);
+}
+
+function listFavorites($userid)
+{
+	//create an instance of the user class
+	$user = new user;
+	$result = $user->getFavorite($userid);
+	$space="   ";
+	if ($result!=false) 
+	{
+		while ($row = mysqli_fetch_assoc($result)) 
+		{
+			if (empty($row['profilePicture']))
+			{
+				echo "<div id=\"card1\" class=\"panel panel-primary\">
+				<form action=\"\" method=\"post\">
+				<div id=\"investorInfo\">
+					<table>
+						<tr>
+							<td  class=\"tdtitle\">Name: </td>
+							<td>".$row['firstName'].$space.$row['lastName']."</td>
+						</tr>
+						<tr>
+							<td  class=\"tdtitle\">Nationality: </td>         
+							<td>".$row['country']."</td>
+						</tr>
+						<tr>
+						    <td  class=\"tdtitle\">Interest: </td>
+							<td>Finance</td>
+						</tr>
+					</table>
+				</div>
+					<div id=\"pictb\">
+						<td><img src=\"../img/placeholder.png\" class=\"investorimg\"></td>
+					</div>
+					 <button name=\"viewProfile\" value=\"".$row['userId']."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"viewProfile\">view profile</button>
+					 <button name=\"removeFavorite\" value=\"".$row['userId']."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"addFavorite\">Remove From Favorite</button>
+					 </form>
+			</div>";
+		}
+		else
+		{
+			echo "<div id=\"card1\" class=\"panel panel-primary\">
+			<form action=\"\" method=\"post\">
+				<div id=\"investorInfo\">
+					<table>
+						<tr>
+							<td  class=\"tdtitle\">Name: </td>
+							<td>".$row['firstName'].$space.$row['lastName']."</td>
+						</tr>
+						<tr>
+							<td  class=\"tdtitle\">Nationality: </td>         
+							<td>".$row['country']."</td>
+						</tr>
+						<tr>
+						    <td  class=\"tdtitle\">Interest: </td>
+							<td>Finance</td>
+						</tr>
+					</table>
+				</div>
+					<div id=\"pictb\">
+						<td><img src=\"../controller/getImage.php?id=".$row['userId']."\" class=\"investorimg\">
+						</td>
+					</div>
+					 <button name=\"viewProfile\" value=\"".$row['userId']."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"viewProfile\">view profile</button>
+					 <button name=\"removeFavorite\" value=\"".$row['userId']."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"addFavorite\">Remove From Favorite</button>
+					 </form>
+			</div>";
+
+		}	
+	}
+  }
 }
 ?>

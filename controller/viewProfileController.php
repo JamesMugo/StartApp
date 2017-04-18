@@ -7,7 +7,7 @@ function viewUserProfile($userid)
 		//create an instance of the user class
 	$user = new user;
 	$result = $user->loadProfile($userid);
-
+	$space="   ";
 	if ($result!=false) 
 	{
 		while ($row = mysqli_fetch_assoc($result)) 
@@ -15,7 +15,7 @@ function viewUserProfile($userid)
 			if (empty($row['profilePicture']))
 			{
 					echo "<div class=\"panel-heading\">
-						<h3 class=\"panel-title\">".$row['firstName']."  ".$row['lastName']."</h3>
+						<h3 class=\"panel-title\">".$row['firstName'].$space.$row['lastName']."</h3>
 					</div>
 					<div class=\"panel-body\">
 						<div class=\"row\">
@@ -72,7 +72,7 @@ function viewUserProfile($userid)
 			else
 			{
 					echo "<div class=\"panel-heading\">
-						<h3 class=\"panel-title\">".$row['firstName'].$row['lastName']."</h3>
+						<h3 class=\"panel-title\">".$row['firstName'].$space.$row['lastName']."</h3>
 					</div>
 					<div class=\"panel-body\">
 						<div class=\"row\">

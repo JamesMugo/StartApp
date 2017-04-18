@@ -45,28 +45,25 @@
 			<div class="col-md-8" id="middle">
 				<h2 style="text-align: center;  font-family:'Roboto'; ">Investors</h2>
 				<hr>
-
-				<div id="cardrow">
 					<!--card-->
 					<?php
 						require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/userController.php');
 						listUsers($_SESSION['roleId']);
 					?>
-				</div>
 			</div>
 				<!--right sidebar begins-->
 				<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/rightSidebar.php');?>
 				<!--right sidebar ends-->
 		</div>
-
 	</div>	
+
 	<!--footer begins-->
 	<?php 
 		require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/footer.php');
 		ob_end_flush();
 	?>
 	<!--footer ends-->
-
+	
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="../js/jquery-2.1.1.min.js"></script>		
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
