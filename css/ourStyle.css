@@ -1,0 +1,283 @@
+/* ==== Google font ==== */
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700,100);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600);
+@import url('font-awesome.css');
+
+/* ==== overwrite bootstrap standard ==== */
+@import url('overwrite.css');
+@import url('animate.css');
+
+/*************************
+*******Typography******
+**************************/
+
+#menu
+{
+	margin-left: 27%;
+
+}
+
+#login
+{
+
+	margin-top: 1.3%;
+	padding-left: 20%; 
+	
+}
+
+#tblogin
+{
+	margin: auto;
+	color: white;
+}
+
+#lefSidebar
+{
+	background-color:#fafafa;;
+	height: 550px;
+	margin-top: 5%;
+}
+
+#rightSidebar
+{
+	background-color: #fafafa;;
+	height: 550px;
+	margin-top: 5%;
+}
+
+#middle
+{
+	margin-top: 5%;
+
+}
+
+#card1
+{
+	background-color: #d9edf7;
+	margin-top: 2%;
+	float: left;
+	width: 47%;
+	border-radius: 9px;
+	margin-left: 2%;
+}
+
+
+#card2
+{
+	background-color: #d9edf7;;
+	margin-top: 2%;
+	float: right;
+	width: 49%;
+	border-radius: 9px;
+}
+
+.investorimg
+{
+	width: 100%;
+	height: auto;
+	padding-top: 8%;
+	border-radius: 50%;
+}
+
+#pictb
+{
+	float: right;
+	width: 15%;
+	margin-right: 10%;
+}
+
+#investorInfo
+{
+	background-color:#bce8f1;
+	float: left;
+	padding-left:2%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	width:60%;
+	height: 69px;
+}
+
+#panel
+{
+	margin-top: 22%;
+}
+
+#userloginpic
+{
+	width: 65%;
+	height: auto;
+}
+#userlogindropdown
+{
+	margin-left: 92%;
+}
+
+#cardrow td
+{
+	font-family: sans-serif;
+}
+
+#editprofilepic
+{
+	width: 35%;
+	height: auto;
+}
+
+#saveProfileBtn
+{
+	background-color: #428bca;
+	color: white;
+}
+
+#lefSidebar-list
+{
+	padding-top: 55%;
+}
+#lefSidebar-list1
+{
+	padding-top: 20%;
+}
+.tdtitle
+{
+	font-family: Arial;
+	font-weight: bold;
+}
+
+#about
+{
+	padding-top: 5%;
+	background-color: #f4f4f4;
+}
+#h1Header{
+	color: black;
+}
+
+.login-area{
+	padding: 4%;
+	background-color: white;
+	border-radius: 2%;
+	margin-left: 0%;
+	max-width: 40%;
+	min-width: 20%;
+	max-height: 50%;
+}
+
+.opButton{
+ width: 70%;
+ height: 30%;
+ color: blue;
+ text-align: center;
+ text-align: center;
+ margin-left: 20%;
+ padding: 2.5%;
+ border-radius: 6%;
+ margin-top: 7%;
+ margin-bottom: 7%
+ /*text-decoration: none;*/  
+}
+
+.opButton:hover{
+    background-color: white;
+}
+
+.opButton:hover{
+    text-decoration: none;
+    background-color: rgb(51, 153, 255);
+    color: white;
+}
+
+.blink{
+	color:white;
+}
+
+.blink:hover{
+	color:blue;
+}
+
+.modal-header, h4, .close {
+      background-color: #5cb85c;
+      color:white !important;
+      text-align: center;
+      font-size: 30px;
+  }
+  .modal-footer {
+      background-color: #f9f9f9;
+  }
+
+#register
+{
+	margin-top: 10%;
+}
+
+#form2{
+	/*background-color: red;*/
+	display: inline;
+	position: absolute;
+	left: 45%;
+}
+
+#messager
+{
+	margin-left: 10%;
+	margin-top: 5%;
+	font-weight:bold;
+}
+.signupBtn
+{
+	width: 30%;
+	background-color: #0BA9F9;
+	margin-left: 50%;
+	height: 50px;
+	border-radius: 10%;
+	text-align: center;
+	padding-top:  1%;
+	color: white;
+}
+
+#signupBtnContainer
+{
+	padding-top: 3%;
+}
+
+.inputBackground
+{
+	color: black;
+}
+
+.inputwidth
+{
+	width: 15%;
+}
+#panelf
+{
+	height:100px;
+}
+
+#submitBtn1
+{
+	width: 100%;
+}
+
+#logo
+{
+	margin-left: 12%;
+}
+ #viewProfile
+ {
+ 	margin-top: 9.3%;
+ 	float: right;
+ 	border-bottom-right-radius:5px;
+ }
+
+ #addFavorite
+ {
+ 	margin-top: 9%;
+ 	border-bottom-left-radius:5px;
+ 	background-color:  #5cb85c;
+ 	float: left;
+ }
+
+#changePassword
+{
+	width: 90%;
+}
