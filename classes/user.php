@@ -140,11 +140,11 @@ class user
 		}
 	}
 
-	//add favorite
-	function addFavorite($userid,$favoriteid)
+	//change password
+	function changePassword($userId,$newpass)
 	{
 		//sql
-		$sql="INSERT INTO favorite(user_id,favoriteId) VALUES ('$userid','$favoriteid');";
+		$sql="UPDATE user SET password ='$newpass' WHERE userId='$userId';";
 
 		//creates an instace of a database
 		$database = new Dbconnection;
@@ -160,19 +160,20 @@ class user
 		}
 	}
 
-	//add favorite
-	function removeFavorite($favoriteid)
+	//change password
+	function getUserPassword($userId)
 	{
 		//sql
-		$sql=" DELETE FROM favorite WHERE favoriteId='$favoriteid';";
+		$sql="SELECT password FROM user WHERE userId='$userId';";
 
 		//creates an instace of a database
 		$database = new Dbconnection;
+
 		$result= $database->queryDatabase($sql);
 
 		if($result)
 		{
-			return true;
+			return $database->getResult();
 		}
 		else
 		{
@@ -181,6 +182,6 @@ class user
 	}
 }
 
-//$user = new user;
-//$user->saveChanges("arl","alieu","jallow","gambian","serekunsa","alieu.jallow@ashesi.edu.gh","002209954952","hwllow",6);
+/*$user=new user;
+var_dump($user->getUserPassword(700000));*/
 ?>

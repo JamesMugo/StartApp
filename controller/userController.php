@@ -1,5 +1,6 @@
 <?php
 //includes the user class
+//require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/unsecure/unsecureProcessing.php');
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/classes/user.php');
 //require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/unsecure/unsecureProcessing.php');
 $sizeError=$generalError="";
@@ -246,28 +247,7 @@ elseif (isset($_POST['viewProfile']))
 
 	header("Location: investorProfile.php?id=".$userId);
 }
-elseif (isset($_POST['addFavorite']))
-{
-	$favoriteId = $_POST['addFavorite'];
-	addFavorite($_SESSION['userId'],$favoriteId);
-}
-elseif (isset($_POST['removeFavorite']))
-{
-	$favoriteId = $_POST['removeFavorite'];
-	removeFavorite($favoriteId);
-}
 
-function addFavorite($userid,$favoriteid)
-{
-	$user = new user;
-	$result = $user->addFavorite($userid,$favoriteid);
-}
-
-function removeFavorite($favoriteid)
-{
-	$user = new user;
-	$result = $user->removeFavorite($favoriteid);
-}
 
 function listFavorites($userid)
 {
@@ -340,4 +320,6 @@ function listFavorites($userid)
 	}
   }
 }
+
+// var_dump(getUserPassword(8));
 ?>

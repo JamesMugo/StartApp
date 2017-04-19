@@ -42,6 +42,7 @@
           <!--card-->
           <?php
             require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/userController.php');
+            require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/favoriteController.php');
             listFavorites($_SESSION['userId']);
           ?>
     

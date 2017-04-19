@@ -11,25 +11,13 @@
     <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
     <link rel="shortcut icon" href="img/favicon.png">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<?php
-		require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/settings/initialization.php');
-		require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/favoriteController.php');
-		$user="";
-		if($_SESSION['roleId']==2)
-		{
-			$user="Startups";
-		}
-		elseif($_SESSION['roleId']==3)
-		{
-			$user="Investors";
-		}
-	?>
-	<title><?php echo $user;?></title>
+	<title>investors' Page</title>
 
    
     <!-- Custom styles -->
     <link href="../css/css/style.css" rel="stylesheet">
-
+    <!--csslinks ends-->
+ 	 <link rel="stylesheet" href="../css/style1.css" media="screen" type="text/css" />
 	<!--css links begins-->
     <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/cssLinks.php'); ob_start();?>
     <!--csslinks ends-->
@@ -38,7 +26,9 @@
 <body>
 	<!--header begins-->
 	<?php 
+		require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/settings/initialization.php');
 		require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/InvestorStartupHeader.php');
+		require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/settings/validations.php');
 		checkUserLogin();
 	?>
 	<!--header ends-->
@@ -55,15 +45,29 @@
 
 			<!--middle bar-->
 			<div class="col-md-8" id="middle">
-				<h2 style="text-align: center;  font-family:'Roboto'; ">
-					<?php echo $user;?>
-				</h2>
+				<h2 style="text-align: center;  font-family:'Roboto'; ">Change Your Password</h2>
 				<hr>
-					<!--card-->
-					<?php
-						require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/userController.php');
-						listUsers($_SESSION['roleId']);
-					?>
+
+					<div class="login-card" id="changePassword" style="width: 90; margin-top: -0.1%;">
+						    <h1>Change Password</h1><br>
+						  <form method="post" name="changePasswordForm" onsubmit="return validatechangePasswordForm()" action="">
+						    <input type="password" name="currentPassword" placeholder="Current Password" style="border-color: <?php echo $passwordColor;?>">
+						    <span id="currentPasswordSpan" style="color:red;">
+						    <?php echo $passwordErrorMessage;?></span>
+
+						    <input type="password" name="newPassword" placeholder="New Password" style="border-color: <?php echo $newPasswordColor;?>">
+						    <span id="newPasswordSpan" style="color:red;"><?php echo $newPasswordErrorMessage;?></span>
+
+						    <input type="password" name="confirmPassword" placeholder="Confirm Password" style="border-color: <?php echo $confirmPasswordColor;?>">
+						    <span id="confirmPasswordSpan" style="color:red;"><?php echo $confirmPasswordErrorMessage;?></span>
+
+						     <span id="passwordMismarch" style="color:red"><?php echo $passwordMisMach;?></span>
+						     <span style="color:green"><?php echo $passSuccess;?></span>
+
+						    <input type="submit" name="changePasswordButton" class="login login-submit" value="Save Changes">
+						  </form>
+					</div>
+					
 			</div>
 				<!--right sidebar begins-->
 				<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/rightSidebar.php');?>
@@ -87,7 +91,6 @@
 	<script src="../js/jquery.easing.min.js"></script>
 	<script type="text/javascript" src="../js/fliplightbox.min.js"></script>
 	<script src="../js/functions.js"></script>
-	<script src="../contactform/contactform.js"></script>
 	<!--<script src="../js/ourjs.js"></script>-->
 </body>
 </html>

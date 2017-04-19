@@ -1,6 +1,6 @@
 <?php
  //define("URL", "http://localhost/MeetYourInvestor")
- session_start();
+require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/settings/initialization.php');
 ?>
 
 <header class="header dark-bg">
@@ -38,6 +38,9 @@
                             <div class="log-arrow-up"></div>
                             <li class="eborder-top">
                                 <a href="<?php echo URL;?>/pages/startupEditProfile.php"><i class="icon_profile"></i> My Profile</a>
+                            </li>
+                            <li class="eborder-top">
+                                <a href="<?php echo URL;?>/pages/settings.php"><i class="icon_profile"></i>settings</a>
                             </li>
                             <li>
                                 <a href="<?php echo URL;?>/login/logout.php"><i class="icon_key_alt"></i> Log Out</a>

@@ -95,11 +95,26 @@ function validateContactForm()
 
 	if (emailVlidation & nameValidation & messageValidation & subjectValidation) 
 	{
+		passwordEqual()
 		return true;
 	}
 	return false;
 }
 
+
+/********************************************************************************************
+				THIS SECTION VALIDATES THE CHANGE PASSWORD FORM
+*********************************************************************************************/
+function validatechangePasswordForm()
+{
+	var currentPassword = validatePassword("changePasswordForm","currentPassword","currentPasswordSpan");
+	var equal = passwordEqual("changePasswordForm","newPassword","confirmPassword","newPasswordSpan","confirmPasswordSpan");
+	if (currentPassword & equal)
+	 {
+	 	return true;
+	 }
+	 return false;
+}
 
 /********************************************************************************************
 						THIS SECTION VALIDATES THE LOGIN FORM
@@ -360,9 +375,9 @@ function validateEmail(form)
 }
 
 //VALIDATING PASSWORD
-function validatePassword(pas,span)
+function validatePassword(form,pas,span)
 {
-	var password = document.forms["registerForm"][pas];
+	var password = document.forms[form][pas];
 	var span = document.getElementById(span);
    if (password.value == "") 
    {
@@ -405,15 +420,15 @@ function validatePassword(pas,span)
 }
 
   //CHECKING IF THE TWO PASSWORDS ARE EQUAL
-function passwordEqual()
+function passwordEqual(form,newpass,confirmpass,newpasspan,confrmpasapan)
 {
-	var confirmPassword = document.forms["registerForm"]["confirmPassword"].value;
-	var password = document.forms["registerForm"]["password"].value;
+	var password = document.forms[form][newpass].value;
+	var confirmPassword = document.forms[form][confirmpass].value;
 	var passwordMismach = document.getElementById("passwordMismarch");
 
 	//checks if the two passwords march
-	var fPass = validatePassword("password","passwordSpan");
-	var sPass = validatePassword("confirmPassword","confirmPasswordSpan");
+	var fPass = validatePassword(form,newpass,newpasspan);
+	var sPass = validatePassword(form,confirmpass,confrmpasapan);
 
 	if (fPass&sPass)
 	 {
@@ -426,7 +441,13 @@ function passwordEqual()
 	 	else
 	 	{
 	 		passwordMismach.innerHTML="password did not match";
+	 		document.forms[form][newpass].value="";
+	 		document.forms[form][confirmpass].value="";
 	 	}
+	 }
+	 else
+	 {
+	 	passwordMismach.innerHTML="";
 	 }
 	 return false;
 }
