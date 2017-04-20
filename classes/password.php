@@ -44,4 +44,7 @@ class forgotPassword
 	}
 }
 
+//$forPass = new forgotPassword;
+//var_dump($forPass -> oldPassword('jamohmugo@gmail.com'));
+
 ?>
