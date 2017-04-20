@@ -35,9 +35,6 @@
 					$userid = $_GET['id'];
 					viewUserProfile($userid);
 				?>
-					<div class="panel-footer">
-
-					</div>
 
 				</div>
 			</div>

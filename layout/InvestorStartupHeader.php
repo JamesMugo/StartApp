@@ -5,7 +5,7 @@ require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/settings/initializatio
 
 <header class="header dark-bg">
             <!--logo start-->
-            <a href="<?php echo URL;?>/pages/investors.php" class="logo"><span>MYI</span></a>
+            <a href="<?php echo URL;?>/pages/users.php" class="logo"><span>MYI</span></a>
             <!--logo end-->
 
             <div class="top-nav notification-row">                

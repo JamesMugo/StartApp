@@ -18,7 +18,18 @@
 <body>
 
  <!--header begins-->
-  <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/InvestorStartupHeader.php');?>
+  <?php
+     require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/InvestorStartupHeader.php');
+     $user="";
+    if($_SESSION['roleId']==2)
+    {
+      $user="Startups";
+    }
+    elseif($_SESSION['roleId']==3)
+    {
+      $user="Investors";
+    }
+  ?>
   <!--header ends-->
 
   <!--CONTAINER-->
@@ -30,15 +41,15 @@
       <!-- left side bar column-->
       <div class="col-md-2" id="lefSidebar">
         <ul id="lefSidebar-list" class="nav ">
-          <li><a href="investors.php">Back to Investors</a></li><br>
+          <li><a href="users.php">Back to <?php echo $user;?></a></li><br>
+          <li><a href="">Messages</a></li><br>
         </ul>
       </div>
 
       <!--middle bar-->
       <div class="col-md-8" id="middle">
-        <h2 style="text-align: center;  font-family:'Roboto'; ">My Favourite Investors</h2>
+        <h2 style="text-align: center;  font-family:'Roboto'; ">My Favourite <?php echo $user;?></h2>
         <hr>
-
           <!--card-->
           <?php
             require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/userController.php');

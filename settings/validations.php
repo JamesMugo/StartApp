@@ -156,6 +156,7 @@ elseif (isset($_POST['sendEmail']))
 	if(validateEmail())
 	{
 		//send the email
+		
 	}
 }
 

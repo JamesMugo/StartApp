@@ -193,7 +193,7 @@ function loginUser()
 				 	$_SESSION['roleId'] = $row['role_id'];
 				 	$_SESSION['profilePicture'] = $row['profilePicture'];
 
-					header("Location: ../pages/investors.php");
+					header("Location: ../pages/users.php");
 				 }
 				 else
 				 {
