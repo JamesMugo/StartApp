@@ -5,6 +5,9 @@ $password=$passwordColor=$passwordErrorMessage=$passwordMisMach="";
 $newPassword=$newPasswordColor=$newPasswordErrorMessage=$passSuccess="";
 $confirmPassword=$confirmPasswordColor=$confirmPasswordErrorMessage="";
 
+
+$email=$emailColor=$emailErrorMessage="";
+
 //VALIDATING PASSWORD
 function validatePass($name)
 {
@@ -147,6 +150,14 @@ if (isset($_POST['changePasswordButton']))
 		}	
 	}
 }
+elseif (isset($_POST['sendEmail']))
+{
+	//validates the email
+	if(validateEmail())
+	{
+		//send the email
+	}
+}
 
 //function that helps to change user password
 function changePassword($userId,$newpass)
@@ -183,4 +194,37 @@ function getUserPassword($userId)
 		}
 	}
 }
+
+//VALIDATING EMAIL
+function validateEmail()
+{
+	global $email,$emailColor,$emailErrorMessage;
+	//checks if the email is set and not empty
+	if (isset($_POST['email']) & !empty($_POST['email'])) 
+	{
+		$email= $_POST['email'];
+
+		//checks if the email meets the pattern
+		$pattern = "/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/";
+
+		if (preg_match($pattern,$email)) 
+		{
+			$emailColor = "green";
+			return true;
+		}
+		else
+		{
+			$emailColor = "red";
+			$emailErrorMessage = "*invalid email";
+			return false;
+		}
+	}
+	else
+	{
+		$emailColor = "red";
+		$emailErrorMessage = "*email must be filled";
+		return false;
+	}
+}
+
 ?>

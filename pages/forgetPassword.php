@@ -5,7 +5,7 @@
 
   <meta charset="UTF-8">
 
-  <title>Log-in</title>
+  <title>forgot password</title>
   <!--css links begins-->
   <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/cssLinks.php');?>
   <!--csslinks ends-->
@@ -15,7 +15,7 @@
 <body>
 
   <?php
-   include('../unsecure/unsecureProcessing.php');
+   require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/settings/validations.php');
   ?>  
   <!--header begins-->
   <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/mainHeader.php');?>
@@ -23,11 +23,10 @@
 
   <div class="login-card">
     <h1>Log-in</h1><br>
-  <form method="post" name="loginForm" onsubmit="return validateLoginForm()" action="">
-    <input type="email" name="email" placeholder="email" style="border-color: <?php //echo $usernameColor;?>"
-    value="<?php //echo $username;?>">
-    <span id="usernameSpan" style="color:red;"><?php //echo $usernameErrorMessage;?></span>
-    <input type="submit" name="loginButton" class="login login-submit" value="Send">
+  <form method="post" name="passwordRecoveryForm" onsubmit="return validateRecoveryForm()" action="">
+    <input type="email" name="email" placeholder="email" style="border-color: <?php echo $emailColor;?>">
+    <span id="emailSpan" style="color:red;"><?php echo $emailErrorMessage;?></span>
+    <input type="submit" name="sendEmail" class="login login-submit" value="Send">
   </form>
 </div>
 
