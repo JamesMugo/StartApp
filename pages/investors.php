@@ -62,15 +62,30 @@
 					<!--card-->
 					<?php
 						require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/userController.php');
+						if(!(isset($_POST['name'])||isset($_POST['nationality'])||isset($_POST['interest'])))
+						{
 						listUsers($_SESSION['roleId']);
+						}
+						else
+						{
+							echo "<h2 style='text-align: center;  font-family:\"Roboto\";'>
+							Search Results
+							</h2>";
+							require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/searchcontroller.php');
+							displaySearchResults($_POST['name'],$_POST['nationality'],$_POST['interest']);
+						}
 					?>
+					<span id="placeholder"></span>
 			</div>
 				<!--right sidebar begins-->
-				<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/rightSidebar.php');?>
+				<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/rightSidebar.php')
+				;?>
 				<!--right sidebar ends-->
 		</div>
 	</div>	
 
+	<!-- //ajax reading -->
+	<!-- readfile("menu.html"); -->
 	<!--footer begins-->
 	<?php 
 		require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/footer.php');
@@ -88,6 +103,7 @@
 	<script type="text/javascript" src="../js/fliplightbox.min.js"></script>
 	<script src="../js/functions.js"></script>
 	<script src="../contactform/contactform.js"></script>
+	<script src="searchAjax.js"></script>
 	<!--<script src="../js/ourjs.js"></script>-->
 </body>
 </html>

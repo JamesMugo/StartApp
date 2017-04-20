@@ -5,7 +5,7 @@
 <div class="col-md-2" id="rightSidebar">
 	<!-- searh-->
 	<h4>Filter by: </h4>
-	<form class="form-horizontal" role="form" name="searchForm" onsubmit="return validateSearchForm()" action="" 
+	<form method="post" action="" class="form-horizontal" role="form" name="searchForm" onsubmit="return validateSearchForm()" action="" 
 	method="post">
 
 		<div class="form-group">
@@ -35,7 +35,7 @@
 			<label class="col-md-3 control-label"></label>
 			<span style="color: red;" id="searhSpan"><?php echo $errorMessage;?></span>
 			<div class="col-md-10">
-				<button type="submit" class="btn btn-primary" name="searchButton">Search</button>
+				<button type="submit" class="btn btn-primary" onclick="searchFunction()" name="searchButton">Search</button>
 			</div>
 		</div>
 

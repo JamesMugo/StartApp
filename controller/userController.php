@@ -44,7 +44,7 @@ function listUsers($roleid)
 					 </form>
 			</div>";
 		}
-		else
+		else if(!empty($row['profilePicture']))
 		{
 			echo "<div id=\"card1\" class=\"panel panel-primary\">
 			<form action=\"\" method=\"post\">
@@ -72,7 +72,6 @@ function listUsers($roleid)
 					 <button name=\"addFavorite\" value=\"".$row['userId']."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"addFavorite\">Add To Favorite</button>
 					 </form>
 			</div>";
-
 		}	
 	}
 	}
