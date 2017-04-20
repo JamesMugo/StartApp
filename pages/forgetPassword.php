@@ -22,9 +22,9 @@
   <!--header ends-->
 
   <div class="login-card">
-    <h1>Log-in</h1><br>
+    <h1 style="color: blue">Forgotten-Password</h1><br>
   <form method="post" name="loginForm" onsubmit="return validateLoginForm()" action="">
-    <input type="email" name="email" placeholder="email" style="border-color: <?php //echo $usernameColor;?>"
+    <input type="email" name="email" placeholder="enter email  to reset" style="border-color: <?php //echo $usernameColor;?>"
     value="<?php //echo $username;?>">
     <span id="usernameSpan" style="color:red;"><?php //echo $usernameErrorMessage;?></span>
     <input type="submit" name="loginButton" class="login login-submit" value="Send">
