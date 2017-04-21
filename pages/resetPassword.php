@@ -21,6 +21,8 @@
   <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/mainHeader.php');?>
   <!--header ends-->
 
+  <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/mainHeader.php');?>
+
   <div class="login-card">
     <h1>Reset Password</h1><br>
   <form method="post" name="resetForm" onsubmit="return validateLoginForm()" action="">
