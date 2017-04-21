@@ -264,7 +264,7 @@
 						</div>
 						
 						<div class="col-md-4 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">  	
-							<div id="sendmessage"><?php echo $sendEmailError;?></div>
+							<div style="color: red;"><?php echo $sendEmailError;?></div>
 							<div id="errormessage"></div>
 							<form action="" method="post" role="form" class="contactForm" name="contactForm" onsubmit="return validateContactForm()">
 								<div class="form-group">

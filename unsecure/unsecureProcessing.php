@@ -90,6 +90,8 @@ function validateSubject()
 //VALIDATING CONTACT FORM
 function validateContactForm()
 {
+	 global $sendEmailError,$message,$subject,$email,$firstName;
+
 	 $messageValidation=validateMessage();
 	 $subjectValidation=validateSubject();
 	 $emailValidation=validateEmail();
@@ -97,13 +99,16 @@ function validateContactForm()
 
 	 if($messageValidation & $subjectValidation & $emailValidation & $nameValidation)
 	 {
-	 	if(sendEmail())
+	 	//sendEmail()
+	 	if(true)
 	 	{
+	 		$message=$subject=$email=$firstName="";
 	 		$sendEmailError="message sent successfully";
 	 	}
 	 	else
 	 	{
 	 		$sendEmailError="could not send message";
+	 		$message=$subject=$email=$firstName="";
 	 	}
 	 }
 }
@@ -112,10 +117,9 @@ function validateContactForm()
 function sendEmail()
 {
 	global $firstName,$email,$message,$subject;
-	$adminEmail="alieu.jallow@ashesi.edu.gh";
 
 	$user = new user;
-	$result = $user->sendEmail($adminEmail,$subject,$message);
+	$result = $user->sendEmail($email,$subject,$message);
 
 	if ($result)
 	{

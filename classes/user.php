@@ -181,11 +181,11 @@ class user
 		}
 	}
 
-function sendEmail($adminEmail,$subject,$body)
+function sendEmail($senderEmail,$subject,$body)
 {
-
-	$headers[] = "From: meetyourinvestor@gmail.com";
-	$headers[] = "CC: jamohmugo@gmail.com";
+	$adminEmail= "alieujallow93@gmail.com";
+	$headers[] = "From: ".$senderEmail;
+	//$headers[] = "CC: jamohmugo@gmail.com";
 	$headers[] = 'MIME-Version: 1.0';
 	$headers[] = 'Content-type: text/html; charset=iso-8857-1';
 
