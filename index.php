@@ -8,7 +8,7 @@
 	<title>MYI - Meet Your Investor</title>
 
 	<!--css links begins-->
-    <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/cssLinks.php');?>
+    <?php require_once('layout/cssLinks.php');?>
     <!--csslinks ends-->
 	
 </head>
@@ -17,7 +17,7 @@
  	  include('unsecure/unsecureProcessing.php');
  	 ?>	
 	<!--header begins-->
-	<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/mainHeader.php');?>
+	<?php require_once('layout/mainHeader.php');?>
 	<!--header ends-->
 
 	<div class="slider">		
@@ -264,7 +264,7 @@
 						</div>
 						
 						<div class="col-md-4 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">  	
-							<div id="sendmessage">Your message has been sent. Thank you!</div>
+							<div id="sendmessage"><?php echo $sendEmailError;?></div>
 							<div id="errormessage"></div>
 							<form action="" method="post" role="form" class="contactForm" name="contactForm" onsubmit="return validateContactForm()">
 								<div class="form-group">
@@ -298,7 +298,7 @@
 			<!--CONTACT ENDS-->
 
 			<!--footer begins-->
-			<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/mainFooter.php');?>
+			<?php require_once('layout/mainFooter.php');?>
 			<!--footer ends-->
 			
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

@@ -2,6 +2,7 @@
 
 //includes the datbase class
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/database/databaseConnectionClass.php');
+require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/classes/user.php');
 //global variables
 $username=$phone=$password=$passwordConfirm=$country=$firstName=$lastName=$email=$message=$subject="";
 
@@ -16,6 +17,9 @@ $emailColor=$messageColor=$subjectColor="";
 $usernameErrorMessage=$phoneErrorMessage=$passwordErrorMessage=$passwordConfirmErrorMessage=$countryErrorMessage=
 $firstNameErrorMessage=$lastNameErrorMessage=$emailErrorMessage=$passwordMisMach=$messageErrorMessage=
 $subjectErrorMessage="";
+
+//sending email confirmation
+$sendEmailError="";
 
 /********************************************************************************************
 						THIS SECTION CHECKS WHICH BUTTON IS CLICKED
@@ -93,7 +97,14 @@ function validateContactForm()
 
 	 if($messageValidation & $subjectValidation & $emailValidation & $nameValidation)
 	 {
-	 	sendEmail();
+	 	if(sendEmail())
+	 	{
+	 		$sendEmailError="message sent successfully";
+	 	}
+	 	else
+	 	{
+	 		$sendEmailError="could not send message";
+	 	}
 	 }
 }
 
@@ -103,8 +114,14 @@ function sendEmail()
 	global $firstName,$email,$message,$subject;
 	$adminEmail="alieu.jallow@ashesi.edu.gh";
 
-	 //send email
- 	 mail($adminEmail, $subject, $message, "From:" . $email);
+	$user = new user;
+	$result = $user->sendEmail($adminEmail,$subject,$message);
+
+	if ($result)
+	{
+		return true;
+	}
+ 	return false;
 }
 
 
