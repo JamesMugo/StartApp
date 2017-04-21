@@ -9,9 +9,9 @@
 	// 	$prof_id = $_SESSION['profile_id'];
 	// }
 
-	// global $name=$_GET['term1'];
-	// global $nat=$_GET['term2'];
-	// global $intst=$_GET['term3'];
+	// global $name=$_POST['term1'];
+	// global $nat=$_POST['term2'];
+	// global $intst=$_POST['term3'];
 	$space="   ";
 
 

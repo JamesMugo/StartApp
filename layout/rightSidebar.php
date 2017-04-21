@@ -11,7 +11,7 @@
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Name:</label>
 			<div class="col-lg-10">
-				<input class="form-control" placeholder="StartupName" type="text" name="name"
+				<input class="form-control" id="name" placeholder="StartupName" type="text" name="name"
 				style="border-color: <?php echo $nameColor;?>">
 			</div>
 		</div>
@@ -19,7 +19,7 @@
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Nationality: </label>
 			<div class="col-lg-10">
-				<input class="form-control" placeholder="Choose Country" type="text" name="nationality"
+				<input onkeyup="searchFunction()" id="nationality" class="form-control" placeholder="Choose Country" type="text" name="nationality"
 				 style="border-color: <?php echo $nationalityColor;?>">
 			</div>
 		</div>
@@ -28,7 +28,7 @@
 			<label class="col-lg-3 control-label">Interest:</label>
 			<div class="col-lg-10">
 				<!-- loads form the database -->
-				<select class="form-control" name="interest" style="border-color: <?php echo $interestColor;?>">
+				<select class="form-control" id="interest" name="interest" style="border-color: <?php echo $interestColor;?>">
 					<option value='placeholder'>Select interest</option>
 					<!-- Load from database -->
 					<?php loadallinterest();?>
@@ -45,4 +45,5 @@
 		</div>
 
 	</form>
+	<!-- <script src="searchAjax.js"></script> -->
 </div>

@@ -17,12 +17,17 @@ class SearchClass extends Dbconnection
 		//Startups search for only investor
 		if($_SESSION['roleId']==3)
 		{
-			$role=2;
+			$role='2';
 		}
 		//Investors search for only startups
 		elseif($_SESSION['roleId']==2)
 		{ 
-			$role=3;
+			$role='3';
+		}
+		//Admin searches for all
+		elseif($_SESSION['roleId']==1)
+		{ 
+			// $role=3||2;
 		}
 		
 		//Get connection and query database
@@ -61,6 +66,7 @@ class SearchClass extends Dbconnection
 			return $res;
 		}
 	}
+
 }
 
 
