@@ -2,6 +2,10 @@
 
 //includes the datbase class
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/database/databaseConnectionClass.php');
+<<<<<<< HEAD
+=======
+require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/classes/user.php');
+>>>>>>> 108e3ff25f69b8a03a457183f9afdb18680b39c4
 //global variables
 $username=$phone=$password=$passwordConfirm=$country=$firstName=$lastName=$email=$message=$subject="";
 
@@ -17,6 +21,12 @@ $usernameErrorMessage=$phoneErrorMessage=$passwordErrorMessage=$passwordConfirmE
 $firstNameErrorMessage=$lastNameErrorMessage=$emailErrorMessage=$passwordMisMach=$messageErrorMessage=
 $subjectErrorMessage="";
 
+<<<<<<< HEAD
+=======
+//sending email confirmation
+$sendEmailError="";
+
+>>>>>>> 108e3ff25f69b8a03a457183f9afdb18680b39c4
 /********************************************************************************************
 						THIS SECTION CHECKS WHICH BUTTON IS CLICKED
 *********************************************************************************************/
@@ -93,7 +103,18 @@ function validateContactForm()
 
 	 if($messageValidation & $subjectValidation & $emailValidation & $nameValidation)
 	 {
+<<<<<<< HEAD
 	 	sendEmail();
+=======
+	 	if(sendEmail())
+	 	{
+	 		$sendEmailError="message sent successfully";
+	 	}
+	 	else
+	 	{
+	 		$sendEmailError="could not send message";
+	 	}
+>>>>>>> 108e3ff25f69b8a03a457183f9afdb18680b39c4
 	 }
 }
 
@@ -103,8 +124,19 @@ function sendEmail()
 	global $firstName,$email,$message,$subject;
 	$adminEmail="alieu.jallow@ashesi.edu.gh";
 
+<<<<<<< HEAD
 	 //send email
  	 mail($adminEmail, $subject, $message, "From:" . $email);
+=======
+	$user = new user;
+	$result = $user->sendEmail($adminEmail,$subject,$message);
+
+	if ($result)
+	{
+		return true;
+	}
+ 	return false;
+>>>>>>> 108e3ff25f69b8a03a457183f9afdb18680b39c4
 }
 
 
@@ -193,7 +225,11 @@ function loginUser()
 				 	$_SESSION['roleId'] = $row['role_id'];
 				 	$_SESSION['profilePicture'] = $row['profilePicture'];
 
+<<<<<<< HEAD
 					header("Location: ../pages/investors.php");
+=======
+					header("Location: ../pages/users.php");
+>>>>>>> 108e3ff25f69b8a03a457183f9afdb18680b39c4
 				 }
 				 else
 				 {

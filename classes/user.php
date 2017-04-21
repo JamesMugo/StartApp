@@ -180,6 +180,24 @@ class user
 			return false;
 		}
 	}
+
+function sendEmail($adminEmail,$subject,$body)
+{
+
+	$headers[] = "From: meetyourinvestor@gmail.com";
+	$headers[] = "CC: jamohmugo@gmail.com";
+	$headers[] = 'MIME-Version: 1.0';
+	$headers[] = 'Content-type: text/html; charset=iso-8857-1';
+
+	if(mail($adminEmail,$subject,$body,implode("\r\n", $headers)))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}     
+}
 }
 
 /*$user=new user;

@@ -1,5 +1,3 @@
-<?php //define("URL", "http://localhost/MeetYourInvestor")?>
-
 <header id="header">
 		<nav class="navbar navbar-fixed-top" role="banner">
 			<div class="container-fluid">

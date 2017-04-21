@@ -37,6 +37,18 @@ function validateSearchForm()
 	return status;
 }
 
+/********************************************************************************************
+			THIS SECTION VALIDATES THE PASSWORD RECOVERY FORM
+*********************************************************************************************/
+function validateRecoveryForm()
+{
+	if(validateEmail("passwordRecoveryForm"))
+	{
+		return true;
+	}
+	return false;
+}
+
 
 /********************************************************************************************
 	THIS SECTION VALIDATES THE CONTACT FORM  AND IT HAS ALL THE FUNCTIONS REQUIRED FOR THAT
