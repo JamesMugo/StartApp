@@ -27,17 +27,34 @@ class SearchClass extends Dbconnection
 		
 		//Get connection and query database
 		$this->getConnection();
-		if(empty($name) && !empty($nation))
+		//search by only country
+		if(empty($name) && !empty($nation) && $interest='placeholder')
 		{
 		$res=$this->safequery("SELECT * FROM `user` WHERE `role_Id`=$role AND `country` LIKE '%%%s%%'",$nation);
 		}
-		elseif (!empty($name) && empty($nation)) {
+		// search by only name
+		elseif (!empty($name) && empty($nation)  && $interest='placeholder') {
 			$res=$this->safequery("SELECT * FROM `user` WHERE (`role_Id`=$role) AND (`firstName` OR `lastName` LIKE '%%%s%%')",$name);
 		}
-		elseif (!empty($name) && !empty($nation)) {
+		//search by name and nation
+		elseif (!empty($name) && !empty($nation)  && $interest='placeholder') {
 			$res=$this->safequery("SELECT * FROM `user` WHERE (`role_Id`=$role) AND ((`firstName` OR `lastName` LIKE '%%%s%%') OR (`country` LIKE '%%%s%%'))",$name,$nation);
 		}
-		// $res=$this->safequery("SELECT * FROM `user` WHERE `user`.`role_Id`=2 AND (`user`.`firstName` OR `user`.`lastName` LIKE '%%%s%%') OR `user`.`country` LIKE '%%%s%%'", $name,$nation);
+		//search by only interest
+		elseif(empty($name) && empty($nation) && $interest!='placeholder')
+		 $res=$this->safequery("SELECT * FROM `user` WHERE `role_Id`=$role AND `interest_id`='%s'", $interest);
+		//search by interest and name
+		elseif (!empty($name) && empty($nation) && $interest!='placeholder') {
+			$res=$this->safequery("SELECT * FROM `user` WHERE (`role_Id`=$role) AND ((`firstName` OR `lastName` LIKE '%%%s%%') AND (`interest_id`='%s'))", $name, $interest);
+		}
+		//search by interest and country
+		elseif (empty($name) && !empty($nation) && $interest!='placeholder') {
+			$res=$this->safequery("SELECT * FROM `user` WHERE (`role_Id`=$role) AND ((`country` LIKE '%%%s%%') AND (`interest_id`='%s'))", $country, $interest);
+		}
+		//all three: name, interest, country
+		elseif (condition) {
+			$res=$this->safequery("SELECT * FROM `user` WHERE (`role_Id`=$role) AND ((`firstName` OR `lastName` LIKE '%%%s%%') AND (`country` LIKE '%%%s%%') AND (`interest_id`='%s'))", $name, $country, $interest);
+		}
 
 		if($res)
 		{

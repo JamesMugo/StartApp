@@ -27,8 +27,13 @@
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Interest:</label>
 			<div class="col-lg-10">
-				<input class="form-control" placeholder="Choose interest" type="text" name="interest"
-				style="border-color: <?php echo $interestColor;?>">
+				<!-- loads form the database -->
+				<select class="form-control" name="interest" style="border-color: <?php echo $interestColor;?>">
+					<option value='placeholder'>Select interest</option>
+					<!-- Load from database -->
+					<?php loadallinterest();?>
+				</select>
+
 			</div>
 		</div>
 		<div class="form-group">

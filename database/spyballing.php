@@ -20,10 +20,11 @@ require_once('databaseConnectionClass.php');
 
 $mycon= new Dbconnection;
 $mycon->getConnection();
-$m=$mycon->safequery("SELECT * FROM `user` WHERE (`role_Id`=2) AND ((`firstName` OR `lastName` LIKE '%%%s%%') OR (`country` LIKE '%%%s%%'))",'a','a');
+// $m=$mycon->safequery("SELECT * FROM `user` WHERE (`role_Id`=2) AND ((`firstName` OR `lastName` LIKE '%%%s%%') OR (`country` LIKE '%%%s%%'))",'a','a');
 // "SELECT * FROM `user` WHERE (`role_Id`=$role) AND ((`firstName` OR `lastName` LIKE '%%%s%%') OR (`country` LIKE '%%%s%%'))"
 // correct: SELECT firstName, lastName, role_id, emailAddress FROM `user` WHERE (`user`.`role_Id`=2) AND (`firstName` OR `lastName` LIKE '%a%')
 // $m=$mycon->safequery("SELECT * from user WHERE emailAddress LIKE '%%%s%%'","alieujallow93@gmail.com");
+$m=$mycon->safequery("SELECT * FROM `user` WHERE `interest_id`= '%s'",1);
 if($m)
 {
 	while ($row=mysqli_fetch_assoc($m)) {
