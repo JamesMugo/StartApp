@@ -181,6 +181,26 @@ class user
 		}
 	}
 
+	//change password
+	function getUserEmail($userId)
+	{
+		//sql
+		$sql="SELECT emailAddress FROM user WHERE userId='$userId';";
+
+		//creates an instace of a database
+		$database = new Dbconnection;
+
+		$result= $database->queryDatabase($sql);
+
+		if($result)
+		{
+			return $database->getResult();
+		}
+		else
+		{
+			return false;
+		}
+	}
 function sendEmail($senderEmail,$subject,$body)
 {
 	$adminEmail= "alieujallow93@gmail.com";

@@ -67,7 +67,7 @@ function viewUserProfile($userid)
 								</table>
 							</div>
 						</div>
-							<button class=\" btn btn-primary form-control\" name=\"sendMessage\">Send Message</button>
+							<button class=\" btn btn-primary form-control\" name=\"sendMessage\" value=\"".$userid."\">Send Message</button>
 						</form>
 					</div>";
 			}
@@ -127,7 +127,7 @@ function viewUserProfile($userid)
 							</div>
 
 						</div>
-							<button class=\" btn btn-primary form-control\" name=\"sendMessage\">Send Message</button>
+							<button class=\" btn btn-primary form-control\" name=\"sendMessage\" value=\"".$userid."\">Send Message</button>
 						</form>
 				</div>";
 		    }	
@@ -138,7 +138,8 @@ function viewUserProfile($userid)
 //checks if the sendmessage button is clicked
 if (isset($_POST['sendMessage']))
 {
-	header('location: ../pages/messages.php');
+	$userid = $_POST['sendMessage'];
+	header('location: ../pages/messages.php?id='.$userid);
 }
 
 ?>

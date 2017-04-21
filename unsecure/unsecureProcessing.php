@@ -3,6 +3,9 @@
 //includes the datbase class
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/database/databaseConnectionClass.php');
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/classes/user.php');
+
+require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/settings/validations.php');
+
 //global variables
 $username=$phone=$password=$passwordConfirm=$country=$firstName=$lastName=$email=$message=$subject="";
 
@@ -49,43 +52,6 @@ else if (isset($_POST['searchButton']))
 /********************************************************************************************
 						THIS SECTION VALIDATES THE CONTACT FORM
 *********************************************************************************************/
-//VALIDATING MESSAGE
-function validateMessage()
-{
-	global $message,$messageColor,$messageErrorMessage;
-	//checks if the message box is empty
-	if (isset($_POST['message']) & !empty($_POST['message'])) 
-	{
-		$message=$_POST['message'];
-		$messageColor="green";
-		return true;
-
-	}else
-	{
-		$messageColor="red";
-		$messageErrorMessage="*message must be filled";
-		return false;
-	}
-}
-
-//VALIDATING SUBJECT
-function validateSubject()
-{
-	global $subject,$subjectColor,$subjectErrorMessage;
-	//checks if the message box is empty
-	if (isset($_POST['subject']) & !empty($_POST['subject'])) 
-	{
-		$subject=$_POST['subject'];
-		$subjectColor="green";
-		return true;
-
-	}else
-	{
-		$subjectColor="red";
-		$subjectErrorMessage="*subject must be filled";
-		return false;
-	}
-}
 
 //VALIDATING CONTACT FORM
 function validateContactForm()
@@ -415,38 +381,6 @@ function validateLastName()
 	{
 		$lastNameColor="red";
 		$lastNameErrorMessage="*last name must be filled";
-		return false;
-	}
-}
-
-//VALIDATING EMAIL
-function validateEmail()
-{
-	global $email,$emailColor,$emailErrorMessage;
-	//checks if the email is set and not empty
-	if (isset($_POST['email']) & !empty($_POST['email'])) 
-	{
-		$email= $_POST['email'];
-
-		//checks if the email meets the pattern
-		$pattern = "/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/";
-
-		if (preg_match($pattern,$email)) 
-		{
-			$emailColor = "green";
-			return true;
-		}
-		else
-		{
-			$emailColor = "red";
-			$emailErrorMessage = "*invalid email";
-			return false;
-		}
-	}
-	else
-	{
-		$emailColor = "red";
-		$emailErrorMessage = "*email must be filled";
 		return false;
 	}
 }

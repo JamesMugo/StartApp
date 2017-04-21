@@ -8,24 +8,22 @@ require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/database/da
 	class message
 	{
 		
-		//function that sends message to a user
-		function sendMessage($sendersid,$receiversid,$subject,$message)
+	//fucntion that sends an email to a selected user
+	function sendMessage($senderEmail,$receiversEmail,$subject,$body)
+	{
+		$headers[] = "From: ".$senderEmail;
+		$headers[] = 'MIME-Version: 1.0';
+		$headers[] = 'Content-type: text/html; charset=iso-8857-1';
+
+		if(mail($receiversEmail,$subject,$body,implode("\r\n", $headers)))
 		{
-			$sql="INSERT INTO message(subject,body,sender_id,receiver_id) VALUES('$subject','$message','$sendersid','$receiversid');";
-
-			//creates an instace of a database
-			$database = new Dbconnection;
-			$result= $database->queryDatabase($sql);
-
-			if($result)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			return true;
 		}
+		else
+		{
+			return false;
+		}     
+    }
 
 		//function that lists all messages to the user
 		function listMessages($userid)

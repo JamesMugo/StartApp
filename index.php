@@ -49,7 +49,7 @@
 												<a class="btn btn-primary btn-lg" href="#signup" style=" background-color: green;" >Sign Up</a>
 											</div>
 											<div class="form-group" id="sign2">
-												<a class="btn btn-primary btn-lg" href="login/signin.php" style=" background-color:#0BA9F9;" >Sign in</a>
+												<a class="btn btn-primary btn-lg" href="login/" style=" background-color:#0BA9F9;" >Sign in</a>
 											</div>
 										</div>
 								</div>	
@@ -76,7 +76,7 @@
 												<a class="btn btn-primary btn-lg" href="#signup" style=" background-color: green;" >Sign Up</a>
 											</div>
 											<div class="form-group" id="sign2">
-												<a class="btn btn-primary btn-lg" href="login/signin.php" style=" background-color:#0BA9F9;" >Sign in</a>
+												<a class="btn btn-primary btn-lg" href="login/" style=" background-color:#0BA9F9;" >Sign in</a>
 											</div>
 										</div>
 
@@ -104,7 +104,7 @@
 												<a class="btn btn-primary btn-lg" href="#signup" style=" background-color: green;" >Sign Up</a>
 											</div>
 											<div class="form-group" id="sign2">
-												<a class="btn btn-primary btn-lg" href="login/signin.php" style=" background-color:#0BA9F9;" >Sign in</a>
+												<a class="btn btn-primary btn-lg" href="login/" style=" background-color:#0BA9F9;" >Sign in</a>
 											</div>
 										</div>
 

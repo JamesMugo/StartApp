@@ -14,6 +14,8 @@
 	<?php
 		require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/settings/initialization.php');
 		require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/favoriteController.php');
+
+		require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/messageController.php');
 	?>
 	<title>messages</title>
 
@@ -63,12 +65,15 @@
 				</h2>
 				<hr>
 					<form action="" method="post" onsubmit="">
+						<span style="color:green;"><?php echo $confirmationMessage;?></span>
 						<label>subject</label><br>
-						<input type="text" name="" class="form-control"><br>
+						<input type="text" name="subject" class="form-control"><br>
 
 						<label>Message</label><br>
-						<textarea class="form-control"></textarea>
-						<button class=" btn btn-primary form-control" name="sendMessage">Send</button>
+						<textarea class="form-control" name="message" style="border-color:<?php echo $messageColor;?>"></textarea>
+						<span id="messageSpan" style="color:red;"><?php echo $messageErrorMessage;?></span>
+
+						<button class=" btn btn-primary form-control" name="sendEmailToUser">Send</button>
 					</form>
 			</div>
 				<!--right sidebar begins-->

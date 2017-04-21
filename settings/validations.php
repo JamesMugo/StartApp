@@ -6,7 +6,14 @@ $newPassword=$newPasswordColor=$newPasswordErrorMessage=$passSuccess="";
 $confirmPassword=$confirmPasswordColor=$confirmPasswordErrorMessage="";
 
 
+//email validation variables
 $email=$emailColor=$emailErrorMessage="";
+
+//message validation variables
+$message=$messageColor=$messageErrorMessage="";
+
+//subject validation variables
+$subject=$subjectColor=$subjectErrorMessage="";
 
 //VALIDATING PASSWORD
 function validatePass($name)
@@ -200,6 +207,7 @@ function getUserPassword($userId)
 function validateEmail()
 {
 	global $email,$emailColor,$emailErrorMessage;
+	
 	//checks if the email is set and not empty
 	if (isset($_POST['email']) & !empty($_POST['email'])) 
 	{
@@ -224,6 +232,44 @@ function validateEmail()
 	{
 		$emailColor = "red";
 		$emailErrorMessage = "*email must be filled";
+		return false;
+	}
+}
+
+//VALIDATING SUBJECT
+function validateSubject()
+{
+	global $subject,$subjectColor,$subjectErrorMessage;
+	//checks if the message box is empty
+	if (isset($_POST['subject']) & !empty($_POST['subject'])) 
+	{
+		$subject=$_POST['subject'];
+		$subjectColor="green";
+		return true;
+
+	}else
+	{
+		$subjectColor="red";
+		$subjectErrorMessage="*subject must be filled";
+		return false;
+	}
+}
+
+//VALIDATING MESSAGE
+function validateMessage()
+{
+	global $message,$messageColor,$messageErrorMessage;
+	//checks if the message box is empty
+	if (isset($_POST['message']) & !empty($_POST['message'])) 
+	{
+		$message=$_POST['message'];
+		$messageColor="green";
+		return true;
+
+	}else
+	{
+		$messageColor="red";
+		$messageErrorMessage="*message must be filled";
 		return false;
 	}
 }
