@@ -9,7 +9,7 @@ require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/settings/va
 //confirmation message.
 $confirmationMessage="";
 
-//checks if the send message button is clicked
+//checks if the send message button is clicked and it sends the email
 if (isset($_POST['sendEmailToUser'])) 
 {
 	$receiversId=$_GET['id'];
