@@ -2,8 +2,13 @@
 //includes the user class
 //require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/unsecure/unsecureProcessing.php');
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/classes/user.php');
-//require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/unsecure/unsecureProcessing.php');
 $sizeError=$generalError="";
+
+
+
+
+//edit profile success variable
+$confirmationMessage="";
 
 //function that lists all the users depending who is logged in to the system
 function listUsers($roleid)
@@ -94,27 +99,31 @@ function getProfile($userid)
 						<div class=\"col-lg-8\">
 							<input class=\"form-control\" value=\"".$row['username']."\" type=\"text\"
 							 name=\"username\" >
+							 <span id=\"usernameSpan\" style=\"color:red;\"></span>
 						</div>
 					</div>
 					<div class=\"form-group\">
 						<label class=\"col-lg-3 control-label\">First name:</label>
 						<div class=\"col-lg-8\">
 							<input class=\"form-control\" value=\"".$row['firstName']."\" type=\"text\"
-							name=\"firstName\">
+							name=\"fname\">
+							<span id=\"firstNameSpan\" style=\"color:red;\"></span>
 						</div>
 					</div>
 					<div class=\"form-group\">
 						<label class=\"col-lg-3 control-label\">Last name:</label>
 						<div class=\"col-lg-8\">
 							<input class=\"form-control\" value=\"".$row['lastName']."\" type=\"text\"
-							name=\"lastName\">
+							name=\"lname\">
+							<span id=\"lastNameSpan\" style=\"color:red;\"></span>
 						</div>
 					</div>
 					<div class=\"form-group\">
 						<label class=\"col-lg-3 control-label\">Nationality:</label>
 						<div class=\"col-lg-8\">
 							<input class=\"form-control\" value=\"".$row['country']."\" type=\"text\"
-							name=\"nationality\">
+							name=\"country\">
+							<span id=\"countrySpan\" style=\"color:red;\"></span>
 						</div>
 					</div>
 					<div class=\"form-group\">
@@ -134,6 +143,7 @@ function getProfile($userid)
 						<div class=\"col-md-8\">
 							<input class=\"form-control\" value=\"".$row['address']."\" type=\"text\"
 							name=\"address\">
+							<span id=\"addressSpan\" style=\"color:red;\"></span>
 						</div>
 					</div>
 
@@ -142,6 +152,7 @@ function getProfile($userid)
 						<div class=\"col-md-8\">
 							<input class=\"form-control\" value=\"".$row['emailAddress']."\" type=\"email\"
 							name=\"email\">
+							<span id=\"emailSpan\" style=\"color:red;\"></span>
 						</div>
 					</div>
 
@@ -150,6 +161,7 @@ function getProfile($userid)
 						<div class=\"col-md-8\">
 							<input class=\"form-control\" value=\"".$row['phoneNumber']."\" type=\"text\"
 							name=\"phone\">
+							<span id=\"phoneSpan\" style=\"color:red;\"></span>
 						</div>
 					</div>
 
@@ -157,28 +169,39 @@ function getProfile($userid)
 						<label class=\"col-md-3 control-label\">Bio:</label>
 						<div class=\"col-md-8\">
 							<textarea class=\"form-control\" name=\"bio\">".$row['bio']."</textarea>
+							<span id=\"bioSpan\" style=\"color:red;\"></span>
 						</div>
 					</div>";
 		}
 	}
 }
+
 //checks which button is clicked
 if (isset($_POST['saveChanges'])) 
 {
+	/*//validating before updating
+	$lastNameValidation = validateLastName();
+	$emailValidation = validateEmail();
+	$firstNameValidation = validateFirstName();
+	$usernameValidation = validateUsername();
+	$countryValidation = validateCountry();
+	$phoneValidation = validatePhone();
+	$bioValidation = validateBio();
+	$addressValidation = validateAddress();*/
 	$username=$_POST['username'];
-	$phone=$_POST['phone'];
-	$nationality=$_POST['nationality'];
-	$firstName=$_POST['firstName'];
-	$lastName=$_POST['lastName'];
-	//$email=$_POST['email'];
-	$bio=$_POST['bio'];
+	$firstName=$_POST['fname'];
+	$lastName=$_POST['lname'];
+	$nationality=$_POST['country'];
 	$address=$_POST['address'];
-
-	//validateEmail();
-
+	$email=$_POST['email'];
+	$phone=$_POST['phone'];
+	$bio=$_POST['bio'];
 	//create an instance of the user class
 	$user = new user;
-	$user->saveChanges($username,$firstName,$lastName,$nationality,$address,$email,$phone,$bio,$_SESSION['userId']);
+	if($user->saveChanges($username,$firstName,$lastName,$nationality,$address,$email,$phone,$bio,$_SESSION['userId']))
+	{
+		$confirmationMessage="your changes are successfully saved";
+	}
 }
 elseif (isset($_POST['saveImage']))
 {

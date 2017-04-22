@@ -55,13 +55,11 @@
 			</div>
 			<!-- edit form column -->
 			<div class="col-md-8 col-sm-6 col-xs-12 personal-info">
-				<div class="alert alert-info alert-dismissable">
-					<a class="panel-close close" data-dismiss="alert">×</a> 
-					<i class="fa fa-coffee"></i>
-					This is an <strong>.alert</strong>. Use this to show important messages to the user.
+				<div id="confirmation" style="color: green; text-align: center;">
+					<?php echo $confirmationMessage;?>
 				</div>
 				<h3>Personal info</h3>
-				<form class="form-horizontal" role="form" method="post" action="">
+				<form class="form-horizontal" role="form" method="post" action=""  name="editProfileForm" onsubmit="return validateEditProfileForm()">
 
 					<?php
 						getProfile($_SESSION['userId']);
