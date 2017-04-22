@@ -11,76 +11,213 @@ $sizeError=$generalError="";
 $confirmationMessage="";
 
 //function that lists all the users depending who is logged in to the system
-function listUsers($roleid)
+function listUsers($roleid,$userStatus)
 {
+	// echo "Role: ".$roleid;
 	//create an instance of the user class
 	$user = new user;
-	$result = $user->queryUsers($roleid);
+	$result = $user->queryUsers($roleid,$userStatus);
+	global $usertype;
+	global $userRow;
+	global $myroleid;
+	$myroleid=$roleid;
 	$space="   ";
+	// $userRow='';
+	
+	
+	// $userRow='Admin';
 	if ($result!=false) 
 	{
 		while ($row = mysqli_fetch_assoc($result)) 
 		{
-			if (empty($row['profilePicture']))
+		//This is to specify the roles
+			if($row['role_id']==1)
 			{
-				echo "<div id=\"card1\" class=\"panel panel-primary\">
+				$usertype='Administrator';
+			}
+			elseif($row['role_id']==2)
+			{
+				$usertype='Investor';
+			}
+			elseif($row['role_id']==3)
+			{
+				$usertype='Startup';
+			}
+
+		    if($myroleid==1)
+			{
+				$userRow=$usertype;
+			}
+			else{
+				$userRow='';
+			}
+
+			//Profile displays for investor or startup
+			if($myroleid==2 || $myroleid==3)
+			{
+				if (empty($row['profilePicture']))
+				{
+					//Displays of users with pictures
+					userWithPic($row['userId'],$row['firstName'],$row['lastName'],$row['country'],$row['interestName'],$userRow);
+				}
+				//Displays of users without pictures
+				else if(!empty($row['profilePicture']))
+				{
+					userWithNoPic($row['userId'],$row['firstName'],$row['lastName'],$row['country'],$row['interestName'],$userRow);
+					
+				}
+			}
+			//profile Displays for Admin
+			elseif($myroleid==1)
+			{
+				if (empty($row['profilePicture']))
+				{
+					//Displays of users with pictures
+					userWithPicAdmin($row['userId'],$row['firstName'],$row['lastName'],$row['country'],$row['interestName'],$userRow);
+				}
+				//Displays of users without pictures
+				else if(!empty($row['profilePicture']))
+				{
+					userWithNoPicAdmin($row['userId'],$row['firstName'],$row['lastName'],$row['country'],$row['interestName'],$userRow);
+					
+				}
+			}
+		}
+	}
+}
+
+function userWithNoPicAdmin($userid,$fname,$lname,$count,$intst,$userHeadr)
+{
+	$space="   ";
+	echo "<div id=\"card1\" class=\"panel panel-primary\">
+			<form action=\"\" method=\"post\">
+				<div id=\"investorInfo\">
+					<table>
+						<tr>
+							<td style=\"font-size: 150%\">".$userHeadr."</td>
+						</tr>
+						<tr>
+							<td  class=\"tdtitle\">Name: </td>
+							<td>".$fname.$space.$lname."</td>
+						</tr>
+						<tr>
+							<td  class=\"tdtitle\">Nationality: </td>         
+							<td>".$count."</td>
+						</tr>
+						<tr>
+						    <td  class=\"tdtitle\">Interest: </td>
+							<td>".$intst."</td>
+						</tr>
+					</table>
+				</div>
+					<div id=\"pictb\">
+						<td><img src=\"../controller/getImage.php?id=".$userid."\" class=\"investorimg\">
+						</td>
+					</div>
+					 <button name=\"viewProfile\" value=\"".$userid."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"viewProfile\">view profile</button>
+					 <button name=\"blockUser\" value=\"".$userid."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"blockUser\">Block User</button>
+					 </form>
+			</div>";
+}
+
+function userWithPicAdmin($userid,$fname,$lname,$count,$intst,$userHeadr)
+{
+	$space="   ";
+	echo "<div id=\"card1\" class=\"panel panel-primary\">
 				<form action=\"\" method=\"post\">
 				<div id=\"investorInfo\">
 					<table>
 						<tr>
+							<td style=\"font-size: 150%\">".$userHeadr."</td>
+						</tr>
+						<tr>
 							<td  class=\"tdtitle\">Name: </td>
-							<td>".$row['firstName'].$space.$row['lastName']."</td>
+							<td>".$fname.$space.$lname."</td>
 						</tr>
 						<tr>
 							<td  class=\"tdtitle\">Nationality: </td>         
-							<td>".$row['country']."</td>
+							<td>".$count."</td>
 						</tr>
 						<tr>
 						    <td  class=\"tdtitle\">Interest: </td>
-							<td>Finance</td>
+							<td>".$intst."</td>
 						</tr>
 					</table>
 				</div>
 					<div id=\"pictb\">
 						<td><img src=\"../img/placeholder.png\" class=\"investorimg\"></td>
 					</div>
-					 <button name=\"viewProfile\" value=\"".$row['userId']."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"viewProfile\">view profile</button>
-					 <button name=\"addFavorite\" value=\"".$row['userId']."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"addFavorite\">Add To Favorite</button>
+					 <button name=\"viewProfile\" value=\"".$userid."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"viewProfile\">view profile</button>
+					 <button name=\"blockUser\" value=\"".$userid."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"blockUser\">Block User</button>
 					 </form>
 			</div>";
-		}
-		else
-		{
-			echo "<div id=\"card1\" class=\"panel panel-primary\">
-			<form action=\"\" method=\"post\">
+}
+
+function userWithPic($userid,$fname,$lname,$count,$intst,$userHeadr)
+{
+	$space="   ";
+	echo "<div id=\"card1\" class=\"panel panel-primary\">
+				<form action=\"\" method=\"post\">
 				<div id=\"investorInfo\">
 					<table>
 						<tr>
+							<td style=\"font-size: 150%\">".$userHeadr."</td>
+						</tr>
+						<tr>
 							<td  class=\"tdtitle\">Name: </td>
-							<td>".$row['firstName'].$space.$row['lastName']."</td>
+							<td>".$fname.$space.$lname."</td>
 						</tr>
 						<tr>
 							<td  class=\"tdtitle\">Nationality: </td>         
-							<td>".$row['country']."</td>
+							<td>".$count."</td>
 						</tr>
 						<tr>
 						    <td  class=\"tdtitle\">Interest: </td>
-							<td>Finance</td>
+							<td>".$intst."</td>
 						</tr>
 					</table>
 				</div>
 					<div id=\"pictb\">
-						<td><img src=\"../controller/getImage.php?id=".$row['userId']."\" class=\"investorimg\">
-						</td>
+						<td><img src=\"../img/placeholder.png\" class=\"investorimg\"></td>
 					</div>
-					 <button name=\"viewProfile\" value=\"".$row['userId']."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"viewProfile\">view profile</button>
-					 <button name=\"addFavorite\" value=\"".$row['userId']."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"addFavorite\">Add To Favorite</button>
+					 <button name=\"viewProfile\" value=\"".$userid."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"viewProfile\">view profile</button>
+					 <button name=\"addFavorite\" value=\"".$userid."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"addFavorite\">Add To Favorite</button>
 					 </form>
 			</div>";
+}
 
-		}	
-	}
-	}
+function userWithNoPic($userid,$fname,$lname,$count,$intst,$userHeadr)
+{
+	$space="   ";
+	echo "<div id=\"card1\" class=\"panel panel-primary\">
+			<form action=\"\" method=\"post\">
+				<div id=\"investorInfo\">
+					<table>
+						<tr>
+							<td style=\"font-size: 150%\">".$userHeadr."</td>
+						</tr>
+						<tr>
+							<td  class=\"tdtitle\">Name: </td>
+							<td>".$fname.$space.$lname."</td>
+						</tr>
+						<tr>
+							<td  class=\"tdtitle\">Nationality: </td>         
+							<td>".$count."</td>
+						</tr>
+						<tr>
+						    <td  class=\"tdtitle\">Interest: </td>
+							<td>".$intst."</td>
+						</tr>
+					</table>
+				</div>
+					<div id=\"pictb\">
+						<td><img src=\"../controller/getImage.php?id=".$userid."\" class=\"investorimg\">
+						</td>
+					</div>
+					 <button name=\"viewProfile\" value=\"".$userid."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"viewProfile\">view profile</button>
+					 <button name=\"addFavorite\" value=\"".$userid."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"addFavorite\">Add To Favorite</button>
+					 </form>
+			</div>";
 }
 
 //function that lists all the users depending who is logged in to the system
@@ -278,10 +415,14 @@ function listFavorites($userid)
 	$user = new user;
 	$result = $user->getFavorite($userid);
 	$space="   ";
+	global $favList;
+	$favList=array();
 	if ($result!=false) 
 	{
 		while ($row = mysqli_fetch_assoc($result)) 
-		{
+		{ //stores in all favorites into list
+			array_push($favList,$row['userId']);
+
 			if (empty($row['profilePicture']))
 			{
 				echo "<div id=\"card1\" class=\"panel panel-primary\">
@@ -298,7 +439,7 @@ function listFavorites($userid)
 						</tr>
 						<tr>
 						    <td  class=\"tdtitle\">Interest: </td>
-							<td>Finance</td>
+							<td>".$row['interestName']."</td>
 						</tr>
 					</table>
 				</div>
@@ -326,7 +467,7 @@ function listFavorites($userid)
 						</tr>
 						<tr>
 						    <td  class=\"tdtitle\">Interest: </td>
-							<td>Finance</td>
+							<td>".$row['interestName']."</td>
 						</tr>
 					</table>
 				</div>
@@ -338,7 +479,7 @@ function listFavorites($userid)
 					 <button name=\"removeFavorite\" value=\"".$row['userId']."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"addFavorite\">Remove From Favorite</button>
 					 </form>
 			</div>";
-
+// $s="../controller/getImage.php?id=".$row['userId'].""
 		}	
 	}
   }

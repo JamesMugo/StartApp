@@ -277,7 +277,20 @@
  	float: left;
  }
 
+ #blockUser
+ {
+ 	margin-top: 9%;
+ 	border-bottom-left-radius:5px;
+ 	background-color:  #c12144;
+ 	float: left;
+ }
 #changePassword
 {
 	width: 90%;
 }
+
+/*.activeSide  
+        {
+        background-color: #eee;
+        border-color: #337ab7;
+        }*/

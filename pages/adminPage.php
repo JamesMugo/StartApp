@@ -23,6 +23,10 @@
 		{
 			$user="Investors";
 		}
+		elseif($_SESSION['roleId']==1)
+		{
+			$user="All Users";
+		}
 	?>
 	<title><?php echo $user;?></title>
 
@@ -51,7 +55,6 @@
 			
 			<!--left sidebar begins-->
 			<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/leftSidebar.php');?>
-			
 			<!--left sidebar ends-->
 
 			<!--middle bar-->

@@ -14,6 +14,5 @@
 	<ul id="lefSidebar-list" class="nav ">
 		<li><a href="<?php echo URL;?>/pages/favorites.php">Favorite 
 		<?php echo $user ?></a></li><br>
-		<li><a href="">Messages</a></li><br>
 	</ul>
 </div>

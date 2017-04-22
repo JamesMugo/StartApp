@@ -177,7 +177,6 @@ function loginUser()
 				 	$_SESSION['username'] = $row['username'];
 				 	$_SESSION['roleId'] = $row['role_id'];
 				 	$_SESSION['profilePicture'] = $row['profilePicture'];
-
 					header("Location: ../pages/users.php");
 				 }
 				 else
@@ -201,22 +200,22 @@ function validateSearchForm()
 	global $interest,$interestColor,$nationality,$nationalityColor,$name,$nameColor,$errorMessage;
 
 	//checks if the interest, name, and nationality is set
-	if (isset($_POST['interest']) & isset($_POST['name']) & isset($_POST['nationality']))
+	if (($_GET['interest']!='placeholder') & isset($_GET['name']) & isset($_GET['nationality']))
     {
     	//checks if all the fields are empty
-    	if (empty($_POST['nationality']) & empty($_POST['interest']) & empty($_POST['name']))
+    	if (empty($_GET['nationality']) & empty($_GET['interest']) & empty($_GET['name']))
         {
     		$interestColor="red";
     		$nameColor="red";
     		$nationalityColor="red";
-    		$errorMessage="*fill ateleast one";
+    		$errorMessage="*fill at least one";
     		return false;
     	}
     	else
     	{
-    		$interest=$_POST['interest'];
-    		$name=$_POST['name'];
-    		$nationality=$_POST['nationality'];
+    		$interest=$_GET['interest'];
+    		$name=$_GET['name'];
+    		$nationality=$_GET['nationality'];
     		return true;
     	}
 	}
@@ -228,13 +227,11 @@ function validateSearchForm()
 *********************************************************************************************/
 
 
-
-
 //VALIDATING PASSWORD
 function validatePassword()
 {
 	global $password,$passwordColor,$passwordErrorMessage;
-	//cheks if the password is set and not empty
+	//cheks if the 	password is set and not empty
 	if (isset($_POST['password']) & !empty($_POST['password'])) 
 	{
 		$password = $_POST['password'];
@@ -418,6 +415,17 @@ function registerNewUser($name)
 	}		
 }
 
+//load all interest into  
+ function loadallinterest() 
+ {  
+ 	$myDb = new Dbconnection;
+	$sql="SELECT interestId, interestName FROM interest";
+	$myDb->queryDatabase($sql);
+	while($row=$myDb->getRow())
+	{
+		echo "<option value=".$row['interestId'].">".$row['interestName']."</option>";
+	}
+ } 
 
 //checks if the user name exists
 function checkusername($name)
