@@ -23,6 +23,10 @@
 		{
 			$user="Investors";
 		}
+		elseif($_SESSION['roleId']==1)
+		{
+			$user="All Users";
+		}
 	?>
 	<title><?php echo $user;?></title>
 

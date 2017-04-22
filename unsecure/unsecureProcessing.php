@@ -193,7 +193,18 @@ function loginUser()
 				 	$_SESSION['roleId'] = $row['role_id'];
 				 	$_SESSION['profilePicture'] = $row['profilePicture'];
 
+				 	if($_SESSION['roleId']==3)
+				 	{
 					header("Location: ../pages/investors.php");
+					}
+					elseif($_SESSION['roleId']==2)
+				 	{
+					header("Location: ../pages/startup.php");
+					}
+					elseif($_SESSION['roleId']==1)
+				 	{
+					header("Location: ../pages/adminPage.php");
+					}
 				 }
 				 else
 				 {

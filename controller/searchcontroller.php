@@ -1,6 +1,7 @@
 	<?php 
 	//call class
 	require_once('../classes/searchclass.php');
+	// session_start();
 
 	// if(isset($_SESSION))
 	// {
@@ -9,21 +10,24 @@
 	// 	$prof_id = $_SESSION['profile_id'];
 	// }
 
- if(isset($_GET['term1']) || isset($_GET['term2'])|| ($_GET['term3']!='placeholder'))
-	 {
-	 	global $name,$nat,$intst;
-	 	$name=$_GET['term1'];
-		$nat='';
-		// $_GET['term2'];
-		$intst='';
-		// $_GET['term3'];
-		displaySearchResults($name,$nat,$intst);
-	 }
+ // if(isset($_GET['term1']) || isset($_GET['term2'])|| ($_GET['term3']!='placeholder'))
+	//  {
+	//  	global $name,$nat,$intst;
+	//  	$name=$_GET['term1'];
+	// 	$nat='';
+	// 	// $_GET['term2'];
+	// 	$intst='';
+	// 	// $_GET['term3'];
+	// 	displaySearchResults($name,$nat,$intst);
+	//  }
 
 
 	function displaySearchResults($name,$nat,$ints)
 	{
 		global $result;
+		global $usertype;
+		global $userRow;
+		$myroleid=$_SESSION['roleId'];
 		$space="   ";
 		if(isset($name)||isset($nat)||isset($ints))
 		{
@@ -31,12 +35,36 @@
 			$result=$theSearch->searchInvester(trim($name),trim($nat),trim($ints));
 			while($row=mysqli_fetch_assoc($result))
 			{
+				if($row['role_id']==1)
+				{
+					$usertype='Administrator';
+				}
+				elseif($row['role_id']==2)
+				{
+					$usertype='Investor';
+				}
+				elseif($row['role_id']==3)
+				{
+					$usertype='Startup';
+				}
+
+				if($myroleid==1)
+				{
+					$userRow=$usertype;
+				}
+				else{
+					$userRow='';
+				}
+
 				if (empty($row['profilePicture']))
 				{
 					echo "<div id=\"card1\" class=\"panel panel-primary\">
 					<form action=\"\" method=\"get\">
 					<div id=\"investorInfo\">
 						<table>
+							<tr>
+								<td style=\"font-size: 150%\">".$userRow."</td>
+							</tr>
 							<tr>
 								<td  class=\"tdtitle\">Name: </td>
 								<td>".$row['firstName'].$space.$row['lastName']."</td>
@@ -66,6 +94,9 @@
 					<div id=\"investorInfo\">
 						<table>
 							<tr>
+								<td style=\"font-size: 150%\">".$userRow."</td>
+							</tr>
+							<tr>
 								<td  class=\"tdtitle\">Name: </td>
 								<td>".$row['firstName'].$space.$row['lastName']."</td>
 							</tr>
@@ -92,6 +123,11 @@
 		}
 	}
 }
+
+ // function displayWithNoPicture()
+ {
+ 	
+ }
 	 ?>
 	    <!-- <script>
 		  	function searchFunction() {

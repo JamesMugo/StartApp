@@ -11,7 +11,7 @@
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Name:</label>
 			<div class="col-lg-10">
-				<input class="form-control" onkeyup="searchFunction()" id="name" placeholder="StartupName" type="text" name="name"
+				<input class="form-control" id="name" placeholder="StartupName" type="text" name="name"
 				style="border-color: <?php echo $nameColor;?>">
 			</div>
 		</div>
@@ -19,13 +19,13 @@
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Nationality: </label>
 			<div class="col-lg-10">
-				<input onkeyup="searchFunction()" id="nationality" class="form-control" placeholder="Choose Country" type="text" name="nationality"
+				<input id="nationality" class="form-control" placeholder="Choose Country" type="text" name="nationality"
 				 style="border-color: <?php echo $nationalityColor;?>">
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label onchange="searchFunction()" class="col-lg-3 control-label">Interest:</label>
+			<label class="col-lg-3 control-label">Interest:</label>
 			<div class="col-lg-10">
 				<!-- loads form the database -->
 				<select class="form-control" id="interest" name="interest" style="border-color: <?php echo $interestColor;?>">
