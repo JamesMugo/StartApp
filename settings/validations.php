@@ -187,6 +187,7 @@ elseif (isset($_POST['sendEmail']))
 	}
 }
 
+
 //function that helps to change user password
 function changePassword($userId,$newpass)
 {	$user = new user;

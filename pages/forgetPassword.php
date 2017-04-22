@@ -15,13 +15,17 @@
 <body>
 
   <?php
+
    require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/settings/validations.php');
   ?>  
   <!--header begins-->
   <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/mainHeader.php');?>
   <!--header ends-->
 
+  <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/controller/forgotPasswordController.php');?>
+
   <div class="login-card">
+    <h1 style="color: blue">Forgotten-Password</h1><br>
     <h1>Log-in</h1><br>
   <form method="post" name="passwordRecoveryForm" onsubmit="return validateRecoveryForm()" action="">
     <input type="email" name="email" placeholder="email" style="border-color: <?php echo $emailColor;?>">

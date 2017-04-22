@@ -35,7 +35,6 @@
 					$userid = $_GET['id'];
 					viewUserProfile($userid);
 				?>
-
 				</div>
 			</div>
 		</div>

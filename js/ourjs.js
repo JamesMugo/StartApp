@@ -36,6 +36,7 @@ function validateSearchForm()
 
 	return status;
 }
+
 /********************************************************************************************
 			THIS SECTION VALIDATES THE PASSWORD RECOVERY FORM
 *********************************************************************************************/
@@ -113,6 +114,7 @@ function validateAddress(form)
 /********************************************************************************************
 	THIS SECTION VALIDATES THE CONTACT FORM  AND IT HAS ALL THE FUNCTIONS REQUIRED FOR THAT
 *********************************************************************************************/
+
 //VALIDATING MESSAGE
 function validateMessage()
 {

@@ -23,7 +23,6 @@ $subjectErrorMessage="";
 
 //sending email confirmation
 $sendEmailError="";
-
 /********************************************************************************************
 						THIS SECTION CHECKS WHICH BUTTON IS CLICKED
 *********************************************************************************************/
@@ -83,6 +82,7 @@ function sendEmail()
 {
 	global $firstName,$email,$message,$subject;
 
+	$adminEmail="alieu.jallow@ashesi.edu.gh";
 	$user = new user;
 	$result = $user->sendEmail($email,$subject,$message);
 
@@ -92,7 +92,6 @@ function sendEmail()
 	}
  	return false;
 }
-
 
 
 /********************************************************************************************

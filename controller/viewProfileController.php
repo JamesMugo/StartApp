@@ -66,6 +66,8 @@ function viewUserProfile($userid)
 									</tbody>
 								</table>
 							</div>
+
+						</div>
 						</div>
 							<button class=\" btn btn-primary form-control\" name=\"sendMessage\" value=\"".$userid."\">Send Message</button>
 						</form>
@@ -141,5 +143,4 @@ if (isset($_POST['sendMessage']))
 	$userid = $_POST['sendMessage'];
 	header('location: ../pages/messages.php?id='.$userid);
 }
-
 ?>
