@@ -1,7 +1,7 @@
 <?php
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/classes/password.php');
 
-if (isset($_POST['email'])) {
+if (isset($_POST['sendEmail'])) {
 	
 	$emailId = $_POST['email'];
 	oldPassword($_SESSION['email']);

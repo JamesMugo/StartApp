@@ -22,6 +22,8 @@
   <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/mainHeader.php');?>
   <!--header ends-->
 
+  <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/controller/forgotPasswordController.php');?>
+
   <div class="login-card">
     <h1 style="color: blue">Forgotten-Password</h1><br>
     <h1>Log-in</h1><br>

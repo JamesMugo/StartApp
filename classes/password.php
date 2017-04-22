@@ -11,7 +11,7 @@ class forgotPassword
 	function oldPassword($email)
 	{
 		//check whether the email exists 
-		$sql = "SELECT password FROM user WHERE emailAddress = '$email'"; 
+		$sql = "SELECT emailAddress FROM user WHERE emailAddress = '$email'"; 
 
 		//creates an instace of a database
 		$db = new Dbconnection;
