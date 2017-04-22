@@ -13,17 +13,18 @@ class user
 		//for admin
 		if ($roleid==1) 
 		{
-			$sql="SELECT *FROM user WHERE userStatus='ACTIVE' AND role_id=3";
+			
+			$sql="SELECT `userId`, `role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE')";
 		}
 		//for investor
 		elseif ($roleid==2)
 		{
-			$sql="SELECT *FROM user WHERE userStatus='ACTIVE' AND role_id=3";
+			$sql="SELECT `userId`, `role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (role_id=3)";
 		}
 		//for startup
 		elseif ($roleid==3) 
 		{
-			$sql="SELECT *FROM user WHERE userStatus='ACTIVE' AND role_id=2";
+			$sql="SELECT `userId`, `role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (role_id=2)";
 		}
 
 		//creates an instace of a database

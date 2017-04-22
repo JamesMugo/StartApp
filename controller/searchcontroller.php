@@ -42,7 +42,7 @@
 							</tr>
 							<tr>
 							    <td  class=\"tdtitle\">Interest: </td>
-								<td>Finance</td>
+								<td>".$row['interestName']."</td>
 							</tr>
 						</table>
 					</div>
@@ -70,7 +70,7 @@
 							</tr>
 							<tr>
 							    <td  class=\"tdtitle\">Interest: </td>
-								<td>Finance</td>
+								<td>".$row['interestName']."</td>
 							</tr>
 						</table>
 					</div>

@@ -32,7 +32,7 @@ function listUsers($roleid)
 						</tr>
 						<tr>
 						    <td  class=\"tdtitle\">Interest: </td>
-							<td>Finance</td>
+							<td>".$row['interestName']."</td>
 						</tr>
 					</table>
 				</div>
@@ -60,7 +60,7 @@ function listUsers($roleid)
 						</tr>
 						<tr>
 						    <td  class=\"tdtitle\">Interest: </td>
-							<td>Finance</td>
+							<td>".$row['interestName']."</td>
 						</tr>
 					</table>
 				</div>
