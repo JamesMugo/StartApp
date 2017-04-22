@@ -22,7 +22,7 @@
   <!--header ends-->
 
   <div class="login-card">
-    <h1>Log-in</h1><br>
+    <h1 style="color: blue:">Log-in</h1><br>
   <form method="post" name="loginForm" onsubmit="return validateLoginForm()" action="">
     <input type="text" name="username" placeholder="Username" style="border-color: <?php echo $usernameColor;?>"
     value="<?php echo $username;?>">
