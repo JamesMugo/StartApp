@@ -9,11 +9,16 @@
 	// 	$prof_id = $_SESSION['profile_id'];
 	// }
 
-	// global $name=$_POST['term1'];
-	// global $nat=$_POST['term2'];
-	// global $intst=$_POST['term3'];
-	$space="   ";
-
+ if(isset($_GET['term1']) || isset($_GET['term2'])|| ($_GET['term3']!='placeholder'))
+	 {
+	 	global $name,$nat,$intst;
+	 	$name=$_GET['term1'];
+		$nat='';
+		// $_GET['term2'];
+		$intst='';
+		// $_GET['term3'];
+		displaySearchResults($name,$nat,$intst);
+	 }
 
 
 	function displaySearchResults($name,$nat,$ints)
@@ -29,7 +34,7 @@
 				if (empty($row['profilePicture']))
 				{
 					echo "<div id=\"card1\" class=\"panel panel-primary\">
-					<form action=\"\" method=\"post\">
+					<form action=\"\" method=\"get\">
 					<div id=\"investorInfo\">
 						<table>
 							<tr>

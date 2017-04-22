@@ -5,13 +5,13 @@
 <div class="col-md-2" id="rightSidebar">
 	<!-- searh-->
 	<h4>Filter by: </h4>
-	<form method="post" action="" class="form-horizontal" role="form" name="searchForm" onsubmit="return validateSearchForm()" action="" 
-	method="post">
+	<form method="get" action="" class="form-horizontal" role="form" name="searchForm" onsubmit="return validateSearchForm()" action="" 
+	>
 
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Name:</label>
 			<div class="col-lg-10">
-				<input class="form-control" id="name" placeholder="StartupName" type="text" name="name"
+				<input class="form-control" onkeyup="searchFunction()" id="name" placeholder="StartupName" type="text" name="name"
 				style="border-color: <?php echo $nameColor;?>">
 			</div>
 		</div>
@@ -25,7 +25,7 @@
 		</div>
 
 		<div class="form-group">
-			<label class="col-lg-3 control-label">Interest:</label>
+			<label onchange="searchFunction()" class="col-lg-3 control-label">Interest:</label>
 			<div class="col-lg-10">
 				<!-- loads form the database -->
 				<select class="form-control" id="interest" name="interest" style="border-color: <?php echo $interestColor;?>">

@@ -62,7 +62,7 @@
 					<!--card-->
 					<?php
 						require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/userController.php');
-						if(!(isset($_POST['name'])||isset($_POST['nationality'])||isset($_POST['interest'])))
+						if(!(isset($_GET['name'])||isset($_GET['nationality'])||isset($_GET['interest'])))
 						{
 						listUsers($_SESSION['roleId']);
 						}
@@ -71,8 +71,8 @@
 							echo "<h2 style='text-align: center;  font-family:\"Roboto\";'>
 							Search Results
 							</h2>";
-							require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/searchcontroller.php');
-							displaySearchResults($_POST['name'],$_POST['nationality'],$_POST['interest']);
+							// require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/searchcontroller.php');
+							// displaySearchResults($_POST['name'],$_POST['nationality'],$_POST['interest']);
 						}
 					?>
 					<span id="placeholder"></span>
