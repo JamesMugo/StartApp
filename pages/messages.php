@@ -65,7 +65,7 @@
 				</h2>
 				<hr>
 					<form action="" method="post" onsubmit="">
-						<span style="color:green;"><?php echo $confirmationMessage;?></span>
+						<span style="color:green;"><?php echo $confirmationMessage;?></span><br>
 						<label>subject</label><br>
 						<input type="text" name="subject" class="form-control"><br>
 

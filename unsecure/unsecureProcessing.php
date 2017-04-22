@@ -65,8 +65,7 @@ function validateContactForm()
 
 	 if($messageValidation & $subjectValidation & $emailValidation & $nameValidation)
 	 {
-	 	//sendEmail()
-	 	if(true)
+	 	if(sendEmail())
 	 	{
 	 		$message=$subject=$email=$firstName="";
 	 		$sendEmailError="message sent successfully";
