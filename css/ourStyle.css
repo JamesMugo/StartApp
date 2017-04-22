@@ -13,8 +13,7 @@
 
 #menu
 {
-	margin-left: 27%;
-
+	margin-left: 15%;
 }
 
 #login
@@ -33,32 +32,32 @@
 
 #lefSidebar
 {
-	background-color:#fafafa;;
-	height: 550px;
-	margin-top: 5%;
+	background-color:#fafafa;
+	height: 450px;
+	margin-top: 10%;
 }
 
 #rightSidebar
 {
-	background-color: #fafafa;;
-	height: 550px;
-	margin-top: 5%;
+	background-color: #fafafa;
+	height: 450px;
+	margin-top: 10%;
 }
 
 #middle
 {
-	margin-top: 5%;
-
+	height: 450px;
+	margin-top: 10%;
 }
 
 #card1
 {
-	background-color: #d9edf7;
+	margin-left: 2%;
+	background-color: #d9edf7;;
 	margin-top: 2%;
 	float: left;
-	width: 47%;
+	width: 49%;
 	border-radius: 9px;
-	margin-left: 2%;
 }
 
 
@@ -71,7 +70,9 @@
 	border-radius: 9px;
 }
 
-.investorimg
+
+.investorimg,
+#investorimg
 {
 	width: 100%;
 	height: auto;
@@ -93,8 +94,12 @@
 	padding-left:2%;
 	padding-top: 1%;
 	padding-bottom: 1%;
-	width:60%;
 	height: 69px;
+	width:50%;
+}
+#cardrow
+{
+	background-color: red;
 }
 
 #panel
@@ -281,3 +286,4 @@
 {
 	width: 90%;
 }
+
