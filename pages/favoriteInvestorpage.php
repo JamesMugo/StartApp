@@ -15,6 +15,13 @@
     <!--csslinks ends-->
 
 </head>
+<style>
+    .activeSide  
+        {
+        background-color: #eee;
+        border-color: #337ab7;
+        }
+</style>
 <body>
 
  <!--header begins-->
@@ -28,11 +35,18 @@
     <div class="row">
       
       <!-- left side bar column-->
+      
       <div class="col-md-2" id="lefSidebar">
         <ul id="lefSidebar-list" class="nav ">
-          <li><a href="investors.php">Back to Investors</a></li><br>
+          <li><a href="investors.php">View Investors</a></li><br>
+        </ul>
+        <ul id="lefSidebar-list" class="nav ">
+          <li><a class="activeSide" href="favoriteInvestorpage.php">My Favorites</a></li><br>
         </ul>
       </div>
+      <!-- <?php //require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/leftSidebar.php');?> -->
+      <!--left sidebar ends-->
+      
 
       <!--middle bar-->
       <div class="col-md-8" id="middle">
@@ -43,13 +57,21 @@
           <?php
             require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/userController.php');
             require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/favoriteController.php');
-            listFavorites($_SESSION['userId']);
+            if(!isset($_GET['searchButton']))
+              {
+              listFavorites($_SESSION['userId']);
+              } 
+            // else
+            //   {
+            //   require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/controller/searchcontroller.php');
+            //   displayFavoriteSearch($_GET['name'],$_GET['nationality'],$_GET['interest']);
+            //   }
           ?>
     
       </div>
 
         <!--right sidebar begins-->
-        <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/rightSidebar.php');?>
+
         <!--right sidebar ends-->
 
   </div>

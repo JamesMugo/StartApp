@@ -68,7 +68,7 @@
 						require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/userController.php');
 						if(!isset($_GET['searchButton']))
 						{
-						listUsers($_SESSION['roleId']);
+						listUsers($_SESSION['roleId'],'ACTIVE');
 						}
 						else
 						{

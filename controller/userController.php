@@ -6,13 +6,12 @@ require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/classes/use
 $sizeError=$generalError="";
 
 //function that lists all the users depending who is logged in to the system
-function listUsers($roleid)
+function listUsers($roleid,$userStatus)
 {
 	// echo "Role: ".$roleid;
 	//create an instance of the user class
 	$user = new user;
-	$result = $user->queryUsers($roleid);
-
+	$result = $user->queryUsers($roleid,$userStatus);
 	global $usertype;
 	global $userRow;
 	global $myroleid;
@@ -393,10 +392,14 @@ function listFavorites($userid)
 	$user = new user;
 	$result = $user->getFavorite($userid);
 	$space="   ";
+	global $favList;
+	$favList=array();
 	if ($result!=false) 
 	{
 		while ($row = mysqli_fetch_assoc($result)) 
-		{
+		{ //stores in all favorites into list
+			array_push($favList,$row['userId']);
+
 			if (empty($row['profilePicture']))
 			{
 				echo "<div id=\"card1\" class=\"panel panel-primary\">
@@ -413,7 +416,7 @@ function listFavorites($userid)
 						</tr>
 						<tr>
 						    <td  class=\"tdtitle\">Interest: </td>
-							<td>Finance</td>
+							<td>".$row['interestName']."</td>
 						</tr>
 					</table>
 				</div>
@@ -441,7 +444,7 @@ function listFavorites($userid)
 						</tr>
 						<tr>
 						    <td  class=\"tdtitle\">Interest: </td>
-							<td>Finance</td>
+							<td>".$row['interestName']."</td>
 						</tr>
 					</table>
 				</div>
@@ -453,7 +456,7 @@ function listFavorites($userid)
 					 <button name=\"removeFavorite\" value=\"".$row['userId']."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"addFavorite\">Remove From Favorite</button>
 					 </form>
 			</div>";
-
+// $s="../controller/getImage.php?id=".$row['userId'].""
 		}	
 	}
   }

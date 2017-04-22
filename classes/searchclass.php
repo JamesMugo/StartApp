@@ -13,8 +13,9 @@ class SearchClass extends Dbconnection
 	}
 
 	function searchInvester($name, $nation, $interest)
-	{	global $res;
-		global $role;
+	{	
+		// global $res;
+		$role=0;
 		//if the user is either an investor or startup, it returns search
 		//results for either of them
 		if($_SESSION['roleId']==3 || $_SESSION['roleId']==2)
@@ -36,9 +37,35 @@ class SearchClass extends Dbconnection
 			{ 
 				return $this->searchAllRoles($name, $nation, $interest, $role);
 			}
-		
-		
 	}
+
+function searchFavorite($name,$nation,$interest)
+{
+	// global $res;
+		$role=0;
+		//if the user is either an investor or startup, it returns search
+		//results for either of them
+		if($_SESSION['roleId']==3 || $_SESSION['roleId']==2)
+		{
+			//Startups search for only investor
+			if($_SESSION['roleId']==3)
+			{
+				$role='2';
+			}
+			//Investors search for only startups
+			elseif($_SESSION['roleId']==2)
+			{ 
+				$role='3';
+			}
+			return $this->searchfavoritesEither($name,$nation,$interest,$role,$_SESSION['userId']);
+		}
+		//if it is an admin then it queries all users in the database
+		elseif($_SESSION['roleId']==1)
+			{ 
+				return $this->searchAllRoles($name, $nation, $interest, $role);
+			}
+}
+
 
 	function searchEitherRoles($name, $nation, $interest, $role)
 	{
@@ -87,31 +114,75 @@ class SearchClass extends Dbconnection
 		//search by only country
 		if(empty($name) && !empty($nation) && $interest='placeholder')
 		{
-		$res=$this->safequery("SELECT `userId`,`role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE  (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (`country` LIKE '%%%s%%')",$nation);
+		$res=$this->safequery("SELECT `userId`,`userStatus`,`role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE  (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (`country` LIKE '%%%s%%')",$nation);
 		}
 		// search by only name
 		elseif (!empty($name) && empty($nation)  && $interest='placeholder') {
-			$res=$this->safequery("SELECT `userId`,`role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND ((`firstName` LIKE '%%%s%%') OR (`lastName` LIKE '%%%s%%'))",$name,$name);
+			$res=$this->safequery("SELECT `userId`,`userStatus`,`role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND ((`firstName` LIKE '%%%s%%') OR (`lastName` LIKE '%%%s%%'))",$name,$name);
 		}
 		//search by name and nation
 		elseif (!empty($name) && !empty($nation)  && $interest='placeholder') {
-			$res=$this->safequery("SELECT `userId`, `role_id`,`firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (((`firstName` LIKE '%%%s%%') OR (`lastName` LIKE '%%%s%%')) OR (`country` LIKE '%%%s%%'))",$name,$name,$nation);
+			$res=$this->safequery("SELECT `userId`, `userStatus`,`role_id`,`firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (((`firstName` LIKE '%%%s%%') OR (`lastName` LIKE '%%%s%%')) OR (`country` LIKE '%%%s%%'))",$name,$name,$nation);
 		}
 		//search by only interest
 		elseif(empty($name) && empty($nation) && $interest!='placeholder')
-		 $res=$this->safequery("SELECT `userId`,`role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (`interest_id`='%s')", $interest);
+		 $res=$this->safequery("SELECT `userId`,`userStatus`,`role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (`interest_id`='%s')", $interest);
 		
 		//search by interest and name
 		elseif (!empty($name) && empty($nation) && $interest!='placeholder') {
-			$res=$this->safequery("SELECT `userId`,`role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (((`firstName` LIKE '%%%s%%') OR (`lastName` LIKE '%%%s%%')) AND (`interest_id`='%s'))", $name,$name,$interest);
+			$res=$this->safequery("SELECT `userId`,`userStatus`,`role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (((`firstName` LIKE '%%%s%%') OR (`lastName` LIKE '%%%s%%')) AND (`interest_id`='%s'))", $name,$name,$interest);
 		}
 		//search by interest and country
 		elseif (empty($name) && !empty($nation) && $interest!='placeholder') {
-			$res=$this->safequery("SELECT `userId`,`role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND ((`country` LIKE '%%%s%%') AND (`interest_id`='%s'))", $country, $interest);
+			$res=$this->safequery("SELECT `userId`,`userStatus`,`role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND ((`country` LIKE '%%%s%%') AND (`interest_id`='%s'))", $country, $interest);
 		}
 		//all three: name, interest, country
 		elseif (!empty($name) && !empty($nation) && $interest!='placeholder') {
-			$res=$this->safequery("SELECT `userId`,`role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (((`firstName` LIKE '%%%s%%') OR `(lastName` LIKE '%%%s%%')) AND (`country` LIKE '%%%s%%') AND (`interest_id`='%s'))", $name,$name,$country, $interest);
+			$res=$this->safequery("SELECT `userId`,`userStatus`,`role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (((`firstName` LIKE '%%%s%%') OR `(lastName` LIKE '%%%s%%')) AND (`country` LIKE '%%%s%%') AND (`interest_id`='%s'))", $name,$name,$country, $interest);
+		}
+		// return the results of the query
+		if($res)
+		{
+			return $res;
+		}
+	}
+
+function searchfavoritesEither($name, $nation, $interest,$role,$myuserid)
+	{
+		global $favList;
+		echo $favList;
+		//splits the array
+		$favIds=implode(",", $favList); 
+		//Get connection and query database
+		$this->getConnection();
+		//search by only country
+		if(empty($name) && !empty($nation) && $interest='placeholder')
+		{
+		$res=$this->safequery("SELECT `userId`, `role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (`role_Id`=$role) AND (`country` LIKE '%%%s%%') AND (`user`.`userId` IN '%s')",$nation,$favIds);
+		}
+		// search by only name
+		elseif (!empty($name) && empty($nation)  && $interest='placeholder') {
+			$res=$this->safequery("SELECT `userId`, `role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (`role_Id`=$role) AND ((`firstName` LIKE '%%%s%%') OR (`lastName` LIKE '%%%s%%')) AND ( `user`.`userId` IN '%s')",$name,$name,$favIds);
+		}
+		//search by name and nation
+		elseif (!empty($name) && !empty($nation)  && $interest='placeholder') {
+			$res=$this->safequery("SELECT `userId`, `role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (`role_Id`=$role) AND (((`firstName` LIKE '%%%s%%') OR (`lastName` LIKE '%%%s%%')) OR (`country` LIKE '%%%s%%')) AND ( `user`.`userId` IN '%s')",$name,$name,$nation,$favIds);
+		}
+		//search by only interest
+		elseif(empty($name) && empty($nation) && $interest!='placeholder')
+		 $res=$this->safequery("SELECT `userId`, `role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (`role_Id`=$role) AND (`interest_id`='%s') AND ( `user`.`userId` IN '%s')", $interest,$favIds);
+
+		//search by interest and name
+		elseif (!empty($name) && empty($nation) && $interest!='placeholder') {
+			$res=$this->safequery("SELECT `userId`, `role_id`,  `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (`role_Id`=$role) AND (((`firstName` LIKE '%%%s%%') OR (`lastName` LIKE '%%%s%%')) AND (`interest_id`='%s'))", $name,$name,$interest,$favIds);
+		}
+		//search by interest and country
+		elseif (empty($name) && !empty($nation) && $interest!='placeholder') {
+			$res=$this->safequery("SELECT `userId`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND  (`role_Id`=$role) AND ((`country` LIKE '%%%s%%') AND (`interest_id`='%s')) AND ( `user`.`userId` IN '%s')", $country, $interest,$favIds);
+		}
+		//all three: name, interest, country
+		elseif (!empty($name) && !empty($nation) && $interest!='placeholder') {
+			$res=$this->safequery("SELECT `userId`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND  (`role_Id`=$role) AND (((`firstName` LIKE '%%%s%%') OR `(lastName` LIKE '%%%s%%')) AND (`country` LIKE '%%%s%%') AND (`interest_id`='%s')) AND (`user`.`userId` IN '%s')", $name,$name,$country, $interest,$favIds);
 		}
 		// return the results of the query
 		if($res)

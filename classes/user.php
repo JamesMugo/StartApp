@@ -8,23 +8,25 @@ require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/database/da
 class user 
 {
 	//function that querys for users in the database
-	function queryUsers($roleid)
+	function queryUsers($roleid, $userStatus)
 	{
+		// $userStatus='ACTIVE';
+
 		//for admin
 		if ($roleid==1) 
 		{
 			
-			$sql="SELECT `userId`, `role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE')";
+			$sql=sprintf("SELECT `userId`, `role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='%s')",$userStatus);
 		}
 		//for investor
 		elseif ($roleid==2)
 		{
-			$sql="SELECT `userId`, `role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (role_id=3)";
+			$sql=sprintf("SELECT `userId`, `role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (role_id=3)",$userStatus);
 		}
 		//for startup
 		elseif ($roleid==3) 
 		{
-			$sql="SELECT `userId`, `role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (role_id=2)";
+			$sql=sprintf("SELECT `userId`, `role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (role_id=2)",$userStatus);
 		}
 
 		//creates an instace of a database
@@ -125,7 +127,7 @@ class user
 	function getFavorite($userid)
 	{
 		//sql
-		$sql="SELECT * FROM user WHERE userId IN( SELECT favoriteId FROM favorite WHERE user_id = $userid);";
+		$sql="SELECT `userId`, `role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND userId IN( SELECT favoriteId FROM favorite WHERE user_id = $userid);";
 
 		//creates an instace of a database
 		$database = new Dbconnection;
@@ -140,25 +142,6 @@ class user
 			return false;
 		}
 	}
-
-	function blockuser($userid)
-	{
-		$sql="UPDATE user SET userStatus='INACTIVE' WHERE userId= $userid";
-		//creates an instace of a database
-		$database = new Dbconnection;
-		$result= $database->queryDatabase($sql);
-
-		if($result)
-		{
-			return $database->getResult();
-		}
-		else
-		{
-			return false;
-		}
-	}
-
-	
 
 	//change password
 	function changePassword($userId,$newpass)

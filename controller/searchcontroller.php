@@ -29,7 +29,7 @@
 		global $userRow;
 		$myroleid=$_SESSION['roleId'];
 		$space="   ";
-		if(isset($name)||isset($nat)||isset($ints))
+		if(isset($name)||isset($nat)||($ints!='placeholder'))
 		{
 			$theSearch= new SearchClass();
 			$result=$theSearch->searchInvester(trim($name),trim($nat),trim($ints));
@@ -56,93 +56,213 @@
 					$userRow='';
 				}
 
+				//Profile displays for investor or startup
+			if($myroleid==2 || $myroleid==3)
+			{
 				if (empty($row['profilePicture']))
 				{
-					echo "<div id=\"card1\" class=\"panel panel-primary\">
-					<form action=\"\" method=\"get\">
-					<div id=\"investorInfo\">
-						<table>
-							<tr>
-								<td style=\"font-size: 150%\">".$userRow."</td>
-							</tr>
-							<tr>
-								<td  class=\"tdtitle\">Name: </td>
-								<td>".$row['firstName'].$space.$row['lastName']."</td>
-							</tr>
-							<tr>
-								<td  class=\"tdtitle\">Nationality: </td>         
-								<td>".$row['country']."</td>
-							</tr>
-							<tr>
-							    <td  class=\"tdtitle\">Interest: </td>
-								<td>".$row['interestName']."</td>
-							</tr>
-						</table>
-					</div>
-						<div id=\"pictb\">
-							<td><img src=\"../img/placeholder.png\" class=\"investorimg\"></td>
-						</div>
-						 <button name=\"viewProfile\" value=\"".$row['userId']."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"viewProfile\">view profile</button>
-						 <button name=\"addFavorite\" value=\"".$row['userId']."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"addFavorite\">Add To Favorite</button>
-						 </form>
-				</div>";
+					//Displays of users with pictures
+					userWithPic2($row['userId'],$row['firstName'],$row['lastName'],$row['country'],$row['interestName'],$userRow);
+				}
+				//Displays of users without pictures
+				else if(!empty($row['profilePicture']))
+				{
+					userWithNoPic2($row['userId'],$row['firstName'],$row['lastName'],$row['country'],$row['interestName'],$userRow);
+					
+				}
 			}
-			else if(!empty($row['profilePicture']))
+			//profile Displays for Admin
+			elseif($myroleid==1)
 			{
-				echo "<div id=\"card1\" class=\"panel panel-primary\">
-				<form action=\"\" method=\"post\">
-					<div id=\"investorInfo\">
-						<table>
-							<tr>
-								<td style=\"font-size: 150%\">".$userRow."</td>
-							</tr>
-							<tr>
-								<td  class=\"tdtitle\">Name: </td>
-								<td>".$row['firstName'].$space.$row['lastName']."</td>
-							</tr>
-							<tr>
-								<td  class=\"tdtitle\">Nationality: </td>         
-								<td>".$row['country']."</td>
-							</tr>
-							<tr>
-							    <td  class=\"tdtitle\">Interest: </td>
-								<td>".$row['interestName']."</td>
-							</tr>
-						</table>
-					</div>
-						<div id=\"pictb\">
-							<td><img src=\"../controller/getImage.php?id=".$row['userId']."\" class=\"investorimg\">
-							</td>
-						</div>
-						 <button name=\"viewProfile\" value=\"".$row['userId']."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"viewProfile\">view profile</button>
-						 <button name=\"addFavorite\" value=\"".$row['userId']."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"addFavorite\">Add To Favorite</button>
-						 </form>
-				</div>";
-			
+				if (empty($row['profilePicture']))
+				{
+					//Displays of users with pictures
+					userWithNoPicAdmin2($row['userId'],$row['firstName'],$row['lastName'],$row['country'],$row['interestName'],$userRow);
+				}
+				//Displays of users without pictures
+				else if(!empty($row['profilePicture']))
+				{
+					userWithPicAdmin2($row['userId'],$row['firstName'],$row['lastName'],$row['country'],$row['interestName'],$userRow);
+					
+					}
+				}
 			}
 		}
 	}
+
+function userWithNoPicAdmin2($userid,$fname,$lname,$count,$intst,$userHeadr)
+{
+	$space="   ";
+	echo "<div id=\"card1\" class=\"panel panel-primary\">
+			<form action=\"\" method=\"post\">
+				<div id=\"investorInfo\">
+					<table>
+						<tr>
+							<td style=\"font-size: 150%\">".$userHeadr."</td>
+						</tr>
+						<tr>
+							<td  class=\"tdtitle\">Name: </td>
+							<td>".$fname.$space.$lname."</td>
+						</tr>
+						<tr>
+							<td  class=\"tdtitle\">Nationality: </td>         
+							<td>".$count."</td>
+						</tr>
+						<tr>
+						    <td  class=\"tdtitle\">Interest: </td>
+							<td>".$intst."</td>
+						</tr>
+					</table>
+				</div>
+					<div id=\"pictb\">
+						<td><img src=\"../controller/getImage.php?id=".$userid."\" class=\"investorimg\">
+						</td>
+					</div>
+					 <button name=\"viewProfile\" value=\"".$userid."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"viewProfile\">view profile</button>
+					 <button name=\"blockUser\" value=\"".$userid."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"blockUser\">Block User</button>
+					 </form>
+			</div>";
 }
 
- // function displayWithNoPicture()
- {
- 	
- }
-	 ?>
-	    <!-- <script>
-		  	function searchFunction() {
-		  		//get user input value
-		  		var name=document.getElementById("name").value;
-		  		var nationality=document.getElementById("nationality").value;
-		  		var interest=document.getElementById("interest").value;
+function userWithPicAdmin2($userid,$fname,$lname,$count,$intst,$userHeadr)
+{
+	$space="   ";
+	echo "<div id=\"card1\" class=\"panel panel-primary\">
+				<form action=\"\" method=\"post\">
+				<div id=\"investorInfo\">
+					<table>
+						<tr>
+							<td style=\"font-size: 150%\">".$userHeadr."</td>
+						</tr>
+						<tr>
+							<td  class=\"tdtitle\">Name: </td>
+							<td>".$fname.$space.$lname."</td>
+						</tr>
+						<tr>
+							<td  class=\"tdtitle\">Nationality: </td>         
+							<td>".$count."</td>
+						</tr>
+						<tr>
+						    <td  class=\"tdtitle\">Interest: </td>
+							<td>".$intst."</td>
+						</tr>
+					</table>
+				</div>
+					<div id=\"pictb\">
+						<td><img src=\"../img/placeholder.png\" class=\"investorimg\"></td>
+					</div>
+					 <button name=\"viewProfile\" value=\"".$userid."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"viewProfile\">view profile</button>
+					 <button name=\"blockUser\" value=\"".$userid."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"blockUser\">Block User</button>
+					 </form>
+			</div>";
+}
 
-	  			var xhttp = new XMLHttpRequest();
-	  			xhttp.onreadystatechange = function() {
-	    			if (this.readyState == 4 && this.status == 200) {
-						document.getElementById("placeholder").innerHTML =this.responseText;
-	    			}
-	  			};
-	  				xhttp.open("GET", 'searchcontroller.php?term='array(name,nationality,interest), true);
-	  				xhttp.send();
+function userWithPic2($userid,$fname,$lname,$count,$intst,$userHeadr)
+{
+	$space="   ";
+	echo "<div id=\"card1\" class=\"panel panel-primary\">
+				<form action=\"\" method=\"post\">
+				<div id=\"investorInfo\">
+					<table>
+						<tr>
+							<td style=\"font-size: 150%\">".$userHeadr."</td>
+						</tr>
+						<tr>
+							<td  class=\"tdtitle\">Name: </td>
+							<td>".$fname.$space.$lname."</td>
+						</tr>
+						<tr>
+							<td  class=\"tdtitle\">Nationality: </td>         
+							<td>".$count."</td>
+						</tr>
+						<tr>
+						    <td  class=\"tdtitle\">Interest: </td>
+							<td>".$intst."</td>
+						</tr>
+					</table>
+				</div>
+					<div id=\"pictb\">
+						<td><img src=\"../img/placeholder.png\" class=\"investorimg\"></td>
+					</div>
+					 <button name=\"viewProfile\" value=\"".$userid."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"viewProfile\">view profile</button>
+					 <button name=\"addFavorite\" value=\"".$userid."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"addFavorite\">Add To Favorite</button>
+					 </form>
+			</div>";
+}
+
+function userWithNoPic2($userid,$fname,$lname,$count,$intst,$userHeadr)
+{
+	$space="   ";
+	echo "<div id=\"card1\" class=\"panel panel-primary\">
+			<form action=\"\" method=\"post\">
+				<div id=\"investorInfo\">
+					<table>
+						<tr>
+							<td style=\"font-size: 150%\">".$userHeadr."</td>
+						</tr>
+						<tr>
+							<td  class=\"tdtitle\">Name: </td>
+							<td>".$fname.$space.$lname."</td>
+						</tr>
+						<tr>
+							<td  class=\"tdtitle\">Nationality: </td>         
+							<td>".$count."</td>
+						</tr>
+						<tr>
+						    <td  class=\"tdtitle\">Interest: </td>
+							<td>".$intst."</td>
+						</tr>
+					</table>
+				</div>
+					<div id=\"pictb\">
+						<td><img src=\"../controller/getImage.php?id=".$userid."\" class=\"investorimg\">
+						</td>
+					</div>
+					 <button name=\"viewProfile\" value=\"".$userid."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"viewProfile\">view profile</button>
+					 <button name=\"addFavorite\" value=\"".$userid."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"addFavorite\">Add To Favorite</button>
+					 </form>
+			</div>";
+}
+
+function displayFavoriteSearch($name,$nat,$ints)
+{
+	if(isset($name)||isset($nat)||($ints!='placeholder'))
+		{
+			$theSearch= new SearchClass();
+			$result=$theSearch->searchFavorite(trim($name),trim($nat),trim($ints));
+			while($row=mysqli_fetch_assoc($result))
+			{
+				//Profile displays for investor or startup
+			if($myroleid==2 || $myroleid==3)
+			{
+				if (empty($row['profilePicture']))
+				{
+					//Displays of users with pictures
+					userWithPic2($row['userId'],$row['firstName'],$row['lastName'],$row['country'],$row['interestName'],$userRow);
 				}
-		</script> -->
+				//Displays of users without pictures
+				else if(!empty($row['profilePicture']))
+				{
+					userWithNoPic2($row['userId'],$row['firstName'],$row['lastName'],$row['country'],$row['interestName'],$userRow);
+					
+				}
+			}
+			//profile Displays for Admin
+			elseif($myroleid==1)
+			{
+				if (empty($row['profilePicture']))
+				{
+					//Displays of users with pictures
+					userWithPicAdmin2($row['userId'],$row['firstName'],$row['lastName'],$row['country'],$row['interestName'],$userRow);
+				}
+				//Displays of users without pictures
+				else if(!empty($row['profilePicture']))
+				{
+					userWithNoPicAdmin2($row['userId'],$row['firstName'],$row['lastName'],$row['country'],$row['interestName'],$userRow);
+					
+					}
+				}
+			}
+		}
+}
+
