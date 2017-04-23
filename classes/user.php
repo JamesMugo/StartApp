@@ -43,7 +43,7 @@ class user
 	//load user profile
 	function loadProfile($userid)
 	{
-		$sql="SELECT username,firstName,lastName,emailAddress,phoneNumber,country,address,bio,profilePicture FROM user WHERE userId ='$userid';";
+		$sql="SELECT username,firstName,lastName,emailAddress,phoneNumber,country,address,bio,profilePicture FROM user WHERE userId ='$userid'";
 
 		//creates an instace of a database
 		$database = new Dbconnection;
