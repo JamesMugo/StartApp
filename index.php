@@ -12,7 +12,7 @@
     <!--csslinks ends-->
 	
 </head>
-<body>	
+<body id="bodyPad">	
 	 <?php
  	  include('unsecure/unsecureProcessing.php');
  	 ?>	

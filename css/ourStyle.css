@@ -16,6 +16,10 @@
 	margin-left: 27%;
 }
 
+#bodyPad
+{
+	padding-top: 25px;
+}
 #login
 {
 
@@ -145,10 +149,14 @@
 	font-family: Arial;
 	font-weight: bold;
 }
+.col-lg-10, .row
+{
+	margin-top: 10%;
+}
 
 #about
 {
-	padding-top: 5%;
+	padding-top: 2%;
 	background-color: #f4f4f4;
 }
 #h1Header{
