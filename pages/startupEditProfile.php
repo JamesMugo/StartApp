@@ -48,8 +48,8 @@
 					?>
 						<h6 style="color: red;"><?php echo $generalError;?></h6>
 						<h6 style="color: red;"><?php echo $sizeError;?></h6>
-						<input type="file" class="text-center center-block well well-sm" name="image">
-						<input type="submit" value="save" name="saveImage">
+						<input type="file" class="text-center center-block well well-sm" name="image" class="form-control">
+						<input type="submit" value="save" name="saveImage" class="btn btn-primary" style="width: 80%; margin-top:-4%;">
 					</div>
 				</form>
 			</div>
@@ -67,9 +67,9 @@
 
 					<div class="form-group">
 						<label class="col-md-3 control-label"></label>
-						<div class="col-md-8">
+						<div class="col-md-8" style="margin-left: 35%; padding-bottom: 3%;">
 							<input class="btn btn-default" value="Save Changes" type="submit" id="saveProfileBtn" name="saveChanges">
-							<input class="btn btn-default" value="Cancel" type="reset">
+							<input class="btn btn-default" value="Cancel" type="reset" style="background-color: red;">
 						</div>
 					</div>
 				</form>

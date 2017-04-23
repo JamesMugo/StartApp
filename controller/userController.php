@@ -37,7 +37,7 @@ function listUsers($roleid)
 						</tr>
 						<tr>
 						    <td  class=\"tdtitle\">Interest: </td>
-							<td>Finance</td>
+							<td>".$row['interest']."</td>
 						</tr>
 					</table>
 				</div>
@@ -65,7 +65,7 @@ function listUsers($roleid)
 						</tr>
 						<tr>
 						    <td  class=\"tdtitle\">Interest: </td>
-							<td>Finance</td>
+							<td>".$row['interest']."</td>
 						</tr>
 					</table>
 				</div>
@@ -130,7 +130,7 @@ function getProfile($userid)
 						<label class=\"col-lg-3 control-label\">Interested in:</label>
 						<div class=\"col-lg-8\">
 							<div class=\"ui-select\">
-								<select id=\"user_time_zone\" id=\"interest\" class=\"form-control\">
+								<select name=\"interest\" id=\"interest\" class=\"form-control\">
 									<option value=\"Agriculture\">Agriculture</option>
 									<option value=\"Health\">Health</option>
 									<option value=\"Finance\">Finance</option>

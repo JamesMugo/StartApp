@@ -13,6 +13,7 @@
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<?php
 		require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/settings/initialization.php');
+		checkUserLogin();
 		require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/favoriteController.php');
 
 		require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/messageController.php');
@@ -54,7 +55,6 @@
 	      <div class="col-md-2" id="lefSidebar">
 	        <ul id="lefSidebar-list" class="nav ">
 	          <li><a href="users.php">Back to <?php echo $user;?></a></li><br>
-	          <li><a href="">Messages</a></li><br>
 	        </ul>
 	      </div>
 
@@ -70,7 +70,7 @@
 						<input type="text" name="subject" class="form-control"><br>
 
 						<label>Message</label><br>
-						<textarea class="form-control" name="message" style="border-color:<?php echo $messageColor;?>"></textarea>
+						<textarea class="form-control" name="message" style="border-color:<?php echo $messageColor;?>" rows="2" cols="200"></textarea>
 						<span id="messageSpan" style="color:red;"><?php echo $messageErrorMessage;?></span>
 
 						<button class=" btn btn-primary form-control" name="sendEmailToUser">Send</button>

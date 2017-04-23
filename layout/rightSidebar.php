@@ -35,7 +35,8 @@
 			<label class="col-md-3 control-label"></label>
 			<span style="color: red;" id="searhSpan"><?php echo $errorMessage;?></span>
 			<div class="col-md-10">
-				<button type="submit" class="btn btn-primary" name="searchButton">Search</button>
+				<button type="submit" class="btn btn-primary" name="searchButton" 
+				style="width:100%; margin-top:-1%;">Search</button>
 			</div>
 		</div>
 
