@@ -1,5 +1,6 @@
 <?php
  	 include('../unsecure/unsecureProcessing.php');
+ 	 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/searchController1.php');
  ?>
 <!-- right side bar column-->
 <div class="col-md-2" id="rightSidebar">
@@ -11,7 +12,7 @@
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Name:</label>
 			<div class="col-lg-10">
-				<input class="form-control" placeholder="StartupName" type="text" name="name"
+				<input class="form-control" placeholder="name" type="text" name="name"
 				style="border-color: <?php echo $nameColor;?>">
 			</div>
 		</div>

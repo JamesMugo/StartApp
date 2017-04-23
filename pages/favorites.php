@@ -19,6 +19,8 @@
 
  <!--header begins-->
   <?php
+    require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/settings/initialization.php');
+    checkUserLogin();
      require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/InvestorStartupHeader.php');
      $user="";
     if($_SESSION['roleId']==2)
@@ -53,7 +55,15 @@
           <?php
             require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/userController.php');
             require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/favoriteController.php');
-            listFavorites($_SESSION['userId']);
+
+            if(isset($_POST['searchButton']))
+            {
+              require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/searchController1.php');
+            }
+            else
+            {
+              listFavorites($_SESSION['userId']);
+            }
           ?>
     
       </div>

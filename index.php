@@ -44,6 +44,7 @@
 							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.9s">
 
 								<div id="form2s">
+										<form class="form-inline" action="#signup">
 										<div id="form2">
 											<div class="form-group" id="sign2">
 												<a class="btn btn-primary btn-lg" href="#signup" style=" background-color: green;" >Sign Up</a>
@@ -52,6 +53,8 @@
 												<a class="btn btn-primary btn-lg" href="login/" style=" background-color:#0BA9F9;" >Sign in</a>
 											</div>
 										</div>
+
+									</form>
 								</div>	
 
 							</div>
@@ -180,9 +183,6 @@
 
 					<!-- SIGN UP Button -->
 					<a href="register/investorRegister.php"><div class="signupBtn"> I am an Investor</div></a><br>
-
-					<!-- SIGN UP Button -->
-					<a href="investmentCompanyRegister.html"><div class="signupBtn"> I am an investment company</div></a><br>
 				</div>
 			</div>
 		</div>

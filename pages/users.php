@@ -62,7 +62,14 @@
 					<!--card-->
 					<?php
 						require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/userController.php');
-						listUsers($_SESSION['roleId']);
+						if(isset($_POST['searchButton']))
+						{
+							require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/searchController1.php');
+						}
+						else
+						{
+							listUsers($_SESSION['roleId']);
+						}
 					?>
 			</div>
 				<!--right sidebar begins-->
