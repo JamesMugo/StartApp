@@ -16,8 +16,8 @@ require_once('databaseCredentials.php');
 class Dbconnection
 {
 	//properties
-	private $connection;
-	private $result;
+	public $connection;
+	public $result;
 
 	//methods
 
@@ -25,7 +25,7 @@ class Dbconnection
 	*connection method
 	*@return returns true or false
 	*/
-	private function getConnection()
+	public function getConnection()
 	{
 		$this ->connection = mysqli_connect(SERVER,USER,PASS,DB);
 
@@ -53,7 +53,7 @@ class Dbconnection
 		$this->result = mysqli_query($this->connection,$sql);
 
 		//closes the mysql connection
-		mysqli_close($this->connection);
+		// mysqli_close($this->connection);
 		
 		//checks if the query fails
 		if ($this->result == false) 
@@ -100,6 +100,57 @@ class Dbconnection
 
 		//returns the number of rows from the result
 		return mysqli_num_rows($this->result);
+	}
+
+	//prevents sql injcetion
+	function prev_inj($var)
+	{
+		$myAr=array();
+		for ($i=0; $i < count($var); $i++) { 
+		array_push($myAr, mysqli_real_escape_string($this->connection,$var[$i]));
+		}
+		return $myAr;
+	}
+
+	//function to support mySqli_real_escape string
+	function safequery($query, ...$args)
+	{
+		//mySqli_real_escape string each variable provided
+		$myAr=$this->prev_inj($args);
+		//match variables with query
+		$sql=sprintf($query, ...array_slice($myAr,0));
+		//execute query
+		if($this->queryDatabase($sql))
+		{
+			return $this->result;
+		}
+		else
+		{
+			return false;
+		}
+		//close
+		mysqli_close($this->connection);
+	}
+
+	//funtion for prepared statement
+	function myprepare($query, ...$args)
+	{
+		$stmt=$this->connection->prepare($query);
+		//statement to get the type of each variable
+		$type = $this->forType($args);
+		//to bind each variable input with type
+		$stmt->bind_param($type, ...array_slice($args,0));
+		//execute and return success
+		if($stmt->execute())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+
+		$stmt->close();
 	}
 
 }

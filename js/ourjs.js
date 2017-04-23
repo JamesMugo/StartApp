@@ -37,7 +37,80 @@ function validateSearchForm()
 	return status;
 }
 
+/********************************************************************************************
+			THIS SECTION VALIDATES THE PASSWORD RECOVERY FORM
+*********************************************************************************************/
+function validateRecoveryForm()
+{
+	if(validateEmail("passwordRecoveryForm"))
+	{
+		return true;
+	}
+	return false;
+}
 
+/********************************************************************************************
+			THIS SECTION VALIDATES THE EDIT PROFILE FORM
+*********************************************************************************************/
+function validateEditProfileForm()
+{
+	var lname = validateLastName("editProfileForm");
+	var email= validateEmail("editProfileForm");
+	var fname =validateFirstName("editProfileForm");
+	var username =validateUsername("editProfileForm");
+	var country = validateCountry("editProfileForm");
+	var phone=validatePhone("editProfileForm");
+	var bio = validateBio("editProfileForm");
+	var address=validateAddress("editProfileForm");
+
+	if (lname&email&fname&username&country&phone&address&bio)
+	 {
+	 	return true;
+	 }
+	return false;
+}
+
+//VALIDATING BIO
+function validateBio(form)
+{
+	var bio= document.forms[form]["bio"];
+	var span = document.getElementById('bioSpan');
+
+  if (bio.value == "") 
+  {
+ 	span.innerHTML = "*bio must be filled";
+ 	bio.style.border = "1px solid red";
+ 	return false; 
+  }
+  else
+  {
+
+  	bio.style.border = "1px solid green";
+ 	span.innerHTML = "";
+ 	return true; 
+  }
+}
+
+//VALIDATING Address
+function validateAddress(form)
+{
+	var address= document.forms[form]["address"];
+	var span = document.getElementById('addressSpan');
+
+  if (address.value == "") 
+  {
+ 	span.innerHTML = "*address must be filled";
+ 	address.style.border = "1px solid red";
+ 	return false; 
+  }
+  else
+  {
+
+  	address.style.border = "1px solid green";
+ 	span.innerHTML = "";
+ 	return true; 
+  }
+}
 /********************************************************************************************
 	THIS SECTION VALIDATES THE CONTACT FORM  AND IT HAS ALL THE FUNCTIONS REQUIRED FOR THAT
 *********************************************************************************************/
@@ -169,9 +242,9 @@ function validateLoginForm()
 *********************************************************************************************/
 
  //VALIDATING USERNAME
-function validateUsername()
+function validateUsername(form)
 {
-	var username = document.forms["registerForm"]["username"];
+	var username = document.forms[form]["username"];
 	var span = document.getElementById('usernameSpan');
 
   if (username.value == "") 
@@ -217,9 +290,9 @@ function validateUsername()
  }
  
 //VALIDATE PHONE
-function validatePhone()
+function validatePhone(form)
 {
-	var phone = document.forms["registerForm"]["phone"];
+	var phone = document.forms[form]["phone"];
 	var span = document.getElementById('phoneSpan');
 
 	if (phone.value == "") 
@@ -258,9 +331,9 @@ function validatePhone()
 }
 
 //VALIDATE COUNTRY
-function validateCountry()
+function validateCountry(form)
 {
-	var country = document.forms["registerForm"]["country"];
+	var country = document.forms[form]["country"];
 	var span = document.getElementById('countrySpan');
 
 	if (country.value == "") 
@@ -310,9 +383,9 @@ function validateFirstName(form)
 }
 
 //VALIDATING LAST NAME
-function validateLastName()
+function validateLastName(form)
 {
-	var lastName = document.forms["registerForm"]["lname"];
+	var lastName = document.forms[form]["lname"];
 	var span = document.getElementById('lastNameSpan');
 
 	if (lastName.value == "") 
@@ -469,7 +542,7 @@ function validateRegisterForm()
 	 }
 	return false;
  }
-=======
+
 function validateContactForm(){
 
 	var startUpName = document.forms["signUpStartUpForm"]["name"];
@@ -657,3 +730,4 @@ else
  	if (firstpass!=secpass) {
  		warn.innerHTML="passwords to not match";
  	}*/
+ }

@@ -1,10 +1,40 @@
 <?php
-require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/classes/user.php');
-
 $password=$passwordColor=$passwordErrorMessage=$passwordMisMach="";
 $newPassword=$newPasswordColor=$newPasswordErrorMessage=$passSuccess="";
 $confirmPassword=$confirmPasswordColor=$confirmPasswordErrorMessage="";
 
+
+//email validation variables
+$email=$emailColor=$emailErrorMessage="";
+
+//message validation variables
+$message=$messageColor=$messageErrorMessage="";
+
+//subject validation variables
+$subject=$subjectColor=$subjectErrorMessage="";
+
+//first name validation variables
+$firstName=$firstNameColor=$firstNameErrorMessage="";
+
+//last name validation variables
+$lastName=$lastNameColor=$lastNameErrorMessage="";
+
+//country validation variables
+$country=$countryColor=$countryErrorMessage="";
+
+//phone validation variables
+$phone=$phoneColor=$phoneErrorMessage="";
+
+//username validation variables
+$username=$usernameColor=$usernameErrorMessage="";
+
+//bio validation variables
+$bio=$bioColor=$bioErrorMessage="";
+
+//address validation variables
+$address=$addressColor=$addressErrorMessage="";
+
+require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/classes/user.php');
 //VALIDATING PASSWORD
 function validatePass($name)
 {
@@ -147,6 +177,16 @@ if (isset($_POST['changePasswordButton']))
 		}	
 	}
 }
+elseif (isset($_POST['sendEmail']))
+{
+	//validates the email
+	if(validateEmail())
+	{
+		//send the email
+		
+	}
+}
+
 
 //function that helps to change user password
 function changePassword($userId,$newpass)
@@ -183,4 +223,282 @@ function getUserPassword($userId)
 		}
 	}
 }
+
+//VALIDATING EMAIL
+function validateEmail()
+{
+	global $email,$emailColor,$emailErrorMessage;
+	
+	//checks if the email is set and not empty
+	if (isset($_POST['email']) & !empty($_POST['email'])) 
+	{
+		$email= $_POST['email'];
+
+		//checks if the email meets the pattern
+		$pattern = "/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/";
+
+		if (preg_match($pattern,$email)) 
+		{
+			$emailColor = "green";
+			return true;
+		}
+		else
+		{
+			$emailColor = "red";
+			$emailErrorMessage = "*invalid email";
+			return false;
+		}
+	}
+	else
+	{
+		$emailColor = "red";
+		$emailErrorMessage = "*email must be filled";
+		return false;
+	}
+}
+
+//VALIDATING SUBJECT
+function validateSubject()
+{
+	global $subject,$subjectColor,$subjectErrorMessage;
+	//checks if the message box is empty
+	if (isset($_POST['subject']) & !empty($_POST['subject'])) 
+	{
+		$subject=$_POST['subject'];
+		$subjectColor="green";
+		return true;
+
+	}else
+	{
+		$subjectColor="red";
+		$subjectErrorMessage="*subject must be filled";
+		return false;
+	}
+}
+
+//VALIDATING MESSAGE
+function validateMessage()
+{
+	global $message,$messageColor,$messageErrorMessage;
+	//checks if the message box is empty
+	if (isset($_POST['message']) & !empty($_POST['message'])) 
+	{
+		$message=$_POST['message'];
+		$messageColor="green";
+		return true;
+
+	}else
+	{
+		$messageColor="red";
+		$messageErrorMessage="*message must be filled";
+		return false;
+	}
+}
+
+//VALIDATING USERNAME
+function validateUsername()
+{
+	global $username,$usernameColor,$usernameErrorMessage;
+	if (isset($_POST['username']) & !empty($_POST['username']))
+    {
+    	$username = $_POST['username'];
+
+ 		//checks if the username does not contain numbers or symbols 
+  		$pattern = "/^[a-zA-Z]+$/";
+  		if (preg_match($pattern,$username))
+  	    {
+  			$usernameColor= "green";
+  			return true;
+  		}
+  		else
+  		{
+  			$usernameColor= "red";
+  			$usernameErrorMessage= "invalid username";
+  			return false;
+  		}
+		
+	}
+	else
+	{
+		$usernameColor= "red";
+  		$usernameErrorMessage= "username must be filled";
+  		return false;
+	}
+}
+
+//VALIDATE PHONE
+function validatePhone()
+{
+	global $phone,$phoneColor,$phoneErrorMessage;
+
+	//checks if the phone is set and not empty
+	if (isset($_POST['phone']) & !empty($_POST['phone']))
+	{
+		$phone = $_POST['phone'];
+
+		//checks if the phone meets the length requirement
+		if (strlen($phone)>=4 & strlen($phone)<=13)
+		{
+			//checks if the phone meets the required pattern
+			$pattern = "/^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\.\/0-9]*$/";
+
+			if (preg_match($pattern,$phone))
+			{
+				$phoneColor = "green";
+				return true;
+			}
+			else
+			{
+				$phoneColor = "red";
+				$phoneErrorMessage = "*invalid phone number";
+				return false;
+			}
+		}
+		else
+		{
+			$phoneColor = "red";
+			$phoneErrorMessage = "*phone number has to be between 4 and 13 digits";
+			return false;
+		}
+
+	}
+	else
+	{
+		$phoneColor = "red";
+		$phoneErrorMessage = "*phone must be filled";
+		return false;
+	}
+}
+
+//VALIDATING COUNTRY
+function validateCountry()
+{
+	global $country,$countryColor,$countryErrorMessage;
+
+	if (isset($_POST['country']) & !empty($_POST['country']))
+    {
+		$country=$_POST['country'];
+		$countryColor="green";
+		return true;
+	}
+	else
+	{
+		$countryColor="red";
+		$countryErrorMessage ="*country must be filled";
+		return false;
+	}
+}
+
+//VALIDATING FIRST NAME
+function validateFirstName()
+{
+	global $firstName,$firstNameColor,$firstNameErrorMessage;
+	//checks if the first name is not empty
+	if (isset($_POST['fname']) & !empty($_POST['fname'])) 
+	{
+		$firstName = $_POST['fname'];
+
+		//checks if the username meets the patter
+		$pattern = "/^[a-zA-Z]+$/";
+		if (preg_match($pattern,$firstName)) 
+		{
+			$firstNameColor="green";
+			return true;
+		}
+		else
+		{
+			$firstNameColor="red";
+			$firstNameErrorMessage="*name must not contain numbers";
+			return false;
+		}
+	}
+	else
+	{
+		$firstNameColor="red";
+		$firstNameErrorMessage="*name must be filled";
+		return false;
+	}
+}
+
+//VALIDATING LAST NAME
+function validateLastName()
+{
+	global $lastName,$lastNameColor,$lastNameErrorMessage;
+	//checks if the first name is not empty
+	if (isset($_POST['lname']) & !empty($_POST['lname'])) 
+	{
+		$lastName = $_POST['lname'];
+
+		//checks if the username meets the patter
+		$pattern = "/^[a-zA-Z]+$/";
+		if (preg_match($pattern,$lastName)) 
+		{
+			$lastNameColor="green";
+			return true;
+		}
+		else
+		{
+			$lastNameColor="red";
+			$lastNameErrorMessage="*last name must not contain numbers";
+			return false;
+		}
+	}
+	else
+	{
+		$lastNameColor="red";
+		$lastNameErrorMessage="*last name must be filled";
+		return false;
+	}
+}
+
+//validating bio
+function validateBio()
+{
+	global $bio,$bioColor,$bioErrorMessage;
+	//checks if the message box is empty
+	if (isset($_POST['bio']) & !empty($_POST['bio'])) 
+	{
+		$bio=$_POST['bio'];
+		$bioColor="green";
+		return true;
+
+	}else
+	{
+		$bioColor="red";
+		$bioErrorMessage="*bio must be filled";
+		return false;
+	}
+}
+
+//validating address
+function validateAddress()
+{
+	global $address,$addressColor,$addressErrorMessage;
+	//checks if the message box is empty
+	if (isset($_POST['address']) & !empty($_POST['address'])) 
+	{
+		$address=$_POST['address'];
+		$addressColor="green";
+		return true;
+
+	}else
+	{
+		$addresseColor="red";
+		$addressErrorMessage="*address must be filled";
+		return false;
+	}
+}
+
+
+//load all interest into  
+ function loadallinterest() 
+ {  
+ 	$myDb = new Dbconnection;
+	$sql="SELECT interestId, interestName FROM interest";
+	$myDb->queryDatabase($sql);
+	while($row=$myDb->getRow())
+	{
+		echo "<option value=".$row['interestId'].">".$row['interestName']."</option>";
+	}
+ } 
 ?>

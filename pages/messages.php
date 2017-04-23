@@ -14,17 +14,10 @@
 	<?php
 		require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/settings/initialization.php');
 		require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/favoriteController.php');
-		$user="";
-		if($_SESSION['roleId']==2)
-		{
-			$user="Startups";
-		}
-		elseif($_SESSION['roleId']==3)
-		{
-			$user="Investors";
-		}
+
+		require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/messageController.php');
 	?>
-	<title><?php echo $user;?></title>
+	<title>messages</title>
 
    
     <!-- Custom styles -->
@@ -39,7 +32,15 @@
 	<!--header begins-->
 	<?php 
 		require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/InvestorStartupHeader.php');
-		checkUserLogin();
+			 $user="";
+	    if($_SESSION['roleId']==2)
+	    {
+	      $user="Startups";
+	    }
+	    elseif($_SESSION['roleId']==3)
+	    {
+	      $user="Investors";
+	    }
 	?>
 	<!--header ends-->
 
@@ -49,44 +50,37 @@
 		<!--row-->
 		<div class="row">
 			
-			<!--left sidebar begins-->
-			<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/leftSidebar.php');?>
-			
-			<!--left sidebar ends-->
+				<!-- left side bar column-->
+	      <div class="col-md-2" id="lefSidebar">
+	        <ul id="lefSidebar-list" class="nav ">
+	          <li><a href="users.php">Back to <?php echo $user;?></a></li><br>
+	        </ul>
+	      </div>
 
 			<!--middle bar-->
 			<div class="col-md-8" id="middle">
 				<h2 style="text-align: center;  font-family:'Roboto'; ">
-					<?php echo $user;?>
+					Messages
 				</h2>
 				<hr>
-					<!--card-->
-					<?php
-						require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/userController.php');
-						if(!isset($_GET['searchButton']))
-						{
-						listUsers($_SESSION['roleId'],'ACTIVE');
-						}
-						else
-						{
-							echo "<h2 style='text-align: center;  font-family:\"Roboto\";'>
-							Search Results
-							</h2>";
-							require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/searchcontroller.php');
-							displaySearchResults($_GET['name'],$_GET['nationality'],$_GET['interest']);
-						}
-					?>
-					<span id="placeholder"></span>
+					<form action="" method="post" onsubmit="">
+						<span style="color:green;"><?php echo $confirmationMessage;?></span><br>
+						<label>subject</label><br>
+						<input type="text" name="subject" class="form-control"><br>
+
+						<label>Message</label><br>
+						<textarea class="form-control" name="message" style="border-color:<?php echo $messageColor;?>"></textarea>
+						<span id="messageSpan" style="color:red;"><?php echo $messageErrorMessage;?></span>
+
+						<button class=" btn btn-primary form-control" name="sendEmailToUser">Send</button>
+					</form>
 			</div>
 				<!--right sidebar begins-->
-				<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/rightSidebar.php')
-				;?>
+				<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/rightSidebar.php');?>
 				<!--right sidebar ends-->
 		</div>
 	</div>	
 
-	<!-- //ajax reading -->
-	<!-- readfile("menu.html"); -->
 	<!--footer begins-->
 	<?php 
 		require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/footer.php');
@@ -104,7 +98,6 @@
 	<script type="text/javascript" src="../js/fliplightbox.min.js"></script>
 	<script src="../js/functions.js"></script>
 	<script src="../contactform/contactform.js"></script>
-	<script src="searchAjax.js"></script>
 	<!--<script src="../js/ourjs.js"></script>-->
 </body>
 </html>

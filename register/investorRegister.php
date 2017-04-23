@@ -89,6 +89,15 @@
                     </div>
                 </div>
 
+                <!--Interest-->
+                <div class="form-group">
+                    <span class="col-md-2 "></span>
+                    <div class="col-md-8">
+                        <input id="country" name="country" type="text" placeholder="country" class="form-control" style="border-color: <?php echo $countryColor;?>"  value="<?php echo $country;?>">
+                        <span id="countrySpan" style="color:red"><?php echo $countryErrorMessage;?></span>
+                    </div>
+                </div>
+
                 <!--PASSWORD-->
                 <div class="form-group">
                  <span class="col-md-2 "></span>

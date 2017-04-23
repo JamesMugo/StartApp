@@ -2,8 +2,13 @@
 //includes the user class
 //require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/unsecure/unsecureProcessing.php');
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/classes/user.php');
-//require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/unsecure/unsecureProcessing.php');
 $sizeError=$generalError="";
+
+
+
+
+//edit profile success variable
+$confirmationMessage="";
 
 //function that lists all the users depending who is logged in to the system
 function listUsers($roleid)
@@ -32,7 +37,7 @@ function listUsers($roleid)
 						</tr>
 						<tr>
 						    <td  class=\"tdtitle\">Interest: </td>
-							<td>Finance</td>
+							<td>".$row['interestName']."</td>
 						</tr>
 					</table>
 				</div>
@@ -60,7 +65,7 @@ function listUsers($roleid)
 						</tr>
 						<tr>
 						    <td  class=\"tdtitle\">Interest: </td>
-							<td>Finance</td>
+							<td>".$row['interestName']."</td>
 						</tr>
 					</table>
 				</div>
@@ -94,37 +99,42 @@ function getProfile($userid)
 						<div class=\"col-lg-8\">
 							<input class=\"form-control\" value=\"".$row['username']."\" type=\"text\"
 							 name=\"username\" >
+							 <span id=\"usernameSpan\" style=\"color:red;\"></span>
 						</div>
 					</div>
 					<div class=\"form-group\">
 						<label class=\"col-lg-3 control-label\">First name:</label>
 						<div class=\"col-lg-8\">
 							<input class=\"form-control\" value=\"".$row['firstName']."\" type=\"text\"
-							name=\"firstName\">
+							name=\"fname\">
+							<span id=\"firstNameSpan\" style=\"color:red;\"></span>
 						</div>
 					</div>
 					<div class=\"form-group\">
 						<label class=\"col-lg-3 control-label\">Last name:</label>
 						<div class=\"col-lg-8\">
 							<input class=\"form-control\" value=\"".$row['lastName']."\" type=\"text\"
-							name=\"lastName\">
+							name=\"lname\">
+							<span id=\"lastNameSpan\" style=\"color:red;\"></span>
 						</div>
 					</div>
 					<div class=\"form-group\">
 						<label class=\"col-lg-3 control-label\">Nationality:</label>
 						<div class=\"col-lg-8\">
 							<input class=\"form-control\" value=\"".$row['country']."\" type=\"text\"
-							name=\"nationality\">
+							name=\"country\">
+							<span id=\"countrySpan\" style=\"color:red;\"></span>
 						</div>
 					</div>
 					<div class=\"form-group\">
 						<label class=\"col-lg-3 control-label\">Interested in:</label>
 						<div class=\"col-lg-8\">
 							<div class=\"ui-select\">
-								<select id=\"user_time_zone\" class=\"form-control\">
-									<option value=\"Hawaii\">Agriculture</option>
-									<option value=\"Hawaii\">Health</option>
-								</select>
+								<select name=\"interest\" id=\"user_time_zone\" class=\"form-control\">";
+
+								loadallinterest();
+							
+								echo"</select>
 							</div>
 						</div>
 					</div>
@@ -134,6 +144,7 @@ function getProfile($userid)
 						<div class=\"col-md-8\">
 							<input class=\"form-control\" value=\"".$row['address']."\" type=\"text\"
 							name=\"address\">
+							<span id=\"addressSpan\" style=\"color:red;\"></span>
 						</div>
 					</div>
 
@@ -142,6 +153,7 @@ function getProfile($userid)
 						<div class=\"col-md-8\">
 							<input class=\"form-control\" value=\"".$row['emailAddress']."\" type=\"email\"
 							name=\"email\">
+							<span id=\"emailSpan\" style=\"color:red;\"></span>
 						</div>
 					</div>
 
@@ -150,6 +162,7 @@ function getProfile($userid)
 						<div class=\"col-md-8\">
 							<input class=\"form-control\" value=\"".$row['phoneNumber']."\" type=\"text\"
 							name=\"phone\">
+							<span id=\"phoneSpan\" style=\"color:red;\"></span>
 						</div>
 					</div>
 
@@ -157,28 +170,32 @@ function getProfile($userid)
 						<label class=\"col-md-3 control-label\">Bio:</label>
 						<div class=\"col-md-8\">
 							<textarea class=\"form-control\" name=\"bio\">".$row['bio']."</textarea>
+							<span id=\"bioSpan\" style=\"color:red;\"></span>
 						</div>
 					</div>";
 		}
 	}
 }
+
 //checks which button is clicked
 if (isset($_POST['saveChanges'])) 
 {
 	$username=$_POST['username'];
-	$phone=$_POST['phone'];
-	$nationality=$_POST['nationality'];
-	$firstName=$_POST['firstName'];
-	$lastName=$_POST['lastName'];
-	//$email=$_POST['email'];
-	$bio=$_POST['bio'];
+	$firstName=$_POST['fname'];
+	$lastName=$_POST['lname'];
+	$nationality=$_POST['country'];
 	$address=$_POST['address'];
-
-	//validateEmail();
+	$email=$_POST['email'];
+	$phone=$_POST['phone'];
+	$bio=$_POST['bio'];
+	$interestid=$_POST['interest'];
 
 	//create an instance of the user class
 	$user = new user;
-	$user->saveChanges($username,$firstName,$lastName,$nationality,$address,$email,$phone,$bio,$_SESSION['userId']);
+	if($user->saveChanges($username,$firstName,$lastName,$nationality,$address,$email,$phone,$bio,$_SESSION['userId'],$interestid))
+	{
+		$confirmationMessage="your changes are successfully saved";
+	}
 }
 elseif (isset($_POST['saveImage']))
 {
@@ -255,10 +272,14 @@ function listFavorites($userid)
 	$user = new user;
 	$result = $user->getFavorite($userid);
 	$space="   ";
+	global $favList;
+	$favList=array();
 	if ($result!=false) 
 	{
 		while ($row = mysqli_fetch_assoc($result)) 
-		{
+		{ //stores in all favorites into list
+			array_push($favList,$row['userId']);
+
 			if (empty($row['profilePicture']))
 			{
 				echo "<div id=\"card1\" class=\"panel panel-primary\">
@@ -275,7 +296,7 @@ function listFavorites($userid)
 						</tr>
 						<tr>
 						    <td  class=\"tdtitle\">Interest: </td>
-							<td>Finance</td>
+							<td>finance</td>
 						</tr>
 					</table>
 				</div>
@@ -303,7 +324,7 @@ function listFavorites($userid)
 						</tr>
 						<tr>
 						    <td  class=\"tdtitle\">Interest: </td>
-							<td>Finance</td>
+							<td>finance</td>
 						</tr>
 					</table>
 				</div>
@@ -315,7 +336,7 @@ function listFavorites($userid)
 					 <button name=\"removeFavorite\" value=\"".$row['userId']."\"  type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"addFavorite\">Remove From Favorite</button>
 					 </form>
 			</div>";
-
+// $s="../controller/getImage.php?id=".$row['userId'].""
 		}	
 	}
   }

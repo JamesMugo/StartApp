@@ -18,6 +18,7 @@ function viewUserProfile($userid)
 						<h3 class=\"panel-title\">".$row['firstName'].$space.$row['lastName']."</h3>
 					</div>
 					<div class=\"panel-body\">
+					<form action=\"\" method=\"post\">
 						<div class=\"row\">
 							<div class=\"col-md-3 col-lg-3 \" align=\"center\"> <img src=\"../img/placeholder.png\" 
 								class=\"img-circle img-responsive\">
@@ -67,6 +68,9 @@ function viewUserProfile($userid)
 							</div>
 
 						</div>
+						</div>
+							<button class=\" btn btn-primary form-control\" name=\"sendMessage\" value=\"".$userid."\">Send Message</button>
+						</form>
 					</div>";
 			}
 			else
@@ -75,6 +79,7 @@ function viewUserProfile($userid)
 						<h3 class=\"panel-title\">".$row['firstName'].$space.$row['lastName']."</h3>
 					</div>
 					<div class=\"panel-body\">
+					<form action=\"\" method=\"post\">
 						<div class=\"row\">
 							<div class=\"col-md-3 col-lg-3 \" align=\"center\"> <img src=\"http://localhost/MeetYourInvestor/controller/getImage.php?id=".$userid."\" 
 								class=\"img-circle img-responsive\">
@@ -124,10 +129,18 @@ function viewUserProfile($userid)
 							</div>
 
 						</div>
+							<button class=\" btn btn-primary form-control\" name=\"sendMessage\" value=\"".$userid."\">Send Message</button>
+						</form>
 				</div>";
 		    }	
 		}
 	}
 }
 
+//checks if the sendmessage button is clicked
+if (isset($_POST['sendMessage']))
+{
+	$userid = $_POST['sendMessage'];
+	header('location: ../pages/messages.php?id='.$userid);
+}
 ?>

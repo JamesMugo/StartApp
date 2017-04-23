@@ -8,7 +8,7 @@
 	<title>MYI - Meet Your Investor</title>
 
 	<!--css links begins-->
-    <?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/cssLinks.php');?>
+    <?php require_once('layout/cssLinks.php');?>
     <!--csslinks ends-->
 	
 </head>
@@ -17,7 +17,7 @@
  	  include('unsecure/unsecureProcessing.php');
  	 ?>	
 	<!--header begins-->
-	<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/mainHeader.php');?>
+	<?php require_once('layout/mainHeader.php');?>
 	<!--header ends-->
 
 	<div class="slider">		
@@ -49,7 +49,7 @@
 												<a class="btn btn-primary btn-lg" href="#signup" style=" background-color: green;" >Sign Up</a>
 											</div>
 											<div class="form-group" id="sign2">
-												<a class="btn btn-primary btn-lg" href="login/signin.php" style=" background-color:#0BA9F9;" >Sign in</a>
+												<a class="btn btn-primary btn-lg" href="login/" style=" background-color:#0BA9F9;" >Sign in</a>
 											</div>
 										</div>
 								</div>	
@@ -76,7 +76,7 @@
 												<a class="btn btn-primary btn-lg" href="#signup" style=" background-color: green;" >Sign Up</a>
 											</div>
 											<div class="form-group" id="sign2">
-												<a class="btn btn-primary btn-lg" href="login/signin.php" style=" background-color:#0BA9F9;" >Sign in</a>
+												<a class="btn btn-primary btn-lg" href="login/" style=" background-color:#0BA9F9;" >Sign in</a>
 											</div>
 										</div>
 
@@ -104,7 +104,7 @@
 												<a class="btn btn-primary btn-lg" href="#signup" style=" background-color: green;" >Sign Up</a>
 											</div>
 											<div class="form-group" id="sign2">
-												<a class="btn btn-primary btn-lg" href="login/signin.php" style=" background-color:#0BA9F9;" >Sign in</a>
+												<a class="btn btn-primary btn-lg" href="login/" style=" background-color:#0BA9F9;" >Sign in</a>
 											</div>
 										</div>
 
@@ -180,9 +180,6 @@
 
 					<!-- SIGN UP Button -->
 					<a href="register/investorRegister.php"><div class="signupBtn"> I am an Investor</div></a><br>
-
-					<!-- SIGN UP Button -->
-					<a href="investmentCompanyRegister.html"><div class="signupBtn"> I am an investment company</div></a><br>
 				</div>
 			</div>
 		</div>
@@ -264,7 +261,7 @@
 						</div>
 						
 						<div class="col-md-4 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">  	
-							<div id="sendmessage">Your message has been sent. Thank you!</div>
+							<div style="color: red;"><?php echo $sendEmailError;?></div>
 							<div id="errormessage"></div>
 							<form action="" method="post" role="form" class="contactForm" name="contactForm" onsubmit="return validateContactForm()">
 								<div class="form-group">
@@ -298,7 +295,7 @@
 			<!--CONTACT ENDS-->
 
 			<!--footer begins-->
-			<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/mainFooter.php');?>
+			<?php require_once('layout/mainFooter.php');?>
 			<!--footer ends-->
 			
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

@@ -13,17 +13,17 @@ class user
 		//for admin
 		if ($roleid==1) 
 		{
-			$sql="SELECT *FROM user WHERE userStatus='ACTIVE' AND role_id=3";
+			$sql="SELECT *FROM user,interest WHERE userStatus='ACTIVE' AND role_id=3";
 		}
 		//for investor
 		elseif ($roleid==2)
 		{
-			$sql="SELECT *FROM user WHERE userStatus='ACTIVE' AND role_id=3";
+			$sql="SELECT `userId`, `role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (role_id=3)";
 		}
 		//for startup
 		elseif ($roleid==3) 
 		{
-			$sql="SELECT *FROM user WHERE userStatus='ACTIVE' AND role_id=2";
+			$sql="SELECT `userId`, `role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (role_id=2)";
 		}
 
 		//creates an instace of a database
@@ -60,11 +60,11 @@ class user
 	}
 
 	//edit profile
-	function saveChanges($username,$fname,$lname,$nationality,$address,$email,$tel,$bio,$id)
+	function saveChanges($username,$fname,$lname,$nationality,$address,$email,$tel,$bio,$id,$interestid)
 	{
 		//sql
 		$sql="UPDATE user SET username ='$username',firstName='$fname',lastName='$lname',emailAddress=
-		'$email',phoneNumber='$tel',country='$nationality',address='$address',bio='$bio' WHERE userId='$id';";
+		'$email',phoneNumber='$tel',country='$nationality',address='$address',bio='$bio',interest_id='$interestid' WHERE userId='$id';"; 
 
 		//creates an instace of a database
 		$database = new Dbconnection;
@@ -180,6 +180,44 @@ class user
 			return false;
 		}
 	}
+
+	//change password
+	function getUserEmail($userId)
+	{
+		//sql
+		$sql="SELECT emailAddress FROM user WHERE userId='$userId';";
+
+		//creates an instace of a database
+		$database = new Dbconnection;
+
+		$result= $database->queryDatabase($sql);
+
+		if($result)
+		{
+			return $database->getResult();
+		}
+		else
+		{
+			return false;
+		}
+	}
+function sendEmail($senderEmail,$subject,$body)
+{
+	$adminEmail= "alieujallow93@gmail.com";
+	$headers[] = "From: ".$senderEmail;
+	//$headers[] = "CC: jamohmugo@gmail.com";
+	$headers[] = 'MIME-Version: 1.0';
+	$headers[] = 'Content-type: text/html; charset=iso-8857-1';
+
+	if(mail($adminEmail,$subject,$body,implode("\r\n", $headers)))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}     
+}
 }
 
 /*$user=new user;
