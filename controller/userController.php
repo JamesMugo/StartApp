@@ -130,9 +130,13 @@ function getProfile($userid)
 						<label class=\"col-lg-3 control-label\">Interested in:</label>
 						<div class=\"col-lg-8\">
 							<div class=\"ui-select\">
-								<select id=\"user_time_zone\" class=\"form-control\">
-									<option value=\"Hawaii\">Agriculture</option>
-									<option value=\"Hawaii\">Health</option>
+								<select id=\"user_time_zone\" id=\"interest\" class=\"form-control\">
+									<option value=\"Agriculture\">Agriculture</option>
+									<option value=\"Health\">Health</option>
+									<option value=\"Finance\">Finance</option>
+									<option value=\"Entertainment\">Entertainment</option>
+									<option value=\"Sports\">Sports</option>
+									<option value=\"Music\">Music</option>
 								</select>
 							</div>
 						</div>
@@ -179,15 +183,6 @@ function getProfile($userid)
 //checks which button is clicked
 if (isset($_POST['saveChanges'])) 
 {
-	/*//validating before updating
-	$lastNameValidation = validateLastName();
-	$emailValidation = validateEmail();
-	$firstNameValidation = validateFirstName();
-	$usernameValidation = validateUsername();
-	$countryValidation = validateCountry();
-	$phoneValidation = validatePhone();
-	$bioValidation = validateBio();
-	$addressValidation = validateAddress();*/
 	$username=$_POST['username'];
 	$firstName=$_POST['fname'];
 	$lastName=$_POST['lname'];
@@ -196,9 +191,12 @@ if (isset($_POST['saveChanges']))
 	$email=$_POST['email'];
 	$phone=$_POST['phone'];
 	$bio=$_POST['bio'];
+	
+	$interest=$_POST['interest'];
+
 	//create an instance of the user class
 	$user = new user;
-	if($user->saveChanges($username,$firstName,$lastName,$nationality,$address,$email,$phone,$bio,$_SESSION['userId']))
+	if($user->saveChanges($username,$firstName,$lastName,$nationality,$address,$email,$phone,$bio,$_SESSION['userId'],$interest))
 	{
 		$confirmationMessage="your changes are successfully saved";
 	}

@@ -60,11 +60,11 @@ class user
 	}
 
 	//edit profile
-	function saveChanges($username,$fname,$lname,$nationality,$address,$email,$tel,$bio,$id)
+	function saveChanges($username,$fname,$lname,$nationality,$address,$email,$tel,$bio,$id,$interest)
 	{
 		//sql
 		$sql="UPDATE user SET username ='$username',firstName='$fname',lastName='$lname',emailAddress=
-		'$email',phoneNumber='$tel',country='$nationality',address='$address',bio='$bio' WHERE userId='$id';";
+		'$email',phoneNumber='$tel',country='$nationality',address='$address',bio='$bio',interest ='$interest' WHERE userId='$id';";
 
 		//creates an instace of a database
 		$database = new Dbconnection;
