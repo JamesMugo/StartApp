@@ -7,10 +7,10 @@ require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/classes/use
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/settings/validations.php');
 
 //global variables
-$username=$phone=$password=$passwordConfirm=$country=$firstName=$lastName=$email=$message=$subject="";
+$username=$phone=$password=$passwordConfirm=$country=$firstName=$lastName=$email=$message=$subject=$interest="";
 
 //search from variables
-$interest=$interestColor=$nationality=$nationalityColor=$name=$nameColor=$errorMessage="";
+$interestColor=$nationality=$nationalityColor=$name=$nameColor=$errorMessage="";
 
 //error color
 $usernameColor=$phoneColor=$passwordColor=$passwordConfirmColor=$countryColor=$firstNameColor=$lastNameColor=
@@ -353,9 +353,10 @@ function validateRegisterForm($name)
 	$usernameValidation = validateUsername();
 	$countryValidation = validateCountry();
 	$phoneValidation = validatePhone();
+	$interestValidation =validateInterest();
 
 	if ($lastNameValidation & $emailValidation & $firstNameValidation & $passwordValidation & $usernameValidation & 
-		$countryValidation & $phoneValidation)
+		$countryValidation & $phoneValidation & $interestValidation)
     {
 		//checks if the username exists
 		if (checkusername($name))
@@ -375,14 +376,7 @@ function validateRegisterForm($name)
  //registers the user
 function registerNewUser($name)
 {
-	global $username,$phone,$password,$country,$firstName,$lastName,$email;
-	/*$firstName=$_POST['fname'];
-	$lastName=$_POST['lname'];
-	$username=$_POST['username'];  
-	$email=$_POST['email'];
-	$password=$_POST['password'];
-	$phone=$_POST['phone'];
-	$country=$_POST['country'];*/
+	global $username,$phone,$password,$country,$firstName,$lastName,$email,$interestid;
 
 	//hash the password
 	$password=password_hash($password, PASSWORD_DEFAULT);
@@ -394,13 +388,13 @@ function registerNewUser($name)
 	{
 		$sql = "INSERT INTO
 		 user(username,password,firstName,lastName,emailAddress,phoneNumber,country,userStatus,role_id) 
-		VALUES ('$username','$password','$firstName','$lastName','$email','$phone','$country','ACTIVE','2');";
+		VALUES ('$username','$password','$firstName','$lastName','$email','$phone','$country','ACTIVE','2','$interestid');";
 	}
 	elseif ($name=="startup")
     {
 		$sql = "INSERT INTO
 		 user(username,password,firstName,lastName,emailAddress,phoneNumber,country,userStatus,role_id) 
-		VALUES ('$username','$password','$firstName','$lastName','$email','$phone','$country','ACTIVE','3');";
+		VALUES ('$username','$password','$firstName','$lastName','$email','$phone','$country','ACTIVE','3','$interestid');";
 	}
 
 	$result = $registerUser->queryDatabase($sql);

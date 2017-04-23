@@ -34,6 +34,9 @@ $bio=$bioColor=$bioErrorMessage="";
 //address validation variables
 $address=$addressColor=$addressErrorMessage="";
 
+//interest validation variables
+$interest=$interestColor=$interestErrorMessage="";
+
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/classes/user.php');
 //VALIDATING PASSWORD
 function validatePass($name)
@@ -499,6 +502,26 @@ function validateAddress()
 	while($row=$myDb->getRow())
 	{
 		echo "<option value=".$row['interestId'].">".$row['interestName']."</option>";
+	}
+ } 
+
+
+//VALIDATES INTEREST 
+ function validateInterest() 
+ {  
+ 	global $interest,$interestColor,$interestErrorMessage;
+	//checks if the message box is empty
+	if (isset($_POST['interest']) & !empty($_POST['interest'])) 
+	{
+		$interest=$_POST['interest'];
+		$interstColor="green";
+		return true;
+
+	}else
+	{
+		$interestColor="red";
+		$interestErrorMessage="*Please Select an interest";
+		return false;
 	}
  } 
 ?>
