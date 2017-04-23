@@ -180,9 +180,6 @@
 
 					<!-- SIGN UP Button -->
 					<a href="register/investorRegister.php"><div class="signupBtn"> I am an Investor</div></a><br>
-
-					<!-- SIGN UP Button -->
-					<a href="investmentCompanyRegister.html"><div class="signupBtn"> I am an investment company</div></a><br>
 				</div>
 			</div>
 		</div>

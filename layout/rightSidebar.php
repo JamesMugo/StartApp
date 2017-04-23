@@ -1,5 +1,5 @@
 <?php
- 	 include('../unsecure/unsecureProcessing.php');
+ 	 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/settings/validations.php');
  ?>
 <!-- right side bar column-->
 <div class="col-md-2" id="rightSidebar">
@@ -38,12 +38,12 @@
 		</div>
 		<div class="form-group">
 			<label class="col-md-3 control-label"></label>
-			<span style="color: red;" id="searhSpan"><?php echo $errorMessage;?></span>
+			<span style="color: red;" id="searhSpan"><?php //echo $errorMessage;?></span>
 			<div class="col-md-10">
 				<button type="submit" class="btn btn-primary" onclick="searchFunction()" name="searchButton">Search</button>
 			</div>
 		</div>
 
 	</form>
-	<!-- <script src="searchAjax.js"></script> -->
+	<script src="searchAjax.js"></script>
 </div>

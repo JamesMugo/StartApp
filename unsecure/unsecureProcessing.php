@@ -415,18 +415,6 @@ function registerNewUser($name)
 	}		
 }
 
-//load all interest into  
- function loadallinterest() 
- {  
- 	$myDb = new Dbconnection;
-	$sql="SELECT interestId, interestName FROM interest";
-	$myDb->queryDatabase($sql);
-	while($row=$myDb->getRow())
-	{
-		echo "<option value=".$row['interestId'].">".$row['interestName']."</option>";
-	}
- } 
-
 //checks if the user name exists
 function checkusername($name)
 {

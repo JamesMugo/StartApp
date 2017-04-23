@@ -54,7 +54,6 @@
 	      <div class="col-md-2" id="lefSidebar">
 	        <ul id="lefSidebar-list" class="nav ">
 	          <li><a href="users.php">Back to <?php echo $user;?></a></li><br>
-	          <li><a href="">Messages</a></li><br>
 	        </ul>
 	      </div>
 
