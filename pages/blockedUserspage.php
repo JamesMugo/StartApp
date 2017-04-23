@@ -26,24 +26,30 @@
 
     <!--row-->
     <div class="row">
-      
       <!-- left side bar column-->
+
       <div class="col-md-2" id="lefSidebar">
         <ul id="lefSidebar-list" class="nav ">
-          <li><a href="investors.php">Back to Investors</a></li><br>
+          <li><a href="adminPage.php">View All User</a></li><br>
         </ul>
       </div>
+      <br>
+      <!--left sidebar begins-->
+      <!-- <?php //require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/leftSidebar.php');?> -->
+    <!--left sidebar ends-->      
+
 
       <!--middle bar-->
       <div class="col-md-8" id="middle">
-        <h2 style="text-align: center;  font-family:'Roboto'; ">My Favourite Investors</h2>
+        <!-- <h2 style="text-align: center;  font-family:'Roboto'; ">Blocked Users</h2> -->
         <hr>
 
           <!--card-->
           <?php
             require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/userController.php');
             require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/favoriteController.php');
-            listFavorites($_SESSION['userId']);
+            require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/adminstratorController.php');
+            displayBlocked();
           ?>
     
       </div>

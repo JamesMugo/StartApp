@@ -51,6 +51,7 @@
 			
 			<!--left sidebar begins-->
 			<?php require_once($_SERVER["DOCUMENT_ROOT"].'/MeetYourInvestor/layout/leftSidebar.php');?>
+			
 			<!--left sidebar ends-->
 
 			<!--middle bar-->
@@ -64,7 +65,7 @@
 						require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/userController.php');
 						if(!isset($_GET['searchButton']))
 						{
-						listUsers($_SESSION['roleId']);
+						listUsers($_SESSION['roleId'],'ACTIVE');
 						}
 						else
 						{

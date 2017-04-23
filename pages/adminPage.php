@@ -66,9 +66,10 @@
 					<!--card-->
 					<?php
 						require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/userController.php');
+						require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/controller/adminstratorController.php');
 						if(!isset($_GET['searchButton']))
 						{
-						listUsers($_SESSION['roleId']);
+						displayAllUsers();
 						}
 						else
 						{

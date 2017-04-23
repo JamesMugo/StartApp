@@ -6,13 +6,12 @@ require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/classes/use
 $sizeError=$generalError="";
 
 //function that lists all the users depending who is logged in to the system
-function listUsers($roleid)
+function listUsers($roleid,$userStatus)
 {
 	// echo "Role: ".$roleid;
 	//create an instance of the user class
 	$user = new user;
-	$result = $user->queryUsers($roleid);
-
+	$result = $user->queryUsers($roleid,$userStatus);
 	global $usertype;
 	global $userRow;
 	global $myroleid;

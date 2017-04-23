@@ -120,7 +120,47 @@ class SearchClass extends Dbconnection
 		}
 	}
 
+function searchfavorites($name, $nation, $interest)
+{
+		//Get connection and query database
+		$this->getConnection();
+		//search by only country
+		if(empty($name) && !empty($nation) && $interest='placeholder')
+		{
+		$res=$this->safequery("SELECT `userId`, `role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM ``,`user`,`interest` WHERE  (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (`role_Id`=$role) AND (`country` LIKE '%%%s%%')",$nation);
+		}
+		// search by only name
+		elseif (!empty($name) && empty($nation)  && $interest='placeholder') {
+			$res=$this->safequery("SELECT `userId`, `role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (`role_Id`=$role) AND ((`firstName` LIKE '%%%s%%') OR (`lastName` LIKE '%%%s%%'))",$name,$name);
+		}
+		//search by name and nation
+		elseif (!empty($name) && !empty($nation)  && $interest='placeholder') {
+			$res=$this->safequery("SELECT `userId`, `role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (`role_Id`=$role) AND (((`firstName` LIKE '%%%s%%') OR (`lastName` LIKE '%%%s%%')) OR (`country` LIKE '%%%s%%'))",$name,$name,$nation);
+		}
+		//search by only interest
+		elseif(empty($name) && empty($nation) && $interest!='placeholder')
+		 $res=$this->safequery("SELECT `userId`, `role_id`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND `role_Id`=$role AND `interest_id`='%s'", $interest);
+
+		//search by interest and name
+		elseif (!empty($name) && empty($nation) && $interest!='placeholder') {
+			$res=$this->safequery("SELECT `userId`, `role_id`,  `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND (`role_Id`=$role) AND (((`firstName` LIKE '%%%s%%') OR (`lastName` LIKE '%%%s%%')) AND (`interest_id`='%s'))", $name,$name,$interest);
+		}
+		//search by interest and country
+		elseif (empty($name) && !empty($nation) && $interest!='placeholder') {
+			$res=$this->safequery("SELECT `userId`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND  (`role_Id`=$role) AND ((`country` LIKE '%%%s%%') AND (`interest_id`='%s'))", $country, $interest);
+		}
+		//all three: name, interest, country
+		elseif (!empty($name) && !empty($nation) && $interest!='placeholder') {
+			$res=$this->safequery("SELECT `userId`, `firstName`, `lastName`, `country`, `profilePicture`,`interestName` FROM `user`,`interest` WHERE (`interest`.`interestId` = `user`.`interest_id`) AND (userStatus='ACTIVE') AND  (`role_Id`=$role) AND (((`firstName` LIKE '%%%s%%') OR `(lastName` LIKE '%%%s%%')) AND (`country` LIKE '%%%s%%') AND (`interest_id`='%s'))", $name,$name,$country, $interest);
+		}
+		// return the results of the query
+		if($res)
+		{
+			return $res;
+		}
+	}
 }
+
 
 
 
