@@ -13,7 +13,7 @@ class user
 		//for admin
 		if ($roleid==1) 
 		{
-			$sql="SELECT *FROM user WHERE userStatus='ACTIVE' AND role_id=3";
+			$sql="SELECT *FROM user WHERE userStatus='ACTIVE' AND (role_id=3 OR role_id=2)";
 		}
 		//for investor
 		elseif ($roleid==2)

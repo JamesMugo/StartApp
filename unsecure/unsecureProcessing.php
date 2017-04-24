@@ -3,6 +3,7 @@
 //includes the datbase class
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/database/databaseConnectionClass.php');
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/classes/user.php');
+require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/classes/adminstrator.php');
 
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/MeetYourInvestor/settings/validations.php');
 
@@ -178,8 +179,13 @@ function loginUser()
 				 	$_SESSION['username'] = $row['username'];
 				 	$_SESSION['roleId'] = $row['role_id'];
 				 	$_SESSION['profilePicture'] = $row['profilePicture'];
+				 	if($row['role_id']==1){
+				 		header("Location: ../pages/adminPage.php");
+				 	}
+				 	else if($row['role_id']==2 ||$row['role_id']==3){
+				 		header("Location: ../pages/users.php");
+				 	}
 
-					header("Location: ../pages/users.php");
 				 }
 				 else
 				 {

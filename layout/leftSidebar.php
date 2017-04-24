@@ -1,18 +1,16 @@
 <!-- left side bar column-->
-<?php
-	$user="";
-		if($_SESSION['roleId']==2)
-		{
-			$user="Startups";
-		}
-		elseif($_SESSION['roleId']==3)
-		{
-			$user="Investors";
-		}
-?>
 <div class="col-md-2" id="lefSidebar">
 	<ul id="lefSidebar-list" class="nav ">
-		<li><a href="<?php echo URL;?>/pages/favorites.php">Favorite 
-		<?php echo $user ?></a></li><br>
+	<?php 	
+		// session_start();
+		if($_SESSION['roleId']==3 || $_SESSION['roleId']==2)
+		{
+			?><li><a href='<?php echo URL;?>/pages/favorites.php'>Favorite </a></li><br><?php
+		}
+		elseif ($_SESSION['roleId']==1) {
+			?><li><a href='<?php echo URL;?>/pages/blockedUserspage.php'>Blocked Users</a></li><br><?php
+		}
+	?>
+		<!-- <li><a href="<?php echo URL;?>/pages/favoriteInvestorpage.php">Favorite Investors</a></li><br> -->
 	</ul>
 </div>

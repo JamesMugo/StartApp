@@ -1,4 +1,8 @@
 <?php
+/**logout functionality
+* @author Phyllis Sitati
+**/
+
 //start session
 session_start();
 
